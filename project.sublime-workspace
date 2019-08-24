@@ -4,6 +4,10 @@
 		"selected_items":
 		[
 			[
+				"screne",
+				"screenHeight\tabc"
+			],
+			[
 				"initial",
 				"initialize\tabc"
 			],
@@ -510,17 +514,29 @@
 			[
 				"posit",
 				"position\tabc"
-			],
-			[
-				"pos",
-				"position\tabc"
 			]
 		]
 	},
 	"buffers":
 	[
+		{
+			"settings":
+			{
+				"buffer_size": 0,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "main.cpp",
+			"settings":
+			{
+				"buffer_size": 429,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		}
 	],
-	"build_system": "",
+	"build_system": "Packages/C++/C++ Single File.sublime-build",
 	"build_system_choices":
 	[
 		[
@@ -564,6 +580,22 @@
 			],
 			[
 				"NoTears",
+				""
+			]
+		],
+		[
+			[
+				[
+					"Packages/C++/C++ Single File.sublime-build",
+					""
+				],
+				[
+					"Packages/C++/C++ Single File.sublime-build",
+					"Run"
+				]
+			],
+			[
+				"Packages/C++/C++ Single File.sublime-build",
 				""
 			]
 		],
@@ -990,8 +1022,65 @@
 	"groups":
 	[
 		{
+			"selected": 1,
 			"sheets":
 			[
+				{
+					"buffer": 0,
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 0,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Text/Plain text.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "main.cpp",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 429,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								364,
+								364
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/C++/C++.sublime-syntax",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				}
 			]
 		}
 	],
