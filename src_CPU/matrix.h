@@ -157,3 +157,18 @@ float cofactor(Matrix matrix, int row, int column) {
 
 	return -minor(matrix, row, column);
 }
+
+Matrix inverse(Matrix matrix) {
+	Matrix temp = createMatrix(matrix.rowCount, matrix.columnCount);
+	float det = determinate(matrix);
+
+	for (int x = 0; x < temp.rowCount; x++) {
+		for (int y = 0; y < temp.columnCount; y++) {
+			float c = cofactor(matrix, x, y);
+
+			temp[y][x] = c / det;
+		}
+	}
+
+	return temp;
+}
