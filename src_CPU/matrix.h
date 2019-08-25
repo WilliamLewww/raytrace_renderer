@@ -108,8 +108,18 @@ Matrix transpose(Matrix matrix) {
 	return temp;
 }
 
+float cofactor(Matrix matrix, int row, int column);
 float determinate(Matrix matrix) {
-	return ((matrix[0][0] * matrix[1][1]) - (matrix[1][0] * matrix[0][1]));
+	if (matrix.rowCount == 2 && matrix.columnCount == 2) {
+		return ((matrix[0][0] * matrix[1][1]) - (matrix[1][0] * matrix[0][1]));
+	}
+	
+	float det = 0;
+	for (int y = 0; y < matrix.columnCount; y++) {
+		det += matrix[0][y] * cofactor(matrix, 0, y);
+	}
+
+	return det;
 }
 
 Matrix submatrix(Matrix matrix, int row, int column) {
