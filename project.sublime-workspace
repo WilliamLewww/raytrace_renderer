@@ -4,10 +4,6 @@
 		"selected_items":
 		[
 			[
-				"screne",
-				"screenHeight\tabc"
-			],
-			[
 				"initial",
 				"initialize\tabc"
 			],
@@ -514,29 +510,35 @@
 			[
 				"posit",
 				"position\tabc"
+			],
+			[
+				"pos",
+				"position\tabc"
 			]
 		]
 	},
 	"buffers":
 	[
 		{
+			"file": "project.sublime-project",
 			"settings":
 			{
-				"buffer_size": 0,
-				"line_ending": "Windows"
+				"buffer_size": 576,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "main.cpp",
+			"file": "CPU/main.cpp",
 			"settings":
 			{
-				"buffer_size": 429,
+				"buffer_size": 437,
 				"encoding": "UTF-8",
 				"line_ending": "Windows"
 			}
 		}
 	],
-	"build_system": "Packages/C++/C++ Single File.sublime-build",
+	"build_system": "",
 	"build_system_choices":
 	[
 		[
@@ -580,22 +582,6 @@
 			],
 			[
 				"NoTears",
-				""
-			]
-		],
-		[
-			[
-				[
-					"Packages/C++/C++ Single File.sublime-build",
-					""
-				],
-				[
-					"Packages/C++/C++ Single File.sublime-build",
-					"Run"
-				]
-			],
-			[
-				"Packages/C++/C++ Single File.sublime-build",
 				""
 			]
 		],
@@ -856,7 +842,8 @@
 	},
 	"expanded_folders":
 	[
-		"/C/Users/William/Desktop/raytrace_renderer"
+		"/C/Users/William/Desktop/raytrace_renderer",
+		"/C/Users/William/Desktop/raytrace_renderer/CPU"
 	],
 	"file_history":
 	[
@@ -1022,15 +1009,16 @@
 	"groups":
 	[
 		{
-			"selected": 1,
+			"selected": 0,
 			"sheets":
 			[
 				{
 					"buffer": 0,
+					"file": "project.sublime-project",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 0,
+						"buffer_size": 576,
 						"regions":
 						{
 						},
@@ -1038,35 +1026,36 @@
 						[
 							[
 								0,
-								0
+								576
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/Text/Plain text.tmLanguage"
+							"syntax": "Packages/JavaScript/JSON.sublime-syntax",
+							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 1,
+					"stack_index": 0,
 					"type": "text"
 				},
 				{
 					"buffer": 1,
-					"file": "main.cpp",
+					"file": "CPU/main.cpp",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 429,
+						"buffer_size": 437,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								364,
-								364
+								73,
+								73
 							]
 						],
 						"settings":
@@ -1078,7 +1067,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 0,
+					"stack_index": 1,
 					"type": "text"
 				}
 			]
@@ -1528,7 +1517,7 @@
 	"show_minimap": true,
 	"show_open_files": false,
 	"show_tabs": true,
-	"side_bar_visible": false,
+	"side_bar_visible": true,
 	"side_bar_width": 148.0,
 	"status_bar_visible": true,
 	"template_settings":

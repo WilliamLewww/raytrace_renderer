@@ -1,4 +1,24 @@
 {
+	"build_systems":
+	[
+		{
+			"name": "raytrace_renderer CPU",
+			"cmd":
+			[
+				"g++",
+				"C:/Users/William/Desktop/raytrace_renderer/src_CPU/main.cpp",
+				"-o",
+				"C:/Users/William/Desktop/raytrace_renderer/bin/raytrace_renderer_cpu",
+				"&&",
+				"C:/Users/William/Desktop/raytrace_renderer/bin/raytrace_renderer_cpu",
+				"test.ppm"
+			],
+			"file_regex": "^(..[^:]*):([0-9]+):?([0-9]+)?:? (.*)$",
+			"selector": "source.c, source.c++",
+			"shell": true,
+			"working_dir": "C:/Users/William/Desktop/raytrace_renderer/dump",
+		}
+	],
 	"folders":
 	[
 		{
