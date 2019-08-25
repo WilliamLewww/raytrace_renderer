@@ -10,6 +10,10 @@ struct Matrix4 {
 	};
 };
 
+const float getElementFromMatrix(Matrix4 matrix, int x, int y) {
+	return matrix[x][y];
+}
+
 bool operator==(Matrix4 matrixA, Matrix4 matrixB) {
 	bool greater = false;
 
@@ -24,11 +28,11 @@ bool operator==(Matrix4 matrixA, Matrix4 matrixB) {
 	return !greater;
 }
 
-std::ostream& operator<<(std::ostream& os, Matrix4& matrix) {
+std::ostream& operator<<(std::ostream& os, const Matrix4& matrix) {
 	for (int x = 0; x < 4; x++) {
 		os << "[";
 		for (int y = 0; y < 4; y++) {
-			os << matrix[x][y];
+			os << getElementFromMatrix(matrix, x, y);
 			if (y < 3) { os << ", "; }
 		}
 		os << "]";
@@ -54,4 +58,14 @@ Matrix4 createMatrix4() {
 
 Matrix4 operator*(Matrix4 matrixA, Matrix4 matrixB) {
 	Matrix4 temp = createMatrix4();
+	for (int x = 0; x < 4; x++) {
+		for (int y = 0; y < 4; y++) {
+			temp[x][y] = ((matrixA[x][0] * matrixB[0][y]) +
+						  (matrixA[x][1] * matrixB[1][y]) +
+						  (matrixA[x][2] * matrixB[2][y]) +
+						  (matrixA[x][3] * matrixB[3][y]));
+		}
+	}
+
+	return temp;
 }
