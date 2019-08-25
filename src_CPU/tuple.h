@@ -11,7 +11,11 @@ struct Tuple {
 	float w;
 };
 
-std::ostream& operator<<(std::ostream& os, const Tuple& tuple) {
+bool operator==(Tuple tupleA, Tuple tupleB) {
+	return (abs(tupleA.x - tupleB.x) < EPSILON_TUPLE && abs(tupleA.y - tupleB.y) < EPSILON_TUPLE && abs(tupleA.z - tupleB.z) < EPSILON_TUPLE && abs(tupleA.w - tupleB.w) < EPSILON_TUPLE);
+}
+
+std::ostream& operator<<(std::ostream& os, Tuple& tuple) {
     os << "(" << tuple.x << ", " << tuple.y << ", " << tuple.z << ", " << tuple.w << ")";
     return os;
 }
