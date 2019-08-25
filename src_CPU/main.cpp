@@ -9,9 +9,4 @@ const int SCREENHEIGHT = 60;
 int main(int argc, const char** argv) {
 	Canvas* canvas = new Canvas(SCREENWIDTH, SCREENHEIGHT);
 	canvas->saveToFile(argv[1]);
-
-	Tuple point = createPoint(0, 1, 0);
-	Matrix transformation = createRotationMatrixZ(M_PI / 4);
-
-	std::cout << transformation * point << std::endl;
 }

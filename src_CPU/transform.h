@@ -49,3 +49,15 @@ Matrix createRotationMatrixZ(float radians) {
 
 	return temp;
 }
+
+Matrix createShearMatrix(float xy, float xz, float yx, float yz, float zx, float zy) {
+	Matrix temp = createIdentityMatrix(4);
+	temp[0][1] = xy;
+	temp[0][2] = xz;
+	temp[1][0] = yx;
+	temp[1][2] = yz;
+	temp[2][0] = zx;
+	temp[2][1] = zy;
+
+	return temp;
+}
