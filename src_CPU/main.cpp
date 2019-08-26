@@ -47,5 +47,8 @@ int main(int argc, const char** argv) {
 	std::cout << "Finished Generation!" << std::endl;
 
 	World world = createDefaultWorld();
-	std::cout << world.lightArray[0].intensity << std::endl;
+	Ray ray = createRay(createPoint(0, 0, -5), createVector(0, 0, 1));
+
+	int intersectionCount;
+	Intersection* intersections = intersectWorld(world, ray, intersectionCount);
 }

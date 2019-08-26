@@ -31,3 +31,17 @@ World createDefaultWorld() {
 
 	return world;
 }
+
+Intersection* intersectWorld(World world, Ray ray, int& intersectionCount) {
+	Intersection* intersection;
+
+	int totalIntersectionCount = 0;
+	int tempIntersectionCount;
+	for (int x = 0; x < world.sphereCount; x++) {
+		intersect(world.sphereArray[x], ray, tempIntersectionCount);
+		totalIntersectionCount += tempIntersectionCount;
+	}
+	intersectionCount = totalIntersectionCount;
+
+	return intersection;
+}
