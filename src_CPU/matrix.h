@@ -145,17 +145,17 @@ Matrix submatrix(Matrix matrix, int row, int column) {
 	return temp;
 }
 
-float minor(Matrix matrix, int row, int column) {
+float matrixMinor(Matrix matrix, int row, int column) {
 	Matrix temp = submatrix(matrix, row, column);
 	return determinate(temp);
 }
 
 float cofactor(Matrix matrix, int row, int column) {
 	if ((row + column) % 2 == 0) {
-		return minor(matrix, row, column);
+		return matrixMinor(matrix, row, column);
 	}
 
-	return -minor(matrix, row, column);
+	return -matrixMinor(matrix, row, column);
 }
 
 Matrix inverse(Matrix matrix) {
