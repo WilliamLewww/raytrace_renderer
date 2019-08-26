@@ -3,14 +3,13 @@
 #include "matrix.h"
 #include "transform.h"
 #include "ray.h"
-#include "sphere.h"
-#include "light.h"
+#include "world.h"
 
-const int SCREENWIDTH = 500;
-const int SCREENHEIGHT = 500;
+const int SCREENWIDTH = 256;
+const int SCREENHEIGHT = 256;
 
 int main(int argc, const char** argv) {
-	std::cout << "Generating Ray Traced Image!" << std::endl;
+	std::cout << "Generating Ray Traced Image! (" << SCREENWIDTH << "x" << SCREENHEIGHT << ")" << std::endl;
 
 	Canvas* canvas = new Canvas(SCREENWIDTH, SCREENHEIGHT);
 
@@ -44,6 +43,6 @@ int main(int argc, const char** argv) {
 	}
 
 	canvas->saveToFile(argv[1]);
-	
+
 	std::cout << "Finished Generation!" << std::endl;
 }
