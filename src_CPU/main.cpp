@@ -29,8 +29,7 @@ int main(int argc, const char** argv) {
 
 	// canvas->saveToFile(argv[1]);
 
-	Sphere s = createSphere();
-	s.modelMatrix = createScaleMatrix(1, 0.5, 1) * createRotationMatrixZ(M_PI / 5);
-	Tuple n = normalAt(s, createPoint(0, sqrt(2) / 2, -sqrt(2) / 2));
-	std::cout << n << std::endl;
+	Tuple v = createVector(0, -1, 0);
+	Tuple n = createVector(sqrt(2) / 2, sqrt(2) / 2, 0);
+	std::cout << reflect(v, n) << std::endl;
 }

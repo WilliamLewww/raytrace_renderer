@@ -1,12 +1,14 @@
 #pragma once
 #include "matrix.h"
 #include "ray.h"
+#include "light.h"
 
 struct Sphere {
 	Tuple origin;
 	float radius;
 
 	Matrix modelMatrix;
+	Material material;
 };
 
 struct Intersection {

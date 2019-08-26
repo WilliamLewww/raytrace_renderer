@@ -75,3 +75,7 @@ Tuple cross(Tuple tupleA, Tuple tupleB) {
 Tuple hadamardProduct(Tuple tupleA, Tuple tupleB) {
 	return { tupleA.x * tupleB.x, tupleA.y * tupleB.y, tupleA.z * tupleB.z, tupleA.w * tupleB.w };
 }
+
+Tuple reflect(Tuple vector, Tuple normal) {
+	return vector - (normal * 2 * dot(vector, normal));
+}
