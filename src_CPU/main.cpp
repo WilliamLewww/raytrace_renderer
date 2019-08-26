@@ -17,7 +17,7 @@ int main(int argc, const char** argv) {
 	sphere.material = createMaterial();
 	sphere.material.color = createColor(1.0, 0.2, 1.0);
 
-	PointLight light = createPointLight(createPoint(-10, -10, -10), createColor(1, 1, 1));
+	PointLight light = createPointLight(createPoint(-10, 10, -10), createColor(1, 1, 1));
 
 	for (int x = 0; x < SCREENWIDTH; x++) {
 		for (int y = 0; y < SCREENHEIGHT; y++) {
