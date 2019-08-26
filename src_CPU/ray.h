@@ -72,3 +72,19 @@ Intersection* intersect(Sphere& sphere, Ray ray, int& intersectionCount) {
 	intersection[1] = createIntersection((-b + sqrt(discriminant)) / (2 * a), &sphere);
 	return intersection;
 }
+
+Intersection* hit(Intersection* intersections, int intersectionCount) {
+	Intersection* closestHit = nullptr;
+	for (int x = 0; x < intersectionCount; x++) {
+		if (closestHit == nullptr && intersections[x].t > 0) {
+			closestHit = &intersections[x];
+		}
+		else {
+			if (closestHit != nullptr && intersections[x].t < closestHit->t && intersections[x].t > 0) {
+				closestHit = &intersections[x];
+			}
+		}
+	}
+
+	return closestHit;
+}

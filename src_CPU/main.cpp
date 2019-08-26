@@ -11,11 +11,13 @@ int main(int argc, const char** argv) {
 	Canvas* canvas = new Canvas(SCREENWIDTH, SCREENHEIGHT);
 	canvas->saveToFile(argv[1]);
 
-	Ray r = createRay(createPoint(0, 0, -5), createVector(0, 0, 1));
 	Sphere s = createSphere();
 
-	int intersectionCount;
-	Intersection* intersections = intersect(s, r, intersectionCount);
+	Intersection* intersections = new Intersection[4];
+	intersections[0] = createIntersection(5, &s);
+	intersections[1] = createIntersection(7, &s);
+	intersections[2] = createIntersection(3, &s);
+	intersections[3] = createIntersection(-2, &s);
 	
-	std::cout << intersections[1] << std::endl;
+	std::cout << *hit(intersections, 4) << std::endl;
 }
