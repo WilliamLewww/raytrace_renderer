@@ -4,12 +4,64 @@
 		"selected_items":
 		[
 			[
-				"SC",
-				"SCREENHEIGHT\tabc"
+				"ligh",
+				"lighting\t(light.h)"
 			],
 			[
 				"inter",
-				"intersectionCount\tabc"
+				"intersection\tabc"
+			],
+			[
+				"createMa",
+				"createMaterial\t(light.h)"
+			],
+			[
+				"int",
+				"intensity\tabc"
+			],
+			[
+				"refle",
+				"reflectV\tabc"
+			],
+			[
+				"norm",
+				"normalize\t(main.cpp)"
+			],
+			[
+				"Mat",
+				"Material\t(light.h)"
+			],
+			[
+				"cra",
+				"createVector\tabc"
+			],
+			[
+				"objec",
+				"objectPoint\tabc"
+			],
+			[
+				"createRot",
+				"createRotationMatrixZ\t(transform.h)"
+			],
+			[
+				"norma",
+				"normalAt\t(sphere.h)"
+			],
+			[
+				"create",
+				"createVector\t(tuple.h)"
+			],
+			[
+				"interse",
+				"intersect\t(ray.h)"
+			],
+			[
+				"crea",
+				"createVector\t(tuple.h)"
+			],
+			[
+				"SC",
+				"SCREENHEIGHT\tabc"
 			],
 			[
 				"close",
@@ -18,10 +70,6 @@
 			[
 				"clos",
 				"closestHit\tabc"
-			],
-			[
-				"interse",
-				"intersectionCount\tabc"
 			],
 			[
 				"intersectio",
@@ -97,10 +145,6 @@
 			],
 			[
 				"Matri",
-				"Matrix2\tabc"
-			],
-			[
-				"Mat",
 				"Matrix2\tabc"
 			],
 			[
@@ -470,81 +514,33 @@
 			[
 				"viewM",
 				"viewMatrixLocationHandle\tabc"
-			],
-			[
-				"model",
-				"modelMatrix\tabc"
-			],
-			[
-				"glUnifo",
-				"glUniform4fv\t(geometry.cpp)"
-			],
-			[
-				"norm",
-				"normalVertexData\tabc"
-			],
-			[
-				"mo",
-				"modelMatrix\tabc"
-			],
-			[
-				"position",
-				"positionBufferHandle\t(geometry.cpp)"
-			],
-			[
-				"shader",
-				"shaderProgramHandle\tabc"
-			],
-			[
-				"Lig",
-				"LIGHTING_TEST\tabc"
-			],
-			[
-				"effe",
-				"effectScale\tabc"
-			],
-			[
-				"effec",
-				"effectScaleLocationHandle\tabc"
-			],
-			[
-				"mouse",
-				"mousePosition\tabc"
-			],
-			[
-				"mouseP",
-				"mousePositionX\tabc"
 			]
 		]
 	},
 	"buffers":
 	[
 		{
-			"file": "project.sublime-project",
-			"settings":
-			{
-				"buffer_size": 585,
-				"encoding": "UTF-8",
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"contents": "#include \"canvas.h\"\n#include \"tuple.h\"\n#include \"matrix.h\"\n#include \"transform.h\"\n#include \"ray.h\"\n\nconst int SCREENWIDTH = 100;\nconst int SCREENHEIGHT = 60;\n\nint main(int argc, const char** argv) {\n\tTuple cameraOrigin = createPoint(0, 0, -5);\n\n\tfor (int x = 0; x < SCREENWIDTH; x++) {\n\t\tfor (int y = 0; y < SCREENHEIGHT; y++) {\n\t\t\tRay ray = createRay(cameraOrigin, createVector(x / SCREENWIDTH, y / SCREENHEIGHT, 0.0) - cameraOrigin);\n\t\t\tstd::cout << ray << std::endl;\n\t\t}\n\t}\n\n\tCanvas* canvas = new Canvas(SCREENWIDTH, SCREENHEIGHT);\n\tcanvas->saveToFile(argv[1]);\n}",
 			"file": "src_CPU/main.cpp",
-			"file_size": 636,
-			"file_write_time": 132112571124162051,
 			"settings":
 			{
-				"buffer_size": 566,
+				"buffer_size": 1473,
 				"encoding": "UTF-8",
 				"line_ending": "Windows"
 			}
 		},
 		{
-			"file": "src_CPU/ray.h",
+			"file": "dump/test.ppm",
 			"settings":
 			{
-				"buffer_size": 2649,
+				"buffer_size": 375403,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "src_CPU/sphere.h",
+			"settings":
+			{
+				"buffer_size": 2473,
 				"encoding": "UTF-8",
 				"line_ending": "Windows"
 			}
@@ -559,19 +555,18 @@
 			}
 		},
 		{
-			"file": "src_CPU/canvas.h",
+			"file": "src_CPU/ray.h",
 			"settings":
 			{
-				"buffer_size": 1046,
-				"encoding": "UTF-8",
+				"buffer_size": 519,
 				"line_ending": "Windows"
 			}
 		},
 		{
-			"file": "src_CPU/tuple.h",
+			"file": "src_CPU/light.h",
 			"settings":
 			{
-				"buffer_size": 2378,
+				"buffer_size": 1275,
 				"encoding": "UTF-8",
 				"line_ending": "Windows"
 			}
@@ -580,13 +575,13 @@
 			"file": "src_CPU/transform.h",
 			"settings":
 			{
-				"buffer_size": 1277,
+				"buffer_size": 1283,
 				"encoding": "UTF-8",
 				"line_ending": "Windows"
 			}
 		}
 	],
-	"build_system": "raytrace_renderer CPU",
+	"build_system": "Packages/Python/Python.sublime-build",
 	"build_system_choices":
 	[
 		[
@@ -916,7 +911,14 @@
 	],
 	"file_history":
 	[
+		"/C/Users/William/Desktop/raytrace_renderer/src_CPU/tuple.h",
+		"/C/Users/William/Desktop/raytrace_renderer/project.sublime-project",
+		"/C/Users/William/Desktop/raytrace_renderer/src_CPU/ray.h",
+		"/C/Users/William/Desktop/raytrace_renderer/src_CPU/canvas.h",
+		"/C/Users/William/Desktop/raytrace_renderer/dump/convert-ppm-to-jpg.py",
 		"/C/Users/William/Desktop/raytrace_renderer/dump/test.ppm",
+		"/C/Users/William/Desktop/raytrace_renderer/dump/convert.py",
+		"/C/Users/William/Desktop/boxes_1.ppm",
 		"/C/Users/William/Desktop/raytrace_renderer/CPU/main.cpp",
 		"/C/Users/William/Desktop/raytrace_renderer/.gitignore",
 		"/C/Users/William/Desktop/raytrace_renderer/test.ppm",
@@ -1036,18 +1038,11 @@
 		"/C/Users/William Lew/Desktop/no_tears/project.sublime-project",
 		"/C/Users/William Lew/Desktop/no_tears/shaders/phong.fragment",
 		"/C/Users/William Lew/Desktop/no_tears/src/external_context.cpp",
-		"/C/Users/William Lew/Desktop/no_tears/src/examples/no_tears.cpp",
-		"/C/Users/William Lew/Desktop/no_tears/shaders/basic.fragment",
-		"/C/Users/William Lew/Desktop/no_tears/shaders/basic.vertex",
-		"/C/Users/William Lew/Desktop/no_tears/shaders/textured.fragment",
-		"/C/Users/William Lew/Desktop/no_tears/src/input.h",
-		"/C/Users/William Lew/Desktop/no_tears/src/examples/no_tears.h",
-		"/C/Users/William Lew/Desktop/no_tears/src/joiner.h",
-		"/C/Users/William Lew/Desktop/no_tears/src/joiner.cpp"
+		"/C/Users/William Lew/Desktop/no_tears/src/examples/no_tears.cpp"
 	],
 	"find":
 	{
-		"height": 24.0
+		"height": 40.0
 	},
 	"find_in_files":
 	{
@@ -1061,6 +1056,14 @@
 		"case_sensitive": true,
 		"find_history":
 		[
+			"intersection",
+			"project",
+			"eyeV",
+			"normal",
+			"eye",
+			"sphere.tra",
+			"int",
+			"once",
 			"ray",
 			"intersection",
 			"Circle",
@@ -1094,53 +1097,24 @@
 	"groups":
 	[
 		{
-			"selected": 1,
+			"selected": 0,
 			"sheets":
 			[
 				{
 					"buffer": 0,
-					"file": "project.sublime-project",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 585,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								241,
-								241
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/JavaScript/JSON.sublime-syntax",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 2,
-					"type": "text"
-				},
-				{
-					"buffer": 1,
 					"file": "src_CPU/main.cpp",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 566,
+						"buffer_size": 1473,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								455,
-								452
+								1312,
+								1312
 							]
 						],
 						"settings":
@@ -1148,7 +1122,7 @@
 							"syntax": "Packages/C++/C++.sublime-syntax",
 							"translate_tabs_to_spaces": false
 						},
-						"translation.x": 86.0,
+						"translation.x": 0.0,
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
@@ -1156,31 +1130,60 @@
 					"type": "text"
 				},
 				{
-					"buffer": 2,
-					"file": "src_CPU/ray.h",
+					"buffer": 1,
+					"file": "dump/test.ppm",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 2649,
+						"buffer_size": 375403,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1210,
-								1210
+								0,
+								0
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/C++/C++.sublime-syntax"
+							"syntax": "Packages/Text/Plain text.tmLanguage"
 						},
 						"translation.x": 0.0,
-						"translation.y": 390.0,
+						"translation.y": 180377.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "src_CPU/sphere.h",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 2473,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								157,
+								157
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/C++/C++.sublime-syntax",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 78.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
 					"type": "text"
 				},
 				{
@@ -1196,37 +1199,8 @@
 						"selection":
 						[
 							[
-								216,
-								216
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/C++/C++.sublime-syntax",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 630.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 3,
-					"type": "text"
-				},
-				{
-					"buffer": 4,
-					"file": "src_CPU/canvas.h",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 1046,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								74,
-								74
+								79,
+								79
 							]
 						],
 						"settings":
@@ -1242,20 +1216,48 @@
 					"type": "text"
 				},
 				{
-					"buffer": 5,
-					"file": "src_CPU/tuple.h",
+					"buffer": 4,
+					"file": "src_CPU/ray.h",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 2378,
+						"buffer_size": 519,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								552,
-								381
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/C++/C++.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 3,
+					"type": "text"
+				},
+				{
+					"buffer": 5,
+					"file": "src_CPU/light.h",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1275,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								50,
+								40
 							]
 						],
 						"settings":
@@ -1276,23 +1278,32 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 1277,
+						"buffer_size": 1283,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1260,
-								1260
+								248,
+								248
+							],
+							[
+								257,
+								257
+							],
+							[
+								266,
+								266
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/C++/C++.sublime-syntax"
+							"syntax": "Packages/C++/C++.sublime-syntax",
+							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 150.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 6,
@@ -1303,7 +1314,7 @@
 	],
 	"incremental_find":
 	{
-		"height": 24.0
+		"height": 22.0
 	},
 	"input":
 	{
@@ -1338,7 +1349,7 @@
 	},
 	"output.exec":
 	{
-		"height": 101.0
+		"height": 100.0
 	},
 	"output.find_results":
 	{
@@ -1348,7 +1359,7 @@
 	"project": "project.sublime-project",
 	"replace":
 	{
-		"height": 44.0
+		"height": 40.0
 	},
 	"save_all_on_build": true,
 	"select_file":
@@ -1357,6 +1368,18 @@
 		"last_filter": "",
 		"selected_items":
 		[
+			[
+				"ray",
+				"src_CPU\\ray.h"
+			],
+			[
+				"tran",
+				"src_CPU\\transform.h"
+			],
+			[
+				"can",
+				"src_CPU\\canvas.h"
+			],
 			[
 				"Vk",
 				"src\\vk_context.cpp"

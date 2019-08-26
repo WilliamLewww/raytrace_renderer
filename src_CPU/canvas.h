@@ -45,9 +45,13 @@ public:
 		file << "P3\n" << width << " " << height << "\n255\n";
 		for (int y = 0; y < height; y++) {
 			for (int x = 0; x < width; x++) {
-				Tuple color = getPixel(x, y) * 255.0;
+				Tuple color = getPixel(x, y) * 255;
 
-				file << color.x << " " << color.y << " " << color.z << "\n";
+				if (color.x > 255) { color.x = 255; }
+				if (color.y > 255) { color.y = 255; }
+				if (color.z > 255) { color.z = 255; }
+
+				file << (int)color.x << " " << (int)color.y << " " << (int)color.z << "\n";
 			}
 		}
 
