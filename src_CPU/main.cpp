@@ -6,10 +6,12 @@
 #include "sphere.h"
 #include "light.h"
 
-const int SCREENWIDTH = 250;
-const int SCREENHEIGHT = 250;
+const int SCREENWIDTH = 500;
+const int SCREENHEIGHT = 500;
 
 int main(int argc, const char** argv) {
+	std::cout << "Generating Ray Traced Image!" << std::endl;
+
 	Canvas* canvas = new Canvas(SCREENWIDTH, SCREENHEIGHT);
 
 	Tuple cameraOrigin = createPoint(0, 0, -5);
@@ -42,4 +44,6 @@ int main(int argc, const char** argv) {
 	}
 
 	canvas->saveToFile(argv[1]);
+	
+	std::cout << "Finished Generation!" << std::endl;
 }
