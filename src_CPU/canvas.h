@@ -42,7 +42,7 @@ public:
 		std::ofstream file;
 		file.open(filename);
 
-		file << "PPM\n" << width << " " << height << "\n255\n";
+		file << "P3\n" << width << " " << height << "\n255\n";
 		for (int y = 0; y < height; y++) {
 			for (int x = 0; x < width; x++) {
 				Tuple color = getPixel(x, y) * 255.0;

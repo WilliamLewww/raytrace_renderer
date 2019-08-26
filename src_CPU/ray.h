@@ -1,5 +1,6 @@
 #pragma once
 #include "tuple.h"
+#include "matrix.h"
 
 struct Ray {
 	Tuple origin;
@@ -9,6 +10,8 @@ struct Ray {
 struct Sphere {
 	Tuple origin;
 	float radius;
+
+	Matrix transform;
 };
 
 struct Intersection {
@@ -18,6 +21,11 @@ struct Intersection {
 
 std::ostream& operator<<(std::ostream& os, const Ray& ray) {
     os << "origin: " << ray.origin << ", direction: " << ray.direction;
+    return os;
+}
+
+std::ostream& operator<<(std::ostream& os, const Sphere& sphere) {
+    os << "origin: " << sphere.origin << ", radius: " << sphere.radius;
     return os;
 }
 
@@ -31,7 +39,7 @@ Ray createRay(Tuple origin, Tuple direction) {
 }
 
 Sphere createSphere() {
-	return { createPoint(), 1.0 };
+	return { createPoint(), 1.0, createIdentityMatrix(4) };
 }
 
 Intersection createIntersection(float t, Sphere* object) {
@@ -42,10 +50,13 @@ Tuple project(Ray ray, float t) {
 	return ray.origin + (ray.direction * t);
 }
 
+Ray transform(Ray ray, Matrix matrix);
 Intersection* intersect(Sphere& sphere, Ray ray, int& intersectionCount) {
-	Tuple sphereToRay = ray.origin - sphere.origin;
-	float a = dot(ray.direction, ray.direction);
-	float b = 2 * dot(ray.direction, sphereToRay);
+	Ray rayTransformed = transform(ray, inverse(sphere.transform));
+
+	Tuple sphereToRay = rayTransformed.origin - sphere.origin;
+	float a = dot(rayTransformed.direction, rayTransformed.direction);
+	float b = 2 * dot(rayTransformed.direction, sphereToRay);
 	float c = dot(sphereToRay, sphereToRay) - 1;
 
 	float discriminant = pow(b, 2) - (4 * a * c);
@@ -87,4 +98,8 @@ Intersection* hit(Intersection* intersections, int intersectionCount) {
 	}
 
 	return closestHit;
+}
+
+Ray transform(Ray ray, Matrix matrix) {
+	return createRay(matrix * ray.origin, matrix * ray.direction);
 }

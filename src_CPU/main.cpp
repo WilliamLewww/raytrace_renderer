@@ -4,20 +4,29 @@
 #include "transform.h"
 #include "ray.h"
 
-const int SCREENWIDTH = 100;
-const int SCREENHEIGHT = 60;
+const int SCREENWIDTH = 250;
+const int SCREENHEIGHT = 250;
 
 int main(int argc, const char** argv) {
 	Canvas* canvas = new Canvas(SCREENWIDTH, SCREENHEIGHT);
+
+	Tuple cameraOrigin = createPoint(0, 0, -5);
+	Sphere sphere = createSphere();
+
+	for (int x = 0; x < SCREENWIDTH; x++) {
+		for (int y = 0; y < SCREENHEIGHT; y++) {
+			Ray ray = createRay(cameraOrigin, createPoint((float(x) / float(SCREENWIDTH) - 0.5) * 10, (float(y) / float(SCREENHEIGHT) - 0.5) * 10, 10.0) - cameraOrigin);
+			
+			int intersectionCount;
+			Intersection* intersections = intersect(sphere, ray, intersectionCount);
+
+			if (intersectionCount > 0) {
+				canvas->setPixel(x, y, {1.0, 0.0, 0.0, 1.0});
+			}
+			else {
+				canvas->setPixel(x, y, {0.0, 0.0, 0.0, 1.0});
+			}
+		}
+	}
 	canvas->saveToFile(argv[1]);
-
-	Sphere s = createSphere();
-
-	Intersection* intersections = new Intersection[4];
-	intersections[0] = createIntersection(5, &s);
-	intersections[1] = createIntersection(7, &s);
-	intersections[2] = createIntersection(3, &s);
-	intersections[3] = createIntersection(-2, &s);
-	
-	std::cout << *hit(intersections, 4) << std::endl;
 }
