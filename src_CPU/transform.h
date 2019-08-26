@@ -11,7 +11,7 @@ Matrix createTranslateMatrix(float x, float y, float z) {
 	return temp;
 }
 
-Matrix createScaleMatrix(int x, int y, int z) {
+Matrix createScaleMatrix(float x, float y, float z) {
 	Matrix temp = createIdentityMatrix(4);
 	temp[0][0] = x;
 	temp[1][1] = y;
