@@ -33,8 +33,6 @@ World createDefaultWorld() {
 }
 
 Intersection* intersectWorld(World world, Ray ray, int& intersectionCount) {
-	Intersection* intersection;
-
 	int totalIntersectionCount = 0;
 	int tempIntersectionCount;
 	for (int x = 0; x < world.sphereCount; x++) {
@@ -42,6 +40,18 @@ Intersection* intersectWorld(World world, Ray ray, int& intersectionCount) {
 		totalIntersectionCount += tempIntersectionCount;
 	}
 	intersectionCount = totalIntersectionCount;
+
+	Intersection* intersection = new Intersection[totalIntersectionCount];
+	int currentIntersection = 0;
+	for (int x = 0; x < world.sphereCount; x++) {
+		Intersection* tempIntersections = intersect(world.sphereArray[x], ray, tempIntersectionCount);
+		if (tempIntersectionCount > 0) {
+			for (int y = 0; y < tempIntersectionCount; y++) {
+				intersection[currentIntersection] = tempIntersections[y];
+				currentIntersection += 1;
+			}
+		}
+	}
 
 	return intersection;
 }
