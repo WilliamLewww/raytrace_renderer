@@ -45,4 +45,7 @@ int main(int argc, const char** argv) {
 	canvas->saveToFile(argv[1]);
 
 	std::cout << "Finished Generation!" << std::endl;
+
+	World world = createDefaultWorld();
+	std::cout << world.lightArray[0].intensity << std::endl;
 }
