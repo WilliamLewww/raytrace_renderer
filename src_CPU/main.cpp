@@ -4,6 +4,7 @@
 #include "transform.h"
 #include "ray.h"
 #include "world.h"
+#include "camera.h"
 
 const int SCREENWIDTH = 256;
 const int SCREENHEIGHT = 256;

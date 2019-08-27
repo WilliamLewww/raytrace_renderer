@@ -110,23 +110,3 @@ Tuple colorAt(World world, Ray ray) {
 
 	return createColor(0, 0, 0);
 }
-
-Matrix createViewTransform(Tuple from, Tuple to, Tuple up) {
-	Tuple forward = normalize(to - from);
-	Tuple upN = normalize(up);
-	Tuple left = cross(forward, upN);
-	Tuple trueUp = cross(left, forward);
-
-	Matrix orientation = createMatrix(4, 4);
-	orientation[0][0] = left.x; orientation[1][0] = trueUp.x;
-	orientation[0][1] = left.y; orientation[1][1] = trueUp.y;
-	orientation[0][2] = left.z; orientation[1][2] = trueUp.z;
-	orientation[0][3] = 0; 		orientation[1][3] = 0;
-
-	orientation[2][0] = -forward.x; orientation[3][0] = 0;
-	orientation[2][1] = -forward.y; orientation[3][1] = 0;
-	orientation[2][2] = -forward.z; orientation[3][2] = 0;
-	orientation[2][3] = 0; 			orientation[3][3] = 1;
-
-	return orientation * createTranslateMatrix(-from.x, -from.y, -from.z);
-}
