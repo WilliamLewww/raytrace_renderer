@@ -3,6 +3,17 @@
 #include "sphere.h"
 #include "light.h"
 
+struct Precomputed {
+	float t;
+	Sphere* object;
+
+	Tuple point;
+	Tuple eyeV;
+	Tuple normalV;
+
+	bool inside;
+};
+
 struct World {
 	PointLight* lightArray;
 	Sphere* sphereArray;
@@ -59,6 +70,26 @@ Intersection* intersectWorld(World world, Ray ray, int& intersectionCount) {
 	}
 
 	std::sort(intersection, intersection + totalIntersectionCount, &sortIntersections);
-
 	return intersection;
+}
+
+Precomputed prepareComputations(Intersection intersection, Ray ray) {
+	Precomputed precomputed;
+
+	precomputed.t = intersection.t;
+	precomputed.object = intersection.object;
+
+	precomputed.point = project(ray, precomputed.t);
+	precomputed.eyeV = negate(ray.direction);
+	precomputed.normalV = normalAt(*precomputed.object, precomputed.point);
+
+	if (dot(precomputed.normalV, precomputed.eyeV) < 0) {
+		precomputed.inside = true;
+		precomputed.normalV = negate(precomputed.normalV);
+	}
+	else {
+		precomputed.inside = false;
+	}
+
+	return precomputed;
 }
