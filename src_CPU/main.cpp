@@ -9,7 +9,7 @@ const int SCREENWIDTH = 256;
 const int SCREENHEIGHT = 256;
 
 int main(int argc, const char** argv) {
-	std::cout << "Generating Ray Traced Image! (" << SCREENWIDTH << "x" << SCREENHEIGHT << ")" << std::endl;
+	std::cout << "generating ray traced image (" << SCREENWIDTH << "x" << SCREENHEIGHT << ")" << std::endl;
 
 	Canvas* canvas = new Canvas(SCREENWIDTH, SCREENHEIGHT);
 
@@ -42,10 +42,5 @@ int main(int argc, const char** argv) {
 
 	canvas->saveToFile(argv[1]);
 
-	std::cout << "Finished Generation!" << std::endl;
-
-	World world = createDefaultWorld();
-	Ray ray = createRay(createPoint(0, 0, -5), createVector(0, 0, 1));
-
-	std::cout << colorAt(world, ray) << std::endl;
+	std::cout << "finished generation" << std::endl;
 }
