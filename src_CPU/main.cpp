@@ -30,11 +30,9 @@ int main(int argc, const char** argv) {
 
 			if (intersectionCount > 0) {
 				Intersection* closestHit = hit(intersections, intersectionCount);
-				Tuple point = project(ray, closestHit->t);
-				Tuple normal = normalAt(*closestHit->object, point);
-				Tuple eye = negate(ray.direction);
+				Precomputed computations = prepareComputations(*closestHit, ray);
 
-				Tuple color = lighting(closestHit->object->material, light, point, eye, normal);
+				Tuple color = lighting(closestHit->object->material, light, computations.point, computations.eyeV, computations.normalV);
 
 				canvas->setPixel(x, y, color); 
 			}
