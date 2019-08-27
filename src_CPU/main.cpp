@@ -51,5 +51,4 @@ int main(int argc, const char** argv) {
 
 	int intersectionCount;
 	Intersection* intersections = intersectWorld(world, ray, intersectionCount);
-	std::cout << intersectionCount << std::endl;
 }

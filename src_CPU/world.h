@@ -1,4 +1,5 @@
 #pragma once
+#include <algorithm>
 #include "sphere.h"
 #include "light.h"
 
@@ -32,6 +33,10 @@ World createDefaultWorld() {
 	return world;
 }
 
+bool sortIntersections(Intersection intersectionA, Intersection intersectionB) {
+    return intersectionA.t < intersectionB.t;
+}
+
 Intersection* intersectWorld(World world, Ray ray, int& intersectionCount) {
 	int totalIntersectionCount = 0;
 	int tempIntersectionCount;
@@ -52,6 +57,8 @@ Intersection* intersectWorld(World world, Ray ray, int& intersectionCount) {
 			}
 		}
 	}
+
+	std::sort(intersection, intersection + totalIntersectionCount, &sortIntersections);
 
 	return intersection;
 }
