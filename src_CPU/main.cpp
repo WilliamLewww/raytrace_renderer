@@ -47,9 +47,5 @@ int main(int argc, const char** argv) {
 	World world = createDefaultWorld();
 	Ray ray = createRay(createPoint(0, 0, -5), createVector(0, 0, 1));
 
-	int intersectionCount;
-	Intersection* intersections = intersectWorld(world, ray, intersectionCount);
-	for (int x = 0; x < intersectionCount; x++) {
-		Precomputed computations = prepareComputations(intersections[x], ray);
-	}
+	std::cout << colorAt(world, ray) << std::endl;
 }

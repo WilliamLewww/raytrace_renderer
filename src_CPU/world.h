@@ -93,3 +93,19 @@ Precomputed prepareComputations(Intersection intersection, Ray ray) {
 
 	return precomputed;
 }
+
+Tuple shadeHit(World world, Precomputed precomputed) {
+	return lighting(precomputed.object->material, world.lightArray[0], precomputed.point, precomputed.eyeV, precomputed.normalV);
+}
+
+Tuple colorAt(World world, Ray ray) {
+	int intersectionCount;
+	Intersection* intersections = intersectWorld(world, ray, intersectionCount);
+
+	if (intersectionCount > 0) {
+		Precomputed computation = prepareComputations(intersections[0], ray);
+		return shadeHit(world, computation);
+	}
+
+	return createColor(0, 0, 0);
+}
