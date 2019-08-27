@@ -35,7 +35,7 @@ Camera createCamera(float hSize, float vSize, float fieldOfView) {
 	return camera;
 }
 
-Matrix createViewTransform(Tuple from, Tuple to, Tuple up) {
+Matrix createViewMatrix(Tuple from, Tuple to, Tuple up) {
 	Tuple forward = normalize(to - from);
 	Tuple upN = normalize(up);
 	Tuple left = cross(forward, upN);
