@@ -3,9 +3,8 @@
 #include "ray.h"
 #include "light.h"
 
-struct Sphere {
+struct Shape {
 	Tuple origin;
-	float radius;
 
 	Matrix modelMatrix;
 	Material material;
@@ -13,11 +12,11 @@ struct Sphere {
 
 struct Intersection {
 	float t;
-	Sphere* object;
+	Shape* object;
 };
 
-std::ostream& operator<<(std::ostream& os, const Sphere& sphere) {
-    os << "origin: " << sphere.origin << ", radius: " << sphere.radius;
+std::ostream& operator<<(std::ostream& os, const Shape& shape) {
+    os << "origin: " << shape.origin;
     return os;
 }
 
@@ -26,11 +25,11 @@ std::ostream& operator<<(std::ostream& os, const Intersection& intersection) {
     return os;
 }
 
-Sphere createSphere() {
-	return { createPoint(), 1.0, createIdentityMatrix(4) };
+Shape createShape() {
+	return { createPoint(), createIdentityMatrix(4) };
 }
 
-Intersection createIntersection(float t, Sphere* object) {
+Intersection createIntersection(float t, Shape* object) {
 	return { t, object };
 }
 
@@ -50,10 +49,10 @@ Intersection* hit(Intersection* intersections, int intersectionCount) {
 	return closestHit;
 }
 
-Intersection* intersect(Sphere& sphere, Ray ray, int& intersectionCount) {
-	Ray rayTransformed = transform(ray, inverse(sphere.modelMatrix));
+Intersection* intersect(Shape& shape, Ray ray, int& intersectionCount) {
+	Ray rayTransformed = transform(ray, inverse(shape.modelMatrix));
 
-	Tuple sphereToRay = rayTransformed.origin - sphere.origin;
+	Tuple sphereToRay = rayTransformed.origin - shape.origin;
 	float a = dot(rayTransformed.direction, rayTransformed.direction);
 	float b = 2 * dot(rayTransformed.direction, sphereToRay);
 	float c = dot(sphereToRay, sphereToRay) - 1;
@@ -70,7 +69,7 @@ Intersection* intersect(Sphere& sphere, Ray ray, int& intersectionCount) {
 		intersectionCount = 1;
 
 		Intersection* intersection = new Intersection[1];
-		intersection[0] = createIntersection((-b - sqrt(discriminant)) / (2 * a), &sphere);
+		intersection[0] = createIntersection((-b - sqrt(discriminant)) / (2 * a), &shape);
 
 		return intersection;
 	}
@@ -78,15 +77,15 @@ Intersection* intersect(Sphere& sphere, Ray ray, int& intersectionCount) {
 	intersectionCount = 2;
 
 	Intersection* intersection = new Intersection[2];
-	intersection[0] = createIntersection((-b - sqrt(discriminant)) / (2 * a), &sphere);
-	intersection[1] = createIntersection((-b + sqrt(discriminant)) / (2 * a), &sphere);
+	intersection[0] = createIntersection((-b - sqrt(discriminant)) / (2 * a), &shape);
+	intersection[1] = createIntersection((-b + sqrt(discriminant)) / (2 * a), &shape);
 	return intersection;
 }
 
-Tuple normalAt(Sphere sphere, Tuple point) {
-	Tuple objectToPoint = inverse(sphere.modelMatrix) * point;
-	Tuple objectNormal = objectToPoint - sphere.origin;
-	Tuple worldNormal = transpose(inverse(sphere.modelMatrix)) * objectNormal;
+Tuple normalAt(Shape shape, Tuple point) {
+	Tuple objectToPoint = inverse(shape.modelMatrix) * point;
+	Tuple objectNormal = objectToPoint - shape.origin;
+	Tuple worldNormal = transpose(inverse(shape.modelMatrix)) * objectNormal;
 	worldNormal.w = 0;
 
 	return normalize(worldNormal);
