@@ -1,6 +1,6 @@
 #pragma once
 #include <algorithm>
-#include "sphere.h"
+#include "shape.h"
 #include "light.h"
 
 const float EPSILON_NOISE = 0.01;
