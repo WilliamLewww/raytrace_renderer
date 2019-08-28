@@ -3,7 +3,11 @@
 #include "ray.h"
 #include "light.h"
 
+enum SHAPES { SHAPES_SPHERE, SHAPES_PLANE };
+
 struct Shape {
+	SHAPES shape;
+
 	Tuple origin;
 
 	Matrix modelMatrix;
@@ -25,8 +29,12 @@ std::ostream& operator<<(std::ostream& os, const Intersection& intersection) {
     return os;
 }
 
-Shape createShape() {
-	return { createPoint(), createIdentityMatrix(4) };
+Shape createSphere() {
+	return { SHAPES_SPHERE, createPoint(), createIdentityMatrix(4) };
+}
+
+Shape createPlane() {
+	return { SHAPES_PLANE, createPoint(), createIdentityMatrix(4) };
 }
 
 Intersection createIntersection(float t, Shape* object) {
@@ -49,12 +57,10 @@ Intersection* hit(Intersection* intersections, int intersectionCount) {
 	return closestHit;
 }
 
-Intersection* intersect(Shape& shape, Ray ray, int& intersectionCount) {
-	Ray rayTransformed = transform(ray, inverse(shape.modelMatrix));
-
-	Tuple sphereToRay = rayTransformed.origin - shape.origin;
-	float a = dot(rayTransformed.direction, rayTransformed.direction);
-	float b = 2 * dot(rayTransformed.direction, sphereToRay);
+Intersection* intersectSphere(Shape& shape, Ray ray, int& intersectionCount) {
+	Tuple sphereToRay = ray.origin - shape.origin;
+	float a = dot(ray.direction, ray.direction);
+	float b = 2 * dot(ray.direction, sphereToRay);
 	float c = dot(sphereToRay, sphereToRay) - 1;
 
 	float discriminant = pow(b, 2) - (4 * a * c);
@@ -82,9 +88,52 @@ Intersection* intersect(Shape& shape, Ray ray, int& intersectionCount) {
 	return intersection;
 }
 
+Intersection* intersectPlane(Shape& shape, Ray ray, int& intersectionCount) {
+	if (fabs(ray.direction.y) < EPSILON_COMPARISON) {
+		intersectionCount = 0;
+		return nullptr;
+	}
+
+	intersectionCount = 1;
+	Intersection* intersection = new Intersection[1];
+	intersection[0] = createIntersection(abs(ray.origin.y / ray.direction.y), &shape);
+
+	return intersection;
+}
+
+Tuple normalAtSphere(Shape shape, Tuple point) {
+	return inverse(shape.modelMatrix) * point - shape.origin;
+}
+
+Tuple normalAtPlane(Shape shape, Tuple point) {
+	return createVector(0, 1, 0);
+}
+
+Intersection* intersect(Shape& shape, Ray ray, int& intersectionCount) {
+	Intersection* intersections;
+
+	Ray rayTransformed = transform(ray, inverse(shape.modelMatrix));
+	if (shape.shape == SHAPES_SPHERE) {
+		intersections = intersectSphere(shape, rayTransformed, intersectionCount);
+	}
+	if (shape.shape == SHAPES_PLANE) {
+		intersections = intersectPlane(shape, rayTransformed, intersectionCount);
+	}
+
+	return intersections;
+}
+
 Tuple normalAt(Shape shape, Tuple point) {
 	Tuple objectToPoint = inverse(shape.modelMatrix) * point;
-	Tuple objectNormal = objectToPoint - shape.origin;
+
+	Tuple objectNormal;
+	if (shape.shape == SHAPES_SPHERE) {
+		objectNormal = normalAtSphere(shape, point);
+	}
+	if (shape.shape == SHAPES_PLANE) {
+		objectNormal = normalAtPlane(shape, point);
+	}
+
 	Tuple worldNormal = transpose(inverse(shape.modelMatrix)) * objectNormal;
 	worldNormal.w = 0;
 

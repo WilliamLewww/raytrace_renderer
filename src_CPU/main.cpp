@@ -29,7 +29,7 @@ Canvas* render(Camera camera, World world) {
 }
 
 int main(int argc, const char** argv) {
-	World world = createWorld1();
+	World world = createWorld2();
 	
 	Camera camera = createCamera(SCREENWIDTH, SCREENHEIGHT, M_PI / 3);
 	Tuple from = createPoint(0, 1.5, -5);
@@ -40,4 +40,6 @@ int main(int argc, const char** argv) {
 	Canvas* canvas = render(camera, world);
 	canvas->saveToFile(argv[1]);
 	std::cout << "saved image as: [" << argv[1] << "]" << std::endl;
+
+	Shape plane = createPlane();
 }
