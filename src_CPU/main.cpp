@@ -6,8 +6,8 @@
 #include "world.h"
 #include "camera.h"
 
-const int SCREENWIDTH = 512;
-const int SCREENHEIGHT = 512;
+const int SCREENWIDTH = 100;
+const int SCREENHEIGHT = 50;
 
 Canvas* render(Camera camera, World world) {
 	Canvas* canvas = new Canvas(camera.hSize, camera.vSize);
@@ -29,10 +29,11 @@ Canvas* render(Camera camera, World world) {
 }
 
 int main(int argc, const char** argv) {
-	World world = createDefaultWorld();
-	Camera camera = createCamera(SCREENWIDTH, SCREENHEIGHT, M_PI / 2);
-	Tuple from = createPoint(0, 0, -5);
-	Tuple to = createPoint(0, 0, 0);
+	World world = createWorld1();
+	
+	Camera camera = createCamera(SCREENWIDTH, SCREENHEIGHT, M_PI / 3);
+	Tuple from = createPoint(0, 1.5, -5);
+	Tuple to = createPoint(0, 1, 0);
 	Tuple up = createVector(0, 1, 0);
 	camera.viewMatrix = createViewMatrix(from, to, up);
 
