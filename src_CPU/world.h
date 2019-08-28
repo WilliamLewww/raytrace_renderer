@@ -148,8 +148,28 @@ Precomputed prepareComputations(Intersection intersection, Ray ray) {
 	return precomputed;
 }
 
+bool isShadowed(World world, Tuple point) {
+	Tuple pointToLight = world.lightArray[0].position - point;
+	float distance = magnitude(pointToLight);
+	Tuple pointToLightN = normalize(pointToLight);
+
+	Ray ray = createRay(point, pointToLightN);
+
+	int intersectionCount;
+	Intersection* intersections = intersectWorld(world, ray, intersectionCount);
+
+	Intersection* closestHit = hit(intersections, intersectionCount);
+	if (closestHit != nullptr && closestHit->t < distance) {
+		return true;
+	}
+
+	return false;
+}
+
 Tuple shadeHit(World world, Precomputed precomputed) {
-	return lighting(precomputed.object->material, world.lightArray[0], precomputed.point, precomputed.eyeV, precomputed.normalV);
+	bool inShadow = isShadowed(world, precomputed.point);
+
+	return lighting(precomputed.object->material, world.lightArray[0], precomputed.point, precomputed.eyeV, precomputed.normalV, inShadow);
 }
 
 Tuple colorAt(World world, Ray ray) {

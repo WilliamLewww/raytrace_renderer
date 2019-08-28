@@ -22,7 +22,7 @@ Material createMaterial() {
 	return { createColor(1, 1, 1), 0.1, 0.9, 0.9, 200.0 };
 }
 
-Tuple lighting(Material material, PointLight light, Tuple point, Tuple eyeV, Tuple normalV) {
+Tuple lighting(Material material, PointLight light, Tuple point, Tuple eyeV, Tuple normalV, bool inShadow) {
 	Tuple ambient;
 	Tuple diffuse;
 	Tuple specular;
@@ -33,7 +33,7 @@ Tuple lighting(Material material, PointLight light, Tuple point, Tuple eyeV, Tup
 	ambient = effectiveColor * material.ambient;
 
 	float lightDotNormal = dot(lightV, normalV);
-	if (lightDotNormal < 0) {
+	if (lightDotNormal < 0 || inShadow) {
 		diffuse = createColor(0.0, 0.0, 0.0);
 		specular = createColor(0.0, 0.0, 0.0);
 	}

@@ -6,8 +6,8 @@
 #include "world.h"
 #include "camera.h"
 
-const int SCREENWIDTH = 100;
-const int SCREENHEIGHT = 50;
+const int SCREENWIDTH = 200;
+const int SCREENHEIGHT = 100;
 
 Canvas* render(Camera camera, World world) {
 	Canvas* canvas = new Canvas(camera.hSize, camera.vSize);
