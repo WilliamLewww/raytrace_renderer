@@ -3,12 +3,16 @@
 #include "ray.h"
 #include "light.h"
 
+struct Shape {
+	Matrix modelMatrix;
+	Material material;
+};
+
 struct Sphere {
 	Tuple origin;
 	float radius;
 
-	Matrix modelMatrix;
-	Material material;
+	Shape shape;
 };
 
 struct Intersection {
@@ -51,7 +55,7 @@ Intersection* hit(Intersection* intersections, int intersectionCount) {
 }
 
 Intersection* intersect(Sphere& sphere, Ray ray, int& intersectionCount) {
-	Ray rayTransformed = transform(ray, inverse(sphere.modelMatrix));
+	Ray rayTransformed = transform(ray, inverse(sphere.shape.modelMatrix));
 
 	Tuple sphereToRay = rayTransformed.origin - sphere.origin;
 	float a = dot(rayTransformed.direction, rayTransformed.direction);
@@ -84,9 +88,9 @@ Intersection* intersect(Sphere& sphere, Ray ray, int& intersectionCount) {
 }
 
 Tuple normalAt(Sphere sphere, Tuple point) {
-	Tuple objectToPoint = inverse(sphere.modelMatrix) * point;
+	Tuple objectToPoint = inverse(sphere.shape.modelMatrix) * point;
 	Tuple objectNormal = objectToPoint - sphere.origin;
-	Tuple worldNormal = transpose(inverse(sphere.modelMatrix)) * objectNormal;
+	Tuple worldNormal = transpose(inverse(sphere.shape.modelMatrix)) * objectNormal;
 	worldNormal.w = 0;
 
 	return normalize(worldNormal);
