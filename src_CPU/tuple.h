@@ -2,7 +2,7 @@
 #include <iostream>
 #include <cmath>
 
-const float EPSILON_TUPLE = 0.00001;
+const float EPSILON_COMPARISON = 0.00001;
 
 struct Tuple {
 	float x;
@@ -12,7 +12,7 @@ struct Tuple {
 };
 
 bool operator==(Tuple tupleA, Tuple tupleB) {
-	return (abs(tupleA.x - tupleB.x) < EPSILON_TUPLE && abs(tupleA.y - tupleB.y) < EPSILON_TUPLE && abs(tupleA.z - tupleB.z) < EPSILON_TUPLE && abs(tupleA.w - tupleB.w) < EPSILON_TUPLE);
+	return (abs(tupleA.x - tupleB.x) < EPSILON_COMPARISON && abs(tupleA.y - tupleB.y) < EPSILON_COMPARISON && abs(tupleA.z - tupleB.z) < EPSILON_COMPARISON && abs(tupleA.w - tupleB.w) < EPSILON_COMPARISON);
 }
 
 std::ostream& operator<<(std::ostream& os, const Tuple& tuple) {

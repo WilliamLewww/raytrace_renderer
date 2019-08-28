@@ -3,6 +3,8 @@
 #include "sphere.h"
 #include "light.h"
 
+const float EPSILON_NOISE = 0.001;
+
 struct Precomputed {
 	float t;
 	Sphere* object;
@@ -10,6 +12,8 @@ struct Precomputed {
 	Tuple point;
 	Tuple eyeV;
 	Tuple normalV;
+
+	Tuple overPoint;
 
 	bool inside;
 };
@@ -145,6 +149,8 @@ Precomputed prepareComputations(Intersection intersection, Ray ray) {
 		precomputed.inside = false;
 	}
 
+	precomputed.overPoint = precomputed.point + precomputed.normalV * EPSILON_NOISE;
+
 	return precomputed;
 }
 
@@ -167,9 +173,9 @@ bool isShadowed(World world, Tuple point) {
 }
 
 Tuple shadeHit(World world, Precomputed precomputed) {
-	bool inShadow = isShadowed(world, precomputed.point);
+	bool inShadow = isShadowed(world, precomputed.overPoint);
 
-	return lighting(precomputed.object->material, world.lightArray[0], precomputed.point, precomputed.eyeV, precomputed.normalV, inShadow);
+	return lighting(precomputed.object->material, world.lightArray[0], precomputed.overPoint, precomputed.eyeV, precomputed.normalV, inShadow);
 }
 
 Tuple colorAt(World world, Ray ray) {

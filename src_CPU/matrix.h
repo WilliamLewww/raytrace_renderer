@@ -26,7 +26,7 @@ bool operator==(Matrix matrixA, Matrix matrixB) {
 
 	for (int x = 0; !greater && x < matrixA.rowCount; x++) {
 		for (int y = 0; !greater && y < matrixA.columnCount; y++) {
-			if (abs(matrixA[x][y] - matrixB[x][y]) >= EPSILON_TUPLE) {
+			if (abs(matrixA[x][y] - matrixB[x][y]) >= EPSILON_COMPARISON) {
 				greater = true;
 			}
 		}
