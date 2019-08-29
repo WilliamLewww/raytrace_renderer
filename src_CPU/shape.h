@@ -89,16 +89,13 @@ Intersection* intersectSphere(Shape& shape, Ray ray, int& intersectionCount) {
 }
 
 Intersection* intersectPlane(Shape& shape, Ray ray, int& intersectionCount) {
-	if (fabs(ray.direction.y) < EPSILON_COMPARISON) {
-		intersectionCount = 0;
-		return nullptr;
+	float denom = dot(createVector(0, 1, 0), ray.origin);
+	if (denom > EPSILON_COMPARISON) {
+
 	}
 
-	intersectionCount = 1;
-	Intersection* intersection = new Intersection[1];
-	intersection[0] = createIntersection(abs(ray.origin.y / ray.direction.y), &shape);
-
-	return intersection;
+	intersectionCount = 0;
+	return nullptr;
 }
 
 Tuple normalAtSphere(Shape shape, Tuple point) {
@@ -106,7 +103,7 @@ Tuple normalAtSphere(Shape shape, Tuple point) {
 }
 
 Tuple normalAtPlane(Shape shape, Tuple point) {
-	return createVector(0, 1, 0);
+	return inverse(shape.modelMatrix) * createVector(0, 1, 0);
 }
 
 Intersection* intersect(Shape& shape, Ray ray, int& intersectionCount) {

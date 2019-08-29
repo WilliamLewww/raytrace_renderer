@@ -106,7 +106,7 @@ World createWorld2() {
 	World world;
 
 	world.pointLightCount = 1;
-	world.shapeCount = 1;
+	world.shapeCount = 2;
 
 	world.lightArray = new PointLight[world.pointLightCount];
 	world.lightArray[0] = createPointLight(createPoint(-10, 10, -10), createColor(1, 1, 1));
@@ -118,6 +118,13 @@ World createWorld2() {
 	world.shapeArray[0].material.color = createColor(1.0, 0.9, 0.9);
 	world.shapeArray[0].material.specular = 0;
 	world.shapeArray[0].modelMatrix = createIdentityMatrix(4);
+
+	world.shapeArray[1] = createSphere();
+	world.shapeArray[1].material = createMaterial();
+	world.shapeArray[1].material.color = createColor(0.1, 1.0, 0.5);
+	world.shapeArray[1].material.diffuse = 0.7;
+	world.shapeArray[1].material.specular = 0.3;
+	world.shapeArray[1].modelMatrix = createTranslateMatrix(-0.5, 1, 0.5);
 
 	return world;
 }

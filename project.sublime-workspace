@@ -523,9 +523,9 @@
 			"file": "src_CPU/world.h",
 			"settings":
 			{
-				"buffer_size": 6497,
+				"buffer_size": 7115,
 				"encoding": "UTF-8",
-				"line_ending": "Unix"
+				"line_ending": "Windows"
 			}
 		},
 		{
@@ -538,22 +538,25 @@
 			}
 		},
 		{
-			"contents": "#pragma once\n#include <fstream>\n#include \"tuple.h\"\n\nclass Canvas{\nprivate:\n\tint width;\n\tint height;\n\n\tTuple** pixelData;\npublic:\n\tinline Canvas(int width, int height) {\n\t\tthis->width = width;\n\t\tthis->height = height;\n\n\t\tpixelData = new Tuple*[width];\n\t\tfor (int x = 0; x < width; x++) {\n\t\t\tpixelData[x] = new Tuple[height];\n\t\t\tfor (int y = 0; y < height; y++) {\n\t\t\t\tpixelData[x][y] = createColor(0.0, 0.0, 0.0);\n\t\t\t}\n\t\t}\n\t}\n\n\tinline ~Canvas() {\n\t\tfor (int x = 0; x < width; x++) {\n\t\t\tdelete [] pixelData[width];\n\t\t}\n\n\t\tdelete [] pixelData;\n\t}\n\n\tinline void setPixel(int x, int y, Tuple color) {\n\t\tpixelData[x][y] = color;\n\t}\n\n\tTuple getPixel(int x, int y) {\n\t\treturn pixelData[x][y];\n\t}\n\n\tvoid saveToFile(const char* filename) {\n\t\tstd::ofstream file;\n\t\tfile.open(filename);\n\n\t\tfile << \"P3\\n\" << width << \" \" << height << \"\\n255\\n\";\n\t\tfor (int y = 0; y < height; y++) {\n\t\t\tfor (int x = 0; x < width; x++) {\n\t\t\t\tTuple color = getPixel(x, y) * 255;\n\n\t\t\t\tif (color.x > 255) { color.x = 255; }\n\t\t\t\tif (color.y > 255) { color.y = 255; }\n\t\t\t\tif (color.z > 255) { color.z = 255; }\n\n\t\t\t\tfile << (int)color.x << \" \" << (int)color.y << \" \" << (int)color.z << \"\\n\";\n\t\t\t}\n\t\t}\n\n\t\tfile.close();\n\t}\n};",
+			"file": "src_CPU/shape.h",
+			"settings":
+			{
+				"buffer_size": 3654,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
 			"file": "src_CPU/canvas.h",
-			"file_size": 1185,
-			"file_write_time": 132114872076652731,
 			"settings":
 			{
 				"buffer_size": 1185,
 				"encoding": "UTF-8",
-				"line_ending": "Unix"
+				"line_ending": "Windows"
 			}
 		},
 		{
-			"contents": "#pragma once\n\n//FIX MEMORY LEAK\n\nstruct Matrix {\n\tfloat** data;\n\n\tint rowCount;\n\tint columnCount;\n\n\tfloat* operator[](int x) {\n\t\treturn data[x];\n\t};\n};\n\nconst float getElementFromMatrix(Matrix matrix, int x, int y) {\n\treturn matrix[x][y];\n}\n\nbool operator==(Matrix matrixA, Matrix matrixB) {\n\tbool greater = false;\n\n\tif (matrixA.rowCount != matrixB.rowCount || matrixA.columnCount != matrixB.columnCount) {\n\t\treturn false;\n\t}\n\n\tfor (int x = 0; !greater && x < matrixA.rowCount; x++) {\n\t\tfor (int y = 0; !greater && y < matrixA.columnCount; y++) {\n\t\t\tif (abs(matrixA[x][y] - matrixB[x][y]) >= EPSILON_COMPARISON) {\n\t\t\t\tgreater = true;\n\t\t\t}\n\t\t}\n\t}\n\n\treturn !greater;\n}\n\nstd::ostream& operator<<(std::ostream& os, const Matrix& matrix) {\n\tfor (int x = 0; x < matrix.rowCount; x++) {\n\t\tos << \"[\";\n\t\tfor (int y = 0; y < matrix.columnCount; y++) {\n\t\t\tos << getElementFromMatrix(matrix, x, y);\n\t\t\tif (y < matrix.columnCount - 1) { os << \", \"; }\n\t\t}\n\t\tos << \"]\";\n\t\tif (x < matrix.rowCount - 1) { os << \"\\n\"; }\n\t\t\n\t}\n\n\treturn os;\n}\n\nMatrix createMatrix(int rowCount, int columnCount) {\n\tMatrix temp;\n\ttemp.data = new float*[rowCount];\n\tfor (int x = 0; x < rowCount; x++) {\n\t\ttemp.data[x] = new float[columnCount];\n\t\tfor (int y = 0; y < columnCount; y++) {\n\t\t\ttemp.data[x][y] = 0.0;\n\t\t}\n\t}\n\n\ttemp.rowCount = rowCount;\n\ttemp.columnCount = columnCount;\n\n\treturn temp;\n}\n\nMatrix createIdentityMatrix(int rowCount) {\n\tMatrix temp = createMatrix(rowCount, rowCount);\n\tfor (int x = 0; x < rowCount; x++) {\n\t\ttemp[x][x] = 1.0;\n\t}\n\n\treturn temp;\n}\n\nMatrix operator*(Matrix matrixA, Matrix matrixB) {\n\tMatrix temp = createMatrix(matrixA.rowCount, matrixB.columnCount);\n\tfor (int x = 0; x < matrixA.rowCount; x++) {\n\t\tfor (int y = 0; y < matrixB.columnCount; y++) {\n\t\t\tfor (int z = 0; z < matrixA.columnCount; z++) {\n\t\t\t\ttemp[x][y] += (matrixA[x][z] * matrixB[z][y]);\n\t\t\t}\n\t\t}\n\t}\n\n\treturn temp;\n}\n\nTuple operator*(Matrix matrix, Tuple tuple) {\n\treturn {\n\t\t((matrix[0][0] * tuple.x) + (matrix[0][1] * tuple.y) + (matrix[0][2] * tuple.z) + (matrix[0][3] * tuple.w)),\n \t\t((matrix[1][0] * tuple.x) + (matrix[1][1] * tuple.y) + (matrix[1][2] * tuple.z) + (matrix[1][3] * tuple.w)),\n \t\t((matrix[2][0] * tuple.x) + (matrix[2][1] * tuple.y) + (matrix[2][2] * tuple.z) + (matrix[2][3] * tuple.w)),\n \t\t((matrix[3][0] * tuple.x) + (matrix[3][1] * tuple.y) + (matrix[3][2] * tuple.z) + (matrix[3][3] * tuple.w))\n\t};\n}\n\nMatrix transpose(Matrix matrix) {\n\tMatrix temp = createMatrix(matrix.columnCount, matrix.rowCount);\n\tfor (int x = 0; x < matrix.rowCount; x++) {\n\t\tfor (int y = 0; y < matrix.columnCount; y++) {\n\t\t\ttemp[y][x] = matrix[x][y];\n\t\t}\n\t}\n\n\treturn temp;\n}\n\nfloat cofactor(Matrix matrix, int row, int column);\nfloat determinate(Matrix matrix) {\n\tif (matrix.rowCount == 2 && matrix.columnCount == 2) {\n\t\treturn ((matrix[0][0] * matrix[1][1]) - (matrix[1][0] * matrix[0][1]));\n\t}\n\t\n\tfloat det = 0;\n\tfor (int y = 0; y < matrix.columnCount; y++) {\n\t\tdet += matrix[0][y] * cofactor(matrix, 0, y);\n\t}\n\n\treturn det;\n}\n\nMatrix submatrix(Matrix matrix, int row, int column) {\n\tMatrix temp = createMatrix(matrix.rowCount - 1, matrix.columnCount - 1);\n\n\tint currentX = 0;\n\tint currentY = 0;\n\tfor (int x = 0; x < matrix.rowCount; x++) {\n\t\tfor (int y = 0; y < matrix.columnCount; y++) {\n\t\t\tif (x != row && y != column) {\n\t\t\t\ttemp[currentX][currentY] = matrix[x][y];\n\t\t\t\tif (currentY + 1 == temp.columnCount) {\n\t\t\t\t\tcurrentX += 1;\n\t\t\t\t\tcurrentY = 0;\n\t\t\t\t}\n\t\t\t\telse {\n\t\t\t\t\tcurrentY += 1;\n\t\t\t\t}\n\t\t\t}\n\t\t}\n\t}\n\n\treturn temp;\n}\n\nfloat matrixMinor(Matrix matrix, int row, int column) {\n\tMatrix temp = submatrix(matrix, row, column);\n\treturn determinate(temp);\n}\n\nfloat cofactor(Matrix matrix, int row, int column) {\n\tif ((row + column) % 2 == 0) {\n\t\treturn matrixMinor(matrix, row, column);\n\t}\n\n\treturn -matrixMinor(matrix, row, column);\n}\n\nMatrix inverse(Matrix matrix) {\n\tMatrix temp = createMatrix(matrix.rowCount, matrix.columnCount);\n\tfloat det = determinate(matrix);\n\n\tfor (int x = 0; x < temp.rowCount; x++) {\n\t\tfor (int y = 0; y < temp.columnCount; y++) {\n\t\t\tfloat c = cofactor(matrix, x, y);\n\n\t\t\ttemp[y][x] = c / det;\n\t\t}\n\t}\n\n\treturn temp;\n}",
 			"file": "src_CPU/matrix.h",
-			"file_size": 4280,
-			"file_write_time": 132114872076652731,
 			"settings":
 			{
 				"buffer_size": 4107,
@@ -562,10 +565,7 @@
 			}
 		},
 		{
-			"contents": "#pragma once\n#include \"tuple.h\"\n#include \"matrix.h\"\n\nstruct Ray {\n\tTuple origin;\n\tTuple direction;\n};\n\nstd::ostream& operator<<(std::ostream& os, const Ray& ray) {\n    os << \"origin: \" << ray.origin << \", direction: \" << ray.direction;\n    return os;\n}\n\nRay createRay(Tuple origin, Tuple direction) {\n\treturn { origin, direction };\n}\n\nTuple project(Ray ray, float t) {\n\treturn ray.origin + (ray.direction * t);\n}\n\nRay transform(Ray ray, Matrix matrix) {\n\treturn createRay(matrix * ray.origin, matrix * ray.direction);\n}",
 			"file": "src_CPU/ray.h",
-			"file_size": 519,
-			"file_write_time": 132114872076652731,
 			"settings":
 			{
 				"buffer_size": 519,
@@ -573,10 +573,7 @@
 			}
 		},
 		{
-			"contents": "#pragma once\n#include \"tuple.h\"\n\nstruct PointLight {\n\tTuple position;\n\tTuple intensity;\n};\n\nstruct Material {\n\tTuple color;\n\tfloat ambient;\n\tfloat diffuse;\n\tfloat specular;\n\tfloat shininess;\n};\n\nPointLight createPointLight(Tuple position, Tuple intensity) {\n\treturn { position, intensity };\n}\n\nMaterial createMaterial() {\n\treturn { createColor(1, 1, 1), 0.1, 0.9, 0.9, 200.0 };\n}\n\nTuple lighting(Material material, PointLight light, Tuple point, Tuple eyeV, Tuple normalV, bool inShadow) {\n\tTuple ambient;\n\tTuple diffuse;\n\tTuple specular;\n\n\tTuple effectiveColor = hadamardProduct(material.color, light.intensity);\n\tTuple lightV = normalize(light.position - point);\n\n\tambient = effectiveColor * material.ambient;\n\n\tfloat lightDotNormal = dot(lightV, normalV);\n\tif (lightDotNormal < 0 || inShadow) {\n\t\tdiffuse = createColor(0.0, 0.0, 0.0);\n\t\tspecular = createColor(0.0, 0.0, 0.0);\n\t}\n\telse {\n\t\tdiffuse = effectiveColor * material.diffuse * lightDotNormal;\n\n\t\tTuple reflectV = reflect(negate(lightV), normalV);\n\t\tfloat reflectDotEye = dot(reflectV, eyeV);\n\n\t\tif (reflectDotEye <= 0) {\n\t\t\tspecular = createColor(0.0, 0.0, 0.0);\n\t\t}\n\t\telse {\n\t\t\tfloat factor = pow(reflectDotEye, material.shininess);\n\t\t\tspecular = light.intensity * material.specular * factor;\n\t\t}\n\t}\n\n\treturn ambient + diffuse + specular;\n}",
 			"file": "src_CPU/light.h",
-			"file_size": 1357,
-			"file_write_time": 132114872076652731,
 			"settings":
 			{
 				"buffer_size": 1302,
@@ -585,10 +582,7 @@
 			}
 		},
 		{
-			"contents": "#pragma once\n#include <cmath>\n#include \"matrix.h\"\n\nMatrix createTranslateMatrix(float x, float y, float z) {\n\tMatrix temp = createIdentityMatrix(4);\n\ttemp[0][3] = x;\n\ttemp[1][3] = y;\n\ttemp[2][3] = z;\n\n\treturn temp;\n}\n\nMatrix createScaleMatrix(float x, float y, float z) {\n\tMatrix temp = createIdentityMatrix(4);\n\ttemp[0][0] = x;\n\ttemp[1][1] = y;\n\ttemp[2][2] = z;\n\n\treturn temp;\n}\n\nMatrix createRotationMatrixX(float radians) {\n\tMatrix temp = createIdentityMatrix(4);\n\ttemp[1][1] = cos(radians);\n\ttemp[1][2] = -sin(radians);\n\ttemp[2][1] = sin(radians);\n\ttemp[2][2] = cos(radians);\n\n\treturn temp;\n}\n\nMatrix createRotationMatrixY(float radians) {\n\tMatrix temp = createIdentityMatrix(4);\n\ttemp[0][0] = cos(radians);\n\ttemp[0][2] = sin(radians);\n\ttemp[2][0] = -sin(radians);\n\ttemp[2][2] = cos(radians);\n\n\treturn temp;\n}\n\nMatrix createRotationMatrixZ(float radians) {\n\tMatrix temp = createIdentityMatrix(4);\n\ttemp[0][0] = cos(radians);\n\ttemp[0][1] = -sin(radians);\n\ttemp[1][0] = sin(radians);\n\ttemp[1][1] = cos(radians);\n\n\treturn temp;\n}\n\nMatrix createShearMatrix(float xy, float xz, float yx, float yz, float zx, float zy) {\n\tMatrix temp = createIdentityMatrix(4);\n\ttemp[0][1] = xy;\n\ttemp[0][2] = xz;\n\ttemp[1][0] = yx;\n\ttemp[1][2] = yz;\n\ttemp[2][0] = zx;\n\ttemp[2][1] = zy;\n\n\treturn temp;\n}",
 			"file": "src_CPU/transform.h",
-			"file_size": 1283,
-			"file_write_time": 132114872076652731,
 			"settings":
 			{
 				"buffer_size": 1283,
@@ -597,48 +591,30 @@
 			}
 		},
 		{
-			"contents": "{\n\t\"build_systems\":\n\t[\n\t\t{\n\t\t\t\"name\": \"raytrace_renderer CPU\",\n\t\t\t\"cmd\":\n\t\t\t[\n\t\t\t\t\"g++\",\n\t\t\t\t\"C:/Users/William/Desktop/raytrace_renderer/src_CPU/main.cpp\",\n\t\t\t\t\"-o\",\n\t\t\t\t\"C:/Users/William/Desktop/raytrace_renderer/bin/raytrace_renderer_cpu\",\n\t\t\t\t\"&&\",\n\t\t\t\t\"C:/Users/William/Desktop/raytrace_renderer/bin/raytrace_renderer_cpu\",\n\t\t\t\t\"image.ppm\"\n\t\t\t],\n\t\t\t\"file_regex\": \"^(..[^:]*):([0-9]+):?([0-9]+)?:? (.*)$\",\n\t\t\t\"selector\": \"source.c, source.c++\",\n\t\t\t\"shell\": true,\n\t\t\t\"working_dir\": \"C:/Users/William/Desktop/raytrace_renderer/dump\",\n\t\t}\n\t],\n\t\"folders\":\n\t[\n\t\t{\n\t\t\t\"path\": \".\"\n\t\t}\n\t]\n}\n",
 			"file": "project.sublime-project",
-			"file_size": 586,
-			"file_write_time": 132114872076652731,
 			"settings":
 			{
 				"buffer_size": 586,
-				"encoding": "UTF-8",
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "src_CPU/sphere.h",
-			"settings":
-			{
-				"buffer_size": 2524,
 				"encoding": "UTF-8",
 				"line_ending": "Windows"
 			}
 		},
 		{
-			"contents": "#include \"canvas.h\"\n#include \"tuple.h\"\n#include \"matrix.h\"\n#include \"transform.h\"\n#include \"ray.h\"\n#include \"world.h\"\n#include \"camera.h\"\n\nconst int SCREENWIDTH = 100;\nconst int SCREENHEIGHT = 50;\n\nCanvas* render(Camera camera, World world) {\n\tCanvas* canvas = new Canvas(camera.hSize, camera.vSize);\n\n\tstd::cout << \"rendering ray traced image...\" << std::endl;\n\n\tfor (int y = 0; y < camera.vSize; y++) {\n\t\tfor (int x = 0; x < camera.hSize; x++) {\n\t\t\tRay ray = rayForPixel(camera, x, y);\n\t\t\tTuple color = colorAt(world, ray);\n\n\t\t\tcanvas->setPixel(x, y, color);\n\t\t}\n\t}\n\n\tstd::cout << \"finished rendering\" << std::endl;\n\n\treturn canvas;\n}\n\nint main(int argc, const char** argv) {\n\tWorld world = createWorld1();\n\t\n\tCamera camera = createCamera(SCREENWIDTH, SCREENHEIGHT, M_PI / 3);\n\tTuple from = createPoint(0, 1.5, -5);\n\tTuple to = createPoint(0, 1, 0);\n\tTuple up = createVector(0, 1, 0);\n\tcamera.viewMatrix = createViewMatrix(from, to, up);\n\n\tCanvas* canvas = render(camera, world);\n\tcanvas->saveToFile(argv[1]);\n\tstd::cout << \"saved image as: [\" << argv[1] << \"]\" << std::endl;\n}",
 			"file": "src_CPU/main.cpp",
-			"file_size": 1079,
-			"file_write_time": 132114872076652731,
 			"settings":
 			{
 				"buffer_size": 1079,
 				"encoding": "UTF-8",
-				"line_ending": "Unix"
+				"line_ending": "Windows"
 			}
 		},
 		{
-			"contents": "#pragma once\n#include <iostream>\n#include <cmath>\n\nconst float EPSILON_COMPARISON = 0.00001;\n\nstruct Tuple {\n\tfloat x;\n\tfloat y;\n\tfloat z;\n\tfloat w;\n};\n\nbool operator==(Tuple tupleA, Tuple tupleB) {\n\treturn (abs(tupleA.x - tupleB.x) < EPSILON_COMPARISON && abs(tupleA.y - tupleB.y) < EPSILON_COMPARISON && abs(tupleA.z - tupleB.z) < EPSILON_COMPARISON && abs(tupleA.w - tupleB.w) < EPSILON_COMPARISON);\n}\n\nstd::ostream& operator<<(std::ostream& os, const Tuple& tuple) {\n    os << \"(\" << tuple.x << \", \" << tuple.y << \", \" << tuple.z << \", \" << tuple.w << \")\";\n    return os;\n}\n\nTuple createVector(float x = 0.0, float y = 0.0, float z = 0.0) {\n\treturn { x, y, z, 0.0 };\n}\n\nTuple createPoint(float x = 0.0, float y = 0.0, float z = 0.0) {\n\treturn { x, y, z, 1.0 };\n}\n\nTuple createColor(float x = 0.0, float y = 0.0, float z = 0.0) {\n\treturn { x, y, z, 1.0 };\n}\n\nTuple operator+(Tuple tupleA, Tuple tupleB) {\n\treturn { tupleA.x + tupleB.x, tupleA.y + tupleB.y, tupleA.z + tupleB.z, tupleA.w + tupleB.w };\n}\n\nTuple operator-(Tuple tupleA, Tuple tupleB) {\n\treturn { tupleA.x - tupleB.x, tupleA.y - tupleB.y, tupleA.z - tupleB.z, tupleA.w - tupleB.w };\n}\n\nTuple negate(Tuple tuple) {\n\treturn { -tuple.x, -tuple.y, -tuple.z, -tuple.w };\n}\n\nTuple operator*(Tuple tuple, float scalar) {\n\treturn { tuple.x * scalar, tuple.y * scalar, tuple.z * scalar, tuple.w * scalar };\n}\n\nTuple operator*(float scalar, Tuple tuple) {\n\treturn { tuple.x * scalar, tuple.y * scalar, tuple.z * scalar, tuple.w * scalar };\n}\n\nTuple operator/(Tuple tuple, float scalar) {\n\treturn { tuple.x / scalar, tuple.y / scalar, tuple.z / scalar, tuple.w / scalar };\n}\n\nfloat magnitude(Tuple tuple) {\n\treturn sqrt(pow(tuple.x, 2) + pow(tuple.y, 2) + pow(tuple.z, 2) + pow(tuple.w, 2));\n}\n\nTuple normalize(Tuple tuple) {\n\treturn { tuple.x / magnitude(tuple), tuple.y / magnitude(tuple), tuple.z / magnitude(tuple), tuple.w / magnitude(tuple) };\n}\n\nfloat dot(Tuple tupleA, Tuple tupleB) {\n\treturn ((tupleA.x * tupleB.x) + (tupleA.y * tupleB.y) + (tupleA.z * tupleB.z) + (tupleA.w * tupleB.w));\n}\n\nTuple cross(Tuple tupleA, Tuple tupleB) {\n\treturn { (tupleA.y * tupleB.z) - (tupleA.z * tupleB.y), (tupleA.z * tupleB.x) - (tupleA.x * tupleB.z), (tupleA.x * tupleB.y) - (tupleA.y * tupleB.x) };\n}\n\nTuple hadamardProduct(Tuple tupleA, Tuple tupleB) {\n\treturn { tupleA.x * tupleB.x, tupleA.y * tupleB.y, tupleA.z * tupleB.z, tupleA.w * tupleB.w };\n}\n\nTuple reflect(Tuple vector, Tuple normal) {\n\treturn vector - (normal * 2 * dot(vector, normal));\n}",
 			"file": "src_CPU/tuple.h",
-			"file_size": 2503,
-			"file_write_time": 132114872076652731,
 			"settings":
 			{
 				"buffer_size": 2503,
 				"encoding": "UTF-8",
-				"line_ending": "Unix"
+				"line_ending": "Windows"
 			}
 		}
 	],
@@ -1014,16 +990,17 @@
 	},
 	"expanded_folders":
 	[
-		"/home/wlew/Desktop/raytrace_renderer"
+		"/C/Users/William/Desktop/raytrace_renderer"
 	],
 	"file_history":
 	[
+		"/C/Users/William/Desktop/raytrace_renderer/src_CPU/ray.h",
+		"/C/Users/William/Desktop/raytrace_renderer/src_CPU/sphere.h",
 		"/home/wlew/Desktop/raytrace_renderer/run-cpu.sh",
 		"/home/wlew/Desktop/raytrace_renderer/project.sublime-project",
 		"/home/wlew/Desktop/raytrace_renderer/dump/test.ppm",
 		"/C/Users/William/Desktop/raytrace_renderer/src_CPU/tuple.h",
 		"/C/Users/William/Desktop/raytrace_renderer/project.sublime-project",
-		"/C/Users/William/Desktop/raytrace_renderer/src_CPU/ray.h",
 		"/C/Users/William/Desktop/raytrace_renderer/src_CPU/canvas.h",
 		"/C/Users/William/Desktop/raytrace_renderer/dump/convert-ppm-to-jpg.py",
 		"/C/Users/William/Desktop/raytrace_renderer/dump/test.ppm",
@@ -1144,8 +1121,7 @@
 		"/C/Users/William Lew/Desktop/no_tears/src/examples/scavenger_hunt.cpp",
 		"/C/Users/William Lew/Desktop/no_tears/src/examples/scavenger_hunt.h",
 		"/C/Users/William Lew/Desktop/no_tears/src/engine.cpp",
-		"/C/Users/William Lew/Desktop/no_tears/src/input.cpp",
-		"/C/Users/William Lew/Desktop/no_tears/project.sublime-project"
+		"/C/Users/William Lew/Desktop/no_tears/src/input.cpp"
 	],
 	"find":
 	{
@@ -1220,7 +1196,7 @@
 	"groups":
 	[
 		{
-			"selected": 1,
+			"selected": 2,
 			"sheets":
 			[
 				{
@@ -1229,26 +1205,27 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 6497,
+						"buffer_size": 7115,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								108,
-								108
+								3758,
+								3758
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/C++/C++.sublime-syntax"
+							"syntax": "Packages/C++/C++.sublime-syntax",
+							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 952.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 1,
+					"stack_index": 2,
 					"type": "text"
 				},
 				{
@@ -1264,23 +1241,53 @@
 						"selection":
 						[
 							[
-								701,
-								701
+								268,
+								268
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/C++/C++.sublime-syntax"
+							"syntax": "Packages/C++/C++.sublime-syntax",
+							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 19.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "src_CPU/shape.h",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 3654,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								2444,
+								2444
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/C++/C++.sublime-syntax",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 702.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 0,
 					"type": "text"
 				},
 				{
-					"buffer": 2,
+					"buffer": 3,
 					"file": "src_CPU/canvas.h",
 					"semi_transient": false,
 					"settings":
@@ -1305,11 +1312,11 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 11,
+					"stack_index": 12,
 					"type": "text"
 				},
 				{
-					"buffer": 3,
+					"buffer": 4,
 					"file": "src_CPU/matrix.h",
 					"semi_transient": false,
 					"settings":
@@ -1335,11 +1342,11 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 4,
+					"stack_index": 6,
 					"type": "text"
 				},
 				{
-					"buffer": 4,
+					"buffer": 5,
 					"file": "src_CPU/ray.h",
 					"semi_transient": false,
 					"settings":
@@ -1363,11 +1370,11 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 15,
+					"stack_index": 14,
 					"type": "text"
 				},
 				{
-					"buffer": 5,
+					"buffer": 6,
 					"file": "src_CPU/light.h",
 					"semi_transient": false,
 					"settings":
@@ -1392,11 +1399,11 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 16,
+					"stack_index": 15,
 					"type": "text"
 				},
 				{
-					"buffer": 6,
+					"buffer": 7,
 					"file": "src_CPU/transform.h",
 					"semi_transient": false,
 					"settings":
@@ -1430,11 +1437,11 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 17,
+					"stack_index": 16,
 					"type": "text"
 				},
 				{
-					"buffer": 7,
+					"buffer": 8,
 					"file": "project.sublime-project",
 					"semi_transient": false,
 					"settings":
@@ -1460,42 +1467,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 14,
-					"type": "text"
-				}
-			]
-		},
-		{
-			"selected": 0,
-			"sheets":
-			[
-				{
-					"buffer": 8,
-					"file": "src_CPU/sphere.h",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 2524,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								541,
-								541
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/C++/C++.sublime-syntax",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 2,
+					"stack_index": 13,
 					"type": "text"
 				},
 				{
@@ -1511,8 +1483,8 @@
 						"selection":
 						[
 							[
-								806,
-								806
+								117,
+								117
 							]
 						],
 						"settings":
@@ -1524,11 +1496,11 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 3,
+					"stack_index": 5,
 					"type": "text"
 				},
 				{
-					"buffer": 2,
+					"buffer": 3,
 					"file": "src_CPU/canvas.h",
 					"semi_transient": false,
 					"settings":
@@ -1553,7 +1525,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 10,
+					"stack_index": 11,
 					"type": "text"
 				},
 				{
@@ -1581,11 +1553,11 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 9,
+					"stack_index": 10,
 					"type": "text"
 				},
 				{
-					"buffer": 6,
+					"buffer": 7,
 					"file": "src_CPU/transform.h",
 					"semi_transient": false,
 					"settings":
@@ -1611,7 +1583,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 8,
+					"stack_index": 9,
 					"type": "text"
 				},
 				{
@@ -1652,11 +1624,11 @@
 						"translation.y": 6.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 5,
+					"stack_index": 7,
 					"type": "text"
 				},
 				{
-					"buffer": 3,
+					"buffer": 4,
 					"file": "src_CPU/matrix.h",
 					"semi_transient": false,
 					"settings":
@@ -1668,8 +1640,8 @@
 						"selection":
 						[
 							[
-								241,
-								241
+								98,
+								98
 							]
 						],
 						"settings":
@@ -1682,39 +1654,40 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 12,
+					"stack_index": 4,
 					"type": "text"
 				},
 				{
-					"buffer": 4,
-					"file": "src_CPU/ray.h",
+					"buffer": 2,
+					"file": "src_CPU/shape.h",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 519,
+						"buffer_size": 3654,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								102,
-								102
+								2051,
+								2051
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/C++/C++.sublime-syntax"
+							"syntax": "Packages/C++/C++.sublime-syntax",
+							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 624.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 6,
+					"stack_index": 3,
 					"type": "text"
 				},
 				{
-					"buffer": 5,
+					"buffer": 6,
 					"file": "src_CPU/light.h",
 					"semi_transient": false,
 					"settings":
@@ -1739,36 +1712,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 7,
-					"type": "text"
-				},
-				{
-					"buffer": 8,
-					"file": "src_CPU/sphere.h",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 2524,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								1673,
-								1673
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/C++/C++.sublime-syntax",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 13,
+					"stack_index": 8,
 					"type": "text"
 				}
 			]
@@ -1791,18 +1735,11 @@
 				0,
 				1,
 				1
-			],
-			[
-				1,
-				0,
-				2,
-				1
 			]
 		],
 		"cols":
 		[
 			0.0,
-			0.5,
 			1.0
 		],
 		"rows":
@@ -1838,6 +1775,18 @@
 		"selected_items":
 		[
 			[
+				"sh",
+				"src_CPU\\shape.h"
+			],
+			[
+				"ra",
+				"src_CPU\\ray.h"
+			],
+			[
+				"sha",
+				"src_CPU\\shape.h"
+			],
+			[
 				"wo",
 				"src_CPU/world.h"
 			],
@@ -1864,10 +1813,6 @@
 			[
 				"ca",
 				"src_CPU/canvas.h"
-			],
-			[
-				"ra",
-				"src_CPU/ray.h"
 			],
 			[
 				"can",
@@ -1904,10 +1849,6 @@
 			[
 				"lig",
 				"src_CPU/light.h"
-			],
-			[
-				"sh",
-				"src_CPU/sphere.h"
 			],
 			[
 				"ligh",
@@ -2052,10 +1993,6 @@
 			[
 				"sy",
 				"synopsis"
-			],
-			[
-				"sha",
-				"server/client/src/shader_source.js"
 			],
 			[
 				"shad",
