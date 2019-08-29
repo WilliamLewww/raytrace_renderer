@@ -57,6 +57,10 @@ Intersection* hit(Intersection* intersections, int intersectionCount) {
 	return closestHit;
 }
 
+Tuple normalAtSphere(Shape shape, Tuple point) {
+	return inverse(shape.modelMatrix) * point - shape.origin;
+}
+
 Intersection* intersectSphere(Shape& shape, Ray ray, int& intersectionCount) {
 	Tuple sphereToRay = ray.origin - shape.origin;
 	float a = dot(ray.direction, ray.direction);
@@ -88,10 +92,16 @@ Intersection* intersectSphere(Shape& shape, Ray ray, int& intersectionCount) {
 	return intersection;
 }
 
+Tuple normalAtPlane(Shape shape, Tuple point) {
+	return shape.modelMatrix * createVector(0, 1, 0);
+}
+
 Intersection* intersectPlane(Shape& shape, Ray ray, int& intersectionCount) {
-	float denom = dot(createVector(0, 1, 0), ray.direction);
+	Tuple normal = normalAtPlane(shape, createPoint(0, 0, 0));
+
+	float denom = dot(normal, ray.direction);
 	if (fabs(denom) > EPSILON_COMPARISON) {
-		float t = dot(shape.origin - ray.origin, createVector(0, 1, 0)) / denom;
+		float t = dot(shape.origin - ray.origin, normal) / denom;
 
 		if (t >= 0) {
 			intersectionCount = 1;
@@ -105,14 +115,6 @@ Intersection* intersectPlane(Shape& shape, Ray ray, int& intersectionCount) {
 
 	intersectionCount = 0;
 	return nullptr;
-}
-
-Tuple normalAtSphere(Shape shape, Tuple point) {
-	return inverse(shape.modelMatrix) * point - shape.origin;
-}
-
-Tuple normalAtPlane(Shape shape, Tuple point) {
-	return inverse(shape.modelMatrix) * createVector(0, 1, 0);
 }
 
 Intersection* intersect(Shape& shape, Ray ray, int& intersectionCount) {

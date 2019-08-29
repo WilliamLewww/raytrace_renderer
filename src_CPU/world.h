@@ -106,25 +106,65 @@ World createWorld2() {
 	World world;
 
 	world.pointLightCount = 1;
-	world.shapeCount = 2;
+	world.shapeCount = 8;
 
 	world.lightArray = new PointLight[world.pointLightCount];
-	world.lightArray[0] = createPointLight(createPoint(-10, 10, -10), createColor(1, 1, 1));
+	world.lightArray[0] = createPointLight(createPoint(10, 10, -3), createColor(1, 1, 1));
 
 	world.shapeArray = new Shape[world.shapeCount];
 
 	world.shapeArray[0] = createPlane();
 	world.shapeArray[0].material = createMaterial();
-	world.shapeArray[0].material.color = createColor(1.0, 0.9, 0.9);
+	world.shapeArray[0].material.color = createColor(0.9, 0.5, 0.9);
 	world.shapeArray[0].material.specular = 0;
-	world.shapeArray[0].modelMatrix = createIdentityMatrix(4);
+	world.shapeArray[0].modelMatrix = createTranslateMatrix(0, 0, 3) * createRotationMatrixX(-M_PI / 4);
 
-	world.shapeArray[1] = createSphere();
+	world.shapeArray[1] = createPlane();
 	world.shapeArray[1].material = createMaterial();
-	world.shapeArray[1].material.color = createColor(0.1, 1.0, 0.5);
-	world.shapeArray[1].material.diffuse = 0.7;
-	world.shapeArray[1].material.specular = 0.3;
-	world.shapeArray[1].modelMatrix = createTranslateMatrix(-0.5, 1, 0.5);
+	world.shapeArray[1].material.color = createColor(0.9, 0.9, 0.5);
+	world.shapeArray[1].material.specular = 0;
+	world.shapeArray[1].modelMatrix = createTranslateMatrix(-3, 0, 0) * createRotationMatrixZ(-M_PI / 4);
+
+	world.shapeArray[2] = createPlane();
+	world.shapeArray[2].material = createMaterial();
+	world.shapeArray[2].material.color = createColor(5.0, 0.9, 0.9);
+	world.shapeArray[2].material.specular = 0;
+	world.shapeArray[2].modelMatrix = createIdentityMatrix(4);
+
+	world.shapeArray[3] = createSphere();
+	world.shapeArray[3].material = createMaterial();
+	world.shapeArray[3].material.color = createColor(0.7, 1.0, 0.2);
+	world.shapeArray[3].material.diffuse = 0.7;
+	world.shapeArray[3].material.specular = 0.3;
+	world.shapeArray[3].modelMatrix = createTranslateMatrix(-0.5, 1, 0.5);
+
+	world.shapeArray[4] = createSphere();
+	world.shapeArray[4].material = createMaterial();
+	world.shapeArray[4].material.color = createColor(1.0, 0.5, 0.5);
+	world.shapeArray[4].material.diffuse = 0.7;
+	world.shapeArray[4].material.specular = 0.3;
+	world.shapeArray[4].modelMatrix = createTranslateMatrix(-0.5, 2, 0.5) * createScaleMatrix(0.75, 0.75, 0.75);
+
+	world.shapeArray[5] = createSphere();
+	world.shapeArray[5].material = createMaterial();
+	world.shapeArray[5].material.color = createColor(0.3, 0.2, 0.5);
+	world.shapeArray[5].material.diffuse = 0.7;
+	world.shapeArray[5].material.specular = 0.3;
+	world.shapeArray[5].modelMatrix = createTranslateMatrix(2, 1, 0.5) * createScaleMatrix(1.25, 1.25, 1.25);
+
+	world.shapeArray[6] = createSphere();
+	world.shapeArray[6].material = createMaterial();
+	world.shapeArray[6].material.color = createColor(1.0, 1.0, 1.0);
+	world.shapeArray[6].material.diffuse = 0.7;
+	world.shapeArray[6].material.specular = 0.3;
+	world.shapeArray[6].modelMatrix = createTranslateMatrix(-0.5, 0.25, -1.5) * createScaleMatrix(0.5, 0.5, 0.5);
+
+	world.shapeArray[7] = createSphere();
+	world.shapeArray[7].material = createMaterial();
+	world.shapeArray[7].material.color = createColor(0.3, 0.3, 1.0);
+	world.shapeArray[7].material.diffuse = 0.7;
+	world.shapeArray[7].material.specular = 0.3;
+	world.shapeArray[7].modelMatrix = createTranslateMatrix(-0.5, 2, -1.5) * createScaleMatrix(0.25, 0.25, 0.25);
 
 	return world;
 }
