@@ -89,9 +89,18 @@ Intersection* intersectSphere(Shape& shape, Ray ray, int& intersectionCount) {
 }
 
 Intersection* intersectPlane(Shape& shape, Ray ray, int& intersectionCount) {
-	float denom = dot(createVector(0, 1, 0), ray.origin);
-	if (denom > EPSILON_COMPARISON) {
+	float denom = dot(createVector(0, 1, 0), ray.direction);
+	if (fabs(denom) > EPSILON_COMPARISON) {
+		float t = dot(shape.origin - ray.origin, createVector(0, 1, 0)) / denom;
 
+		if (t >= 0) {
+			intersectionCount = 1;
+
+			Intersection* intersection = new Intersection[1];
+			intersection[0] = createIntersection(t, &shape);
+
+			return intersection;
+		}
 	}
 
 	intersectionCount = 0;
