@@ -146,7 +146,7 @@ World createWorld2() {
 	world.shapeArray[4].modelMatrix = createTranslateMatrix(-0.5, 2, 0.5) * createScaleMatrix(0.75, 0.75, 0.75);
 
 	world.shapeArray[5] = createSphere();
-	world.shapeArray[5].material = createMaterial();
+	world.shapeArray[5].material = createMaterial(MATERIAL_PATTERNS_STRIPE);
 	world.shapeArray[5].material.color = createColor(0.3, 0.2, 0.5);
 	world.shapeArray[5].material.diffuse = 0.7;
 	world.shapeArray[5].material.specular = 0.3;
