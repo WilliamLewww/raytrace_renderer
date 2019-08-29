@@ -164,7 +164,7 @@ World createWorld2() {
 	world.shapeArray[7].material.color = createColor(0.3, 0.3, 1.0);
 	world.shapeArray[7].material.diffuse = 0.7;
 	world.shapeArray[7].material.specular = 0.3;
-	world.shapeArray[7].modelMatrix = createTranslateMatrix(-0.5, 2, -1.5) * createScaleMatrix(0.25, 0.25, 0.25);
+	world.shapeArray[7].modelMatrix = createTranslateMatrix(-0.5, 2, -2.0) * createScaleMatrix(0.25, 0.25, 0.25);
 
 	return world;
 }
