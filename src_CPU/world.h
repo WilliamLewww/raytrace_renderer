@@ -1,7 +1,7 @@
 #pragma once
 #include <algorithm>
 #include "shape.h"
-#include "light.h"
+#include "transform.h"
 
 const float EPSILON_NOISE = 0.01;
 

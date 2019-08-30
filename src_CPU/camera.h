@@ -1,7 +1,7 @@
 #pragma once
 #include <cmath>
-#include "matrix.h"
 #include "ray.h"
+#include "transform.h"
 
 struct Camera {
 	float hSize;

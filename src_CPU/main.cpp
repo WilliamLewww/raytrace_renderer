@@ -1,8 +1,4 @@
 #include "canvas.h"
-#include "tuple.h"
-#include "matrix.h"
-#include "transform.h"
-#include "ray.h"
 #include "world.h"
 #include "camera.h"
 
