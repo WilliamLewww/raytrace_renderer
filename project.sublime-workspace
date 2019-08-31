@@ -519,6 +519,15 @@
 	},
 	"buffers":
 	[
+		{
+			"file": "src_GPU/matrix.h",
+			"settings":
+			{
+				"buffer_size": 4101,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		}
 	],
 	"build_system": "raytrace_renderer CPU",
 	"build_system_choices":
@@ -893,25 +902,31 @@
 	"expanded_folders":
 	[
 		"/home/wlew/Desktop/raytrace_renderer",
+		"/home/wlew/Desktop/raytrace_renderer/dump",
+		"/home/wlew/Desktop/raytrace_renderer/src_CPU",
 		"/home/wlew/Desktop/raytrace_renderer/src_GPU"
 	],
 	"file_history":
 	[
+		"/home/wlew/Desktop/raytrace_renderer/src_CPU/main.cpp",
 		"/home/wlew/Desktop/raytrace_renderer/src_GPU/main.cu",
+		"/home/wlew/Desktop/raytrace_renderer/src_CPU/light.h",
+		"/home/wlew/Desktop/raytrace_renderer/src_CPU/world.h",
+		"/home/wlew/Desktop/raytrace_renderer/src_GPU/light.h",
+		"/home/wlew/Desktop/raytrace_renderer/src_GPU/matrix.h",
+		"/home/wlew/Desktop/raytrace_renderer/src_GPU/sample.cu",
+		"/home/wlew/Desktop/raytrace_renderer/src_GPU/canvas.h",
 		"/home/wlew/Desktop/hello.cu",
 		"/home/wlew/Desktop/raytrace_renderer/compile-run-gpu.sh",
 		"/home/wlew/Desktop/raytrace_renderer/monitor-gpu.sh",
-		"/home/wlew/Desktop/raytrace_renderer/src_CPU/light.h",
 		"/home/wlew/Desktop/raytrace_renderer/src_CPU/shape.h",
 		"/home/wlew/Desktop/raytrace_renderer/src_CPU/matrix.h",
 		"/home/wlew/Desktop/raytrace_renderer/src_CPU/tuple.h",
 		"/home/wlew/Desktop/raytrace_renderer/src_CPU/transform.h",
 		"/home/wlew/Desktop/raytrace_renderer/src_CPU/camera.h",
 		"/home/wlew/Desktop/raytrace_renderer/src_CPU/canvas.h",
-		"/home/wlew/Desktop/raytrace_renderer/src_CPU/main.cpp",
 		"/home/wlew/Desktop/raytrace_renderer/project.sublime-project",
 		"/home/wlew/Desktop/raytrace_renderer/src_CPU/ray.h",
-		"/home/wlew/Desktop/raytrace_renderer/src_CPU/world.h",
 		"/C/Users/William/Desktop/raytrace_renderer/src_CPU/ray.h",
 		"/C/Users/William/Desktop/raytrace_renderer/src_CPU/sphere.h",
 		"/home/wlew/Desktop/raytrace_renderer/run-cpu.sh",
@@ -1020,15 +1035,11 @@
 		"/C/Users/William/.ssh/id_rsa.pub",
 		"/C/Users/William/.ssh/id_rsa",
 		"/C/Users/William/AppData/Roaming/Sublime Text 3/Packages/User/Terminal (Windows).sublime-settings",
-		"/C/Users/William/AppData/Roaming/Sublime Text 3/Packages/User/Terminal.sublime-settings",
-		"/C/Users/William Lew/Desktop/vulkan_phong/src/test_object.cpp",
-		"/C/Users/William Lew/Desktop/vulkan_phong/src/test_object.h",
-		"/C/Users/William Lew/Desktop/vulkan_phong/shaders/test.frag",
-		"/C/Users/William Lew/Desktop/vulkan_phong/shaders/test.vert"
+		"/C/Users/William/AppData/Roaming/Sublime Text 3/Packages/User/Terminal.sublime-settings"
 	],
 	"find":
 	{
-		"height": 22.0
+		"height": 40.0
 	},
 	"find_in_files":
 	{
@@ -1043,6 +1054,11 @@
 		"case_sensitive": true,
 		"find_history":
 		[
+			"PATTERNS",
+			"i",
+			"N",
+			"y",
+			"x",
 			"Shape",
 			"radius",
 			"normalAt",
@@ -1099,8 +1115,38 @@
 	"groups":
 	[
 		{
+			"selected": 0,
 			"sheets":
 			[
+				{
+					"buffer": 0,
+					"file": "src_GPU/matrix.h",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 4101,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								152,
+								152
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/C++/C++.sublime-syntax",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 147.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				}
 			]
 		}
 	],

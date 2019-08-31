@@ -2,6 +2,7 @@
 #include <algorithm>
 #include "shape.h"
 #include "transform.h"
+#include "analysis.h"
 
 const float EPSILON_NOISE = 0.01;
 
@@ -246,14 +247,22 @@ Tuple shadeHit(World world, Precomputed precomputed) {
 }
 
 Tuple colorAt(World world, Ray ray) {
+	Analysis::begin();
+
+	Tuple color = createColor(0, 0, 0);
+
 	int intersectionCount;
 	Intersection* intersections = intersectWorld(world, ray, intersectionCount);
 
 	if (intersectionCount > 0) {
 		Intersection* closestHit = hit(intersections, intersectionCount);
 		Precomputed computation = prepareComputations(*closestHit, ray);
-		return shadeHit(world, computation);
+
+		color = shadeHit(world, computation);
 	}
 
-	return createColor(0, 0, 0);
+	Analysis::end();
+	Analysis::print();
+
+	return color;
 }
