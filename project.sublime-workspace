@@ -519,24 +519,6 @@
 	},
 	"buffers":
 	[
-		{
-			"file": "src_GPU/main.cu",
-			"settings":
-			{
-				"buffer_size": 905,
-				"encoding": "UTF-8",
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "/home/wlew/Desktop/hello.cu",
-			"settings":
-			{
-				"buffer_size": 928,
-				"encoding": "UTF-8",
-				"line_ending": "Unix"
-			}
-		}
 	],
 	"build_system": "raytrace_renderer CPU",
 	"build_system_choices":
@@ -915,6 +897,8 @@
 	],
 	"file_history":
 	[
+		"/home/wlew/Desktop/raytrace_renderer/src_GPU/main.cu",
+		"/home/wlew/Desktop/hello.cu",
 		"/home/wlew/Desktop/raytrace_renderer/compile-run-gpu.sh",
 		"/home/wlew/Desktop/raytrace_renderer/monitor-gpu.sh",
 		"/home/wlew/Desktop/raytrace_renderer/src_CPU/light.h",
@@ -1040,9 +1024,7 @@
 		"/C/Users/William Lew/Desktop/vulkan_phong/src/test_object.cpp",
 		"/C/Users/William Lew/Desktop/vulkan_phong/src/test_object.h",
 		"/C/Users/William Lew/Desktop/vulkan_phong/shaders/test.frag",
-		"/C/Users/William Lew/Desktop/vulkan_phong/shaders/test.vert",
-		"/C/Users/William Lew/Desktop/vulkan_phong/shaders/basic.frag",
-		"/C/Users/William Lew/Desktop/vulkan_phong/shaders/basic.vert"
+		"/C/Users/William Lew/Desktop/vulkan_phong/shaders/test.vert"
 	],
 	"find":
 	{
@@ -1117,69 +1099,8 @@
 	"groups":
 	[
 		{
-			"selected": 0,
 			"sheets":
 			[
-				{
-					"buffer": 0,
-					"file": "src_GPU/main.cu",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 905,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								493,
-								493
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/C++/C++.sublime-syntax",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 0,
-					"type": "text"
-				},
-				{
-					"buffer": 1,
-					"file": "/home/wlew/Desktop/hello.cu",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 928,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								928,
-								928
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Text/Plain text.tmLanguage",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 1,
-					"type": "text"
-				}
 			]
 		}
 	],
