@@ -1,7 +1,6 @@
 #include "canvas.h"
 #include "world.h"
 #include "camera.h"
-#include "analysis.h"
 
 const int SCREENWIDTH = 100;
 const int SCREENHEIGHT = 50;
