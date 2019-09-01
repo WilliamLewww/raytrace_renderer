@@ -4,6 +4,10 @@
 		"selected_items":
 		[
 			[
+				"fin",
+				"finishList\tabc"
+			],
+			[
 				"norm",
 				"normalV\tabc"
 			],
@@ -510,22 +514,35 @@
 			[
 				"positi",
 				"positionBufferInfo\tabc"
-			],
-			[
-				"positionBu",
-				"positionBufferMemory\t(engine.h)"
 			]
 		]
 	},
 	"buffers":
 	[
 		{
-			"file": "src_GPU/matrix.h",
+			"file": "src_GPU/world.h",
 			"settings":
 			{
-				"buffer_size": 4101,
+				"buffer_size": 9324,
 				"encoding": "UTF-8",
-				"line_ending": "Windows"
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "src_GPU/analysis.h",
+			"settings":
+			{
+				"buffer_size": 656,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "src_GPU/main.cu",
+			"settings":
+			{
+				"buffer_size": 1000,
+				"line_ending": "Unix"
 			}
 		}
 	],
@@ -901,19 +918,17 @@
 	},
 	"expanded_folders":
 	[
-		"/home/wlew/Desktop/raytrace_renderer",
-		"/home/wlew/Desktop/raytrace_renderer/dump",
-		"/home/wlew/Desktop/raytrace_renderer/src_CPU",
-		"/home/wlew/Desktop/raytrace_renderer/src_GPU"
+		"/home/wlew/Desktop/raytrace_renderer"
 	],
 	"file_history":
 	[
+		"/home/wlew/Desktop/raytrace_renderer/src_CPU/world.h",
+		"/home/wlew/Desktop/raytrace_renderer/src_GPU/world.h",
+		"/home/wlew/Desktop/raytrace_renderer/src_GPU/matrix.h",
 		"/home/wlew/Desktop/raytrace_renderer/src_CPU/main.cpp",
 		"/home/wlew/Desktop/raytrace_renderer/src_GPU/main.cu",
 		"/home/wlew/Desktop/raytrace_renderer/src_CPU/light.h",
-		"/home/wlew/Desktop/raytrace_renderer/src_CPU/world.h",
 		"/home/wlew/Desktop/raytrace_renderer/src_GPU/light.h",
-		"/home/wlew/Desktop/raytrace_renderer/src_GPU/matrix.h",
 		"/home/wlew/Desktop/raytrace_renderer/src_GPU/sample.cu",
 		"/home/wlew/Desktop/raytrace_renderer/src_GPU/canvas.h",
 		"/home/wlew/Desktop/hello.cu",
@@ -1034,8 +1049,7 @@
 		"/C/Users/William/Downloads/default.html",
 		"/C/Users/William/.ssh/id_rsa.pub",
 		"/C/Users/William/.ssh/id_rsa",
-		"/C/Users/William/AppData/Roaming/Sublime Text 3/Packages/User/Terminal (Windows).sublime-settings",
-		"/C/Users/William/AppData/Roaming/Sublime Text 3/Packages/User/Terminal.sublime-settings"
+		"/C/Users/William/AppData/Roaming/Sublime Text 3/Packages/User/Terminal (Windows).sublime-settings"
 	],
 	"find":
 	{
@@ -1054,6 +1068,7 @@
 		"case_sensitive": true,
 		"find_history":
 		[
+			"print",
 			"PATTERNS",
 			"i",
 			"N",
@@ -1115,24 +1130,24 @@
 	"groups":
 	[
 		{
-			"selected": 0,
+			"selected": 1,
 			"sheets":
 			[
 				{
 					"buffer": 0,
-					"file": "src_GPU/matrix.h",
+					"file": "src_GPU/world.h",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 4101,
+						"buffer_size": 9324,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								152,
-								152
+								9008,
+								9008
 							]
 						],
 						"settings":
@@ -1141,10 +1156,67 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 147.0,
+						"translation.y": 3010.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "src_GPU/analysis.h",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 656,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								487,
+								487
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/C++/C++.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 0,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "src_GPU/main.cu",
+					"semi_transient": true,
+					"settings":
+					{
+						"buffer_size": 1000,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								932,
+								932
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/C++/C++.sublime-syntax",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
 					"type": "text"
 				}
 			]
@@ -1207,6 +1279,18 @@
 		"selected_items":
 		[
 			[
+				"worl",
+				"src_GPU/world.h"
+			],
+			[
+				"ana",
+				"src_GPU/analysis.h"
+			],
+			[
+				"wor",
+				"src_CPU/world.h"
+			],
+			[
 				"sh",
 				"src_CPU\\shape.h"
 			],
@@ -1249,10 +1333,6 @@
 			[
 				"can",
 				"src_CPU/canvas.h"
-			],
-			[
-				"wor",
-				"src_CPU/world.h"
 			],
 			[
 				"mai",

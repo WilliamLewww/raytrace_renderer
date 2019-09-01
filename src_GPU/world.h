@@ -247,22 +247,29 @@ Tuple shadeHit(World world, Precomputed precomputed) {
 }
 
 Tuple colorAt(World world, Ray ray) {
-	Analysis::begin();
-
 	Tuple color = createColor(0, 0, 0);
+
+	Analysis::begin();
 
 	int intersectionCount;
 	Intersection* intersections = intersectWorld(world, ray, intersectionCount);
 
+	Analysis::end();
+	Analysis::appendDuration(0);
+
 	if (intersectionCount > 0) {
 		Intersection* closestHit = hit(intersections, intersectionCount);
+
+		Analysis::begin();
 		Precomputed computation = prepareComputations(*closestHit, ray);
+		Analysis::end();
+		Analysis::appendDuration(1);
 
+		Analysis::begin();
 		color = shadeHit(world, computation);
+		Analysis::end();
+		Analysis::appendDuration(2);
 	}
-
-	Analysis::end();
-	Analysis::print();
 
 	return color;
 }
