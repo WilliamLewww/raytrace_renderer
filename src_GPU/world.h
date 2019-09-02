@@ -254,6 +254,6 @@ Tuple colorAt(World world, Ray ray) {
 
 	Analysis::end();
 	Analysis::appendDuration(0);
-
+	
 	return color;
 }

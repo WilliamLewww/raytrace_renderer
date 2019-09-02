@@ -1,0 +1,1 @@
+(cd dump && ../bin/raytrace_renderer_gpu image.ppm)
