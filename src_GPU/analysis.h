@@ -2,6 +2,7 @@
 #include <iostream>
 #include <chrono>
 #include <vector>
+#include <fstream>
 
 class Analysis {
 private:
@@ -46,6 +47,10 @@ public:
 
 		std::cout << "Total: " << averageT << std::endl;
 		std::cout << std::endl;
+	}
+
+	inline static void saveToFile() {
+		
 	}
 };
 

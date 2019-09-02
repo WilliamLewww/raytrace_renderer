@@ -1,5 +1,6 @@
 #pragma once
 #include <algorithm>
+#include <vector>
 #include "shape.h"
 #include "transform.h"
 #include "analysis.h"
@@ -171,32 +172,23 @@ World createWorld2() {
 }
 
 bool sortIntersections(Intersection intersectionA, Intersection intersectionB) {
-    return intersectionA.t < intersectionB.t;
+    return intersectionA.t > intersectionB.t;
 }
 
 Intersection* intersectWorld(World world, Ray ray, int& intersectionCount) {
-	int totalIntersectionCount = 0;
 	int tempIntersectionCount;
-	for (int x = 0; x < world.shapeCount; x++) {
-		intersect(world.shapeArray[x], ray, tempIntersectionCount);
-		totalIntersectionCount += tempIntersectionCount;
-	}
-	intersectionCount = totalIntersectionCount;
-
-	Intersection* intersection = new Intersection[totalIntersectionCount];
-	int currentIntersection = 0;
+	std::vector<Intersection> intersection;
 	for (int x = 0; x < world.shapeCount; x++) {
 		Intersection* tempIntersections = intersect(world.shapeArray[x], ray, tempIntersectionCount);
-		if (tempIntersectionCount > 0) {
-			for (int y = 0; y < tempIntersectionCount; y++) {
-				intersection[currentIntersection] = tempIntersections[y];
-				currentIntersection += 1;
-			}
+		for (int y = 0; y < tempIntersectionCount; y++) {
+			intersection.push_back(tempIntersections[y]);
 		}
 	}
 
-	std::sort(intersection, intersection + totalIntersectionCount, &sortIntersections);
-	return intersection;
+	std::sort(intersection.begin(), intersection.end(), sortIntersections);
+
+	intersectionCount = intersection.size();
+	return intersection.data();
 }
 
 Precomputed prepareComputations(Intersection intersection, Ray ray) {
@@ -254,22 +246,14 @@ Tuple colorAt(World world, Ray ray) {
 	int intersectionCount;
 	Intersection* intersections = intersectWorld(world, ray, intersectionCount);
 
-	Analysis::end();
-	Analysis::appendDuration(0);
-
 	if (intersectionCount > 0) {
 		Intersection* closestHit = hit(intersections, intersectionCount);
-
-		Analysis::begin();
 		Precomputed computation = prepareComputations(*closestHit, ray);
-		Analysis::end();
-		Analysis::appendDuration(1);
-
-		Analysis::begin();
 		color = shadeHit(world, computation);
-		Analysis::end();
-		Analysis::appendDuration(2);
 	}
+
+	Analysis::end();
+	Analysis::appendDuration(0);
 
 	return color;
 }
