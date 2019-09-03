@@ -1,8 +1,7 @@
 #pragma once
 #include <iostream>
 #include <cmath>
-
-const float EPSILON_COMPARISON = 0.00001;
+#include "constants.h"
 
 struct Tuple {
 	float x;

@@ -2,8 +2,7 @@
 #include <algorithm>
 #include "shape.h"
 #include "transform.h"
-
-const float EPSILON_NOISE = 0.001;
+#include "constants.h"
 
 struct Precomputed {
 	float t;
