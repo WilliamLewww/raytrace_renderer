@@ -10,6 +10,7 @@ struct Camera {
 	float fieldOfView;
 
 	Matrix viewMatrix;
+	Matrix inverseViewMatrix;
 
 	float halfWidth;
 	float halfHeight;
@@ -63,20 +64,14 @@ Ray rayForPixel(Camera camera, int x, int y) {
 	float worldX = camera.halfWidth - offsetX;
 	float worldY = camera.halfHeight - offsetY;
 
-	Analysis::begin();
-	inverse(camera.viewMatrix);
-	inverse(camera.viewMatrix);
-	Analysis::end(0);
-
-	Analysis::begin();
-	inverseGPU(camera.viewMatrix);
-	inverseGPU(camera.viewMatrix);
-	Analysis::end(1);
-
-	Tuple pixel = inverse(camera.viewMatrix) * createPoint(worldX, worldY, -1);
-	Tuple origin = inverse(camera.viewMatrix) * createPoint(0, 0, 0);
+	Tuple pixel = camera.inverseViewMatrix * createPoint(worldX, worldY, -1);
+	Tuple origin = camera.inverseViewMatrix * createPoint(0, 0, 0);
 
 	Tuple direction = normalize(pixel - origin);
 
 	return createRay(origin, direction);
+}
+
+Matrix computeInverseViewMatrix(Camera camera) {
+	return inverse(camera.viewMatrix);
 }

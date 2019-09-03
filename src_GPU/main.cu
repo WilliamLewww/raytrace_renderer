@@ -27,8 +27,7 @@ Canvas* render(Camera camera, World world) {
 
 int main(int argc, const char** argv) {
 	Analysis::setAbsoluteStart();
-	Analysis::createLabel(0, "inverse-rayForPixel-CPU");
-	Analysis::createLabel(1, "inverse-rayForPixel-GPU");
+	Analysis::createLabel(0, "inverse");
 
 	World world = createWorld2();
 	
@@ -37,6 +36,7 @@ int main(int argc, const char** argv) {
 	Tuple to = createPoint(0, 1, 0);
 	Tuple up = createVector(0, 1, 0);
 	camera.viewMatrix = createViewMatrix(from, to, up);
+	camera.inverseViewMatrix = computeInverseViewMatrix(camera);
 
 	Canvas* canvas = render(camera, world);
 	canvas->saveToFile(argv[1]);

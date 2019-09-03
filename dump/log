@@ -138,3 +138,90 @@ inverse-rayForPixel-CPU [0]: 31
 inverse-rayForPixel-GPU [1]: 0
 Total: 1850842 (1.85084s)
 
+Tue Sep  3 12:39:02 2019
+image resolution: 100x50
+inverse-rayForPixel-CPU [0]: 31
+inverse-rayForPixel-GPU [1]: 0
+Total: 1780312 (1.78031s)
+
+Tue Sep  3 12:41:18 2019
+image resolution: 100x50
+inverse-rayForPixel-CPU [0]: 37
+inverse-rayForPixel-GPU [1]: 49
+Total: 2399574 (2.39957s)
+
+Tue Sep  3 12:42:36 2019
+image resolution: 100x50
+inverse-rayForPixel-CPU [0]: 38
+inverse-rayForPixel-GPU [1]: 692
+Total: 5688769 (5.68877s)
+
+Tue Sep  3 12:43:00 2019
+image resolution: 100x50
+inverse-rayForPixel-CPU [0]: 38
+inverse-rayForPixel-GPU [1]: 673
+Total: 5580078 (5.58008s)
+
+Tue Sep  3 12:43:18 2019
+image resolution: 100x50
+inverse-rayForPixel-CPU [0]: 38
+inverse-rayForPixel-GPU [1]: 702
+Total: 5696718 (5.69672s)
+
+Tue Sep  3 12:45:01 2019
+image resolution: 100x50
+Total: 1878002 (1.878s)
+
+Tue Sep  3 12:48:40 2019
+image resolution: 100x50
+Total: 1525197 (1.5252s)
+
+Tue Sep  3 12:48:45 2019
+image resolution: 100x50
+Total: 1484828 (1.48483s)
+
+Tue Sep  3 12:48:50 2019
+image resolution: 100x50
+Total: 1613271 (1.61327s)
+
+Tue Sep  3 12:49:12 2019
+image resolution: 100x50
+Total: 1682197 (1.6822s)
+
+Tue Sep  3 12:49:17 2019
+image resolution: 100x50
+Total: 1690033 (1.69003s)
+
+Tue Sep  3 12:49:21 2019
+image resolution: 100x50
+Total: 1679392 (1.67939s)
+
+Tue Sep  3 12:49:33 2019
+image resolution: 100x50
+Total: 1540147 (1.54015s)
+
+Tue Sep  3 12:49:37 2019
+image resolution: 100x50
+Total: 1522067 (1.52207s)
+
+Tue Sep  3 12:49:41 2019
+image resolution: 100x50
+Total: 1516700 (1.5167s)
+
+Tue Sep  3 12:49:45 2019
+image resolution: 100x50
+Total: 1561233 (1.56123s)
+
+Tue Sep  3 12:50:02 2019
+image resolution: 100x50
+Total: 1523658 (1.52366s)
+
+Tue Sep  3 12:50:06 2019
+image resolution: 100x50
+Total: 1586011 (1.58601s)
+
+Tue Sep  3 12:50:40 2019
+image resolution: 100x50
+inverse-rayForPixel [0]: 22
+Total: 1528798 (1.5288s)
+
