@@ -1,5 +1,4 @@
 #include <iostream>
-#include <math.h>
 
 __global__
 void add(int n, float *x, float *y) {
@@ -29,7 +28,7 @@ int main() {
 	cudaDeviceSynchronize();
 
 	for (int x = 0; x < count; x++) {
-		std::cout << second[y] << std::endl;
+		std::cout << second[x] << std::endl;
 	}
 
 	cudaFree(first);
