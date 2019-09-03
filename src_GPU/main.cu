@@ -3,8 +3,8 @@
 #include "camera.h"
 #include "analysis.h"
 
-const int SCREENWIDTH = 100;
-const int SCREENHEIGHT = 50;
+const int SCREENWIDTH = 500;
+const int SCREENHEIGHT = 250;
 
 Canvas* render(Camera camera, World world) {
 	Canvas* canvas = new Canvas(camera.hSize, camera.vSize);
@@ -27,7 +27,7 @@ Canvas* render(Camera camera, World world) {
 
 int main(int argc, const char** argv) {
 	Analysis::setAbsoluteStart();
-	Analysis::createLabel(0, "inverse");
+	Analysis::createLabel(0, "rayForPixel");
 
 	World world = createWorld2();
 	

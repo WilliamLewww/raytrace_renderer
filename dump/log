@@ -225,3 +225,217 @@ image resolution: 100x50
 inverse-rayForPixel [0]: 22
 Total: 1528798 (1.5288s)
 
+Tue Sep  3 12:52:32 2019
+image resolution: 100x50
+Total: 1535181 (1.53518s)
+
+Tue Sep  3 12:52:36 2019
+image resolution: 100x50
+Total: 1527354 (1.52735s)
+
+Tue Sep  3 12:52:38 2019
+image resolution: 100x50
+Total: 1547458 (1.54746s)
+
+Tue Sep  3 12:52:47 2019
+image resolution: 100x50
+Total: 1555319 (1.55532s)
+
+Tue Sep  3 12:52:56 2019
+image resolution: 200x100
+Total: 5997542 (5.99754s)
+
+Tue Sep  3 12:53:15 2019
+image resolution: 200x100
+Total: 6625524 (6.62552s)
+
+Tue Sep  3 12:53:25 2019
+image resolution: 200x100
+Total: 6411262 (6.41126s)
+
+Tue Sep  3 12:53:41 2019
+image resolution: 200x100
+Total: 5960295 (5.9603s)
+
+Tue Sep  3 12:53:49 2019
+image resolution: 200x100
+Total: 5931143 (5.93114s)
+
+Tue Sep  3 12:54:01 2019
+image resolution: 200x100
+Total: 5819687 (5.81969s)
+
+Tue Sep  3 12:54:07 2019
+image resolution: 200x100
+Total: 5962884 (5.96288s)
+
+Tue Sep  3 12:55:00 2019
+image resolution: 200x100
+Total: 5951597 (5.9516s)
+
+Tue Sep  3 12:55:53 2019
+image resolution: 500x250
+Total: 40740370 (40.7404s)
+
+Tue Sep  3 12:57:02 2019
+image resolution: 500x250
+Total: 43502221 (43.5022s)
+
+Tue Sep  3 12:57:59 2019
+image resolution: 500x250
+Total: 43470237 (43.4702s)
+
+Tue Sep  3 12:59:25 2019
+image resolution: 500x250
+Total: 38736859 (38.7369s)
+
+Tue Sep  3 13:03:08 2019
+image resolution: 500x250
+Total: 38771932 (38.7719s)
+
+Tue Sep  3 13:07:02 2019
+image resolution: 500x250
+Total: 38367263 (38.3673s)
+
+Tue Sep  3 13:09:09 2019
+image resolution: 500x250
+rayForPixel [0]: 0
+Total: 38507300 (38.5073s)
+
+Tue Sep  3 13:10:24 2019
+image resolution: 500x250
+Total: 38171320 (38.1713s)
+
+Tue Sep  3 13:10:49 2019
+image resolution: 100x50
+Total: 1505252 (1.50525s)
+
+Tue Sep  3 13:11:05 2019
+image resolution: 200x100
+Total: 5894096 (5.8941s)
+
+Tue Sep  3 13:11:15 2019
+image resolution: 200x100
+Total: 5894473 (5.89447s)
+
+Tue Sep  3 13:14:28 2019
+image resolution: 200x100
+rayForPixel [0]: 58
+Total: 5955586 (5.95559s)
+
+Tue Sep  3 13:17:45 2019
+image resolution: 200x100
+Total: 338711 (0.338711s)
+
+Tue Sep  3 13:20:44 2019
+image resolution: 200x100
+Total: 836369 (0.836369s)
+
+Tue Sep  3 13:21:09 2019
+image resolution: 200x100
+Total: 852402 (0.852402s)
+
+Tue Sep  3 13:22:28 2019
+image resolution: 200x100
+Total: 2791181 (2.79118s)
+
+Tue Sep  3 13:22:54 2019
+image resolution: 200x100
+Total: 5884994 (5.88499s)
+
+Tue Sep  3 13:23:29 2019
+image resolution: 200x100
+Total: 2000634 (2.00063s)
+
+Tue Sep  3 13:24:28 2019
+image resolution: 200x100
+Total: 1878100 (1.8781s)
+
+Tue Sep  3 13:26:12 2019
+image resolution: 200x100
+Total: 2007503 (2.0075s)
+
+Tue Sep  3 13:26:30 2019
+image resolution: 200x100
+Total: 2004821 (2.00482s)
+
+Tue Sep  3 13:26:47 2019
+image resolution: 200x100
+Total: 2135225 (2.13523s)
+
+Tue Sep  3 13:27:27 2019
+image resolution: 200x100
+Total: 2017322 (2.01732s)
+
+Tue Sep  3 13:30:12 2019
+image resolution: 200x100
+Total: 2683429 (2.68343s)
+
+Tue Sep  3 13:31:09 2019
+image resolution: 200x100
+Total: 2736571 (2.73657s)
+
+Tue Sep  3 13:31:36 2019
+image resolution: 200x100
+Total: 2683550 (2.68355s)
+
+Tue Sep  3 13:31:52 2019
+image resolution: 200x100
+Total: 2639757 (2.63976s)
+
+Tue Sep  3 13:32:26 2019
+image resolution: 200x100
+Total: 2736017 (2.73602s)
+
+Tue Sep  3 13:33:04 2019
+image resolution: 200x100
+Total: 2671952 (2.67195s)
+
+Tue Sep  3 13:33:18 2019
+image resolution: 200x100
+Total: 2633957 (2.63396s)
+
+Tue Sep  3 13:34:12 2019
+image resolution: 200x100
+Total: 3257011 (3.25701s)
+
+Tue Sep  3 13:34:27 2019
+image resolution: 200x100
+Total: 3314792 (3.31479s)
+
+Tue Sep  3 13:35:09 2019
+image resolution: 200x100
+Total: 3864535 (3.86454s)
+
+Tue Sep  3 13:35:29 2019
+image resolution: 200x100
+Total: 3850760 (3.85076s)
+
+Tue Sep  3 13:35:44 2019
+image resolution: 200x100
+Total: 3917730 (3.91773s)
+
+Tue Sep  3 13:36:21 2019
+image resolution: 200x100
+Total: 3847858 (3.84786s)
+
+Tue Sep  3 13:36:38 2019
+image resolution: 200x100
+Total: 3915827 (3.91583s)
+
+Tue Sep  3 13:37:17 2019
+image resolution: 200x100
+Total: 3939057 (3.93906s)
+
+Tue Sep  3 13:37:39 2019
+image resolution: 200x100
+Total: 3903423 (3.90342s)
+
+Tue Sep  3 13:38:42 2019
+image resolution: 200x100
+Total: 5921195 (5.92119s)
+
+Tue Sep  3 13:40:49 2019
+image resolution: 500x250
+Total: 38235257 (38.2353s)
+

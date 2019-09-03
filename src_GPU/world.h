@@ -169,6 +169,53 @@ World createWorld2() {
 	return world;
 }
 
+World createWorld3() {
+	World world;
+
+	world.pointLightCount = 1;
+	world.shapeCount = 5;
+
+	world.lightArray = new PointLight[world.pointLightCount];
+	world.lightArray[0] = createPointLight(createPoint(5, 5, -10), createColor(1, 1, 1));
+
+	world.shapeArray = new Shape[world.shapeCount];
+
+	world.shapeArray[0] = createPlane();
+	world.shapeArray[0].material = createMaterial();
+	world.shapeArray[0].material.color = createColor(1.0, 0.98, 0.98);
+	world.shapeArray[0].material.specular = 0;
+	world.shapeArray[0].modelMatrix = createIdentityMatrix(4);
+
+	world.shapeArray[1] = createPlane();
+	world.shapeArray[1].material = createMaterial();
+	world.shapeArray[1].material.color = createColor(0.52, 0.81, 0.92);
+	world.shapeArray[1].material.specular = 0;
+	world.shapeArray[1].modelMatrix = createTranslateMatrix(0, 0, 10) * createRotationMatrixX(-M_PI / 4);
+
+	world.shapeArray[2] = createSphere();
+	world.shapeArray[2].material = createMaterial();
+	world.shapeArray[2].material.color = createColor(0.94, 0.92, 0.84);
+	world.shapeArray[2].material.diffuse = 0.7;
+	world.shapeArray[2].material.specular = 0.3;
+	world.shapeArray[2].modelMatrix = createTranslateMatrix(0, 0.25, 0.5) * createScaleMatrix(0.75, 0.75, 0.75);
+
+	world.shapeArray[3] = createSphere();
+	world.shapeArray[3].material = createMaterial();
+	world.shapeArray[3].material.color = createColor(0.94, 0.92, 0.84);
+	world.shapeArray[3].material.diffuse = 0.7;
+	world.shapeArray[3].material.specular = 0.3;
+	world.shapeArray[3].modelMatrix = createTranslateMatrix(0, 1.25, 0.5) * createScaleMatrix(0.5, 0.5, 0.5);
+
+	world.shapeArray[4] = createSphere();
+	world.shapeArray[4].material = createMaterial();
+	world.shapeArray[4].material.color = createColor(0.94, 0.92, 0.84);
+	world.shapeArray[4].material.diffuse = 0.7;
+	world.shapeArray[4].material.specular = 0.3;
+	world.shapeArray[4].modelMatrix = createTranslateMatrix(0, 1.85, 0.5) * createScaleMatrix(0.25, 0.25, 0.25);
+
+	return world;
+}
+
 bool sortIntersections(Intersection intersectionA, Intersection intersectionB) {
     return intersectionA.t >= intersectionB.t;
 }
