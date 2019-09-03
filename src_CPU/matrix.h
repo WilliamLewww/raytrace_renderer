@@ -1,7 +1,5 @@
 #pragma once
 
-//FIX MEMORY LEAK
-
 struct Matrix {
 	float** data;
 

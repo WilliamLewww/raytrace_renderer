@@ -36,4 +36,6 @@ int main(int argc, const char** argv) {
 	Canvas* canvas = render(camera, world);
 	canvas->saveToFile(argv[1]);
 	std::cout << "saved image as: [" << argv[1] << "]" << std::endl;
+
+	delete canvas;
 }
