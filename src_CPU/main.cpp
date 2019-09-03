@@ -38,4 +38,5 @@ int main(int argc, const char** argv) {
 	std::cout << "saved image as: [" << argv[1] << "]" << std::endl;
 
 	delete canvas;
+	return 0;
 }

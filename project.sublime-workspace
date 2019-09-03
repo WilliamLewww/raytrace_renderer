@@ -4,6 +4,10 @@
 		"selected_items":
 		[
 			[
+				"SCR",
+				"SCREENHEIGHT\tabc"
+			],
+			[
 				"AN",
 				"Analysis::end\t(world.h)"
 			],
@@ -54,10 +58,6 @@
 			[
 				"SCRE",
 				"SCREENHEIGHT\tabc"
-			],
-			[
-				"SCR",
-				"SCREENWIDTH\tabc"
 			],
 			[
 				"createRo",
@@ -519,6 +519,32 @@
 	},
 	"buffers":
 	[
+		{
+			"file": "src_CPU/main.cpp",
+			"settings":
+			{
+				"buffer_size": 1017,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "src_CPU/camera.h",
+			"settings":
+			{
+				"buffer_size": 1933,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "src_CPU/matrix.h",
+			"settings":
+			{
+				"buffer_size": 4113,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		}
 	],
 	"build_system": "raytrace_renderer CPU",
 	"build_system_choices":
@@ -893,33 +919,36 @@
 	"expanded_folders":
 	[
 		"/home/wlew/Desktop/raytrace_renderer",
-		"/home/wlew/Desktop/raytrace_renderer/src_CPU"
+		"/home/wlew/Desktop/raytrace_renderer/src_CPU",
+		"/home/wlew/Desktop/raytrace_renderer/src_GPU"
 	],
 	"file_history":
 	[
+		"/home/wlew/Desktop/raytrace_renderer/src_CPU/camera.h",
 		"/home/wlew/Desktop/raytrace_renderer/src_CPU/main.cpp",
+		"/home/wlew/Desktop/csc300_notes",
+		"/home/wlew/Desktop/raytrace_renderer/src_CPU/matrix.h",
 		"/home/wlew/Desktop/raytrace_renderer/src_CPU/canvas.h",
+		"/home/wlew/Desktop/raytrace_renderer/src_GPU/main.cu",
+		"/home/wlew/Desktop/raytrace_renderer/src_GPU/tuple.h",
+		"/home/wlew/Desktop/raytrace_renderer/src_GPU/canvas.h",
+		"/home/wlew/Desktop/raytrace_renderer/src_GPU/sample.cu",
 		"/home/wlew/Desktop/raytrace_renderer/src_CPU/light.h",
 		"/home/wlew/Desktop/raytrace_renderer/src_GPU/shape.h",
-		"/home/wlew/Desktop/raytrace_renderer/src_GPU/main.cu",
 		"/home/wlew/Desktop/raytrace_renderer/src_GPU/analysis.h",
 		"/home/wlew/Desktop/raytrace_renderer/src_GPU/world.h",
 		"/home/wlew/Desktop/raytrace_renderer/src_GPU/matrix.h",
-		"/home/wlew/Desktop/raytrace_renderer/src_CPU/matrix.h",
 		"/home/wlew/Desktop/raytrace_renderer/run-GPU.sh",
 		"/home/wlew/Desktop/raytrace_renderer/compile-run-GPU.sh",
 		"/home/wlew/Desktop/raytrace_renderer/src_CPU/shape.h",
 		"/home/wlew/Desktop/raytrace_renderer/monitor-run-GPU.sh",
 		"/home/wlew/Desktop/raytrace_renderer/src_CPU/world.h",
 		"/home/wlew/Desktop/raytrace_renderer/src_GPU/light.h",
-		"/home/wlew/Desktop/raytrace_renderer/src_GPU/sample.cu",
-		"/home/wlew/Desktop/raytrace_renderer/src_GPU/canvas.h",
 		"/home/wlew/Desktop/hello.cu",
 		"/home/wlew/Desktop/raytrace_renderer/compile-run-gpu.sh",
 		"/home/wlew/Desktop/raytrace_renderer/monitor-gpu.sh",
 		"/home/wlew/Desktop/raytrace_renderer/src_CPU/tuple.h",
 		"/home/wlew/Desktop/raytrace_renderer/src_CPU/transform.h",
-		"/home/wlew/Desktop/raytrace_renderer/src_CPU/camera.h",
 		"/home/wlew/Desktop/raytrace_renderer/project.sublime-project",
 		"/home/wlew/Desktop/raytrace_renderer/src_CPU/ray.h",
 		"/C/Users/William/Desktop/raytrace_renderer/src_CPU/ray.h",
@@ -1022,9 +1051,7 @@
 		"/C/Users/William/Desktop/vulkan_phong/nsight_vulkan_phong/CppCaptures/Vulkan-Phong__2019_07_26__18_00_10/args.hxx",
 		"/C/Users/William/Desktop/terrain.mtl",
 		"/C/Users/William/Desktop/model.obj",
-		"/C/Users/William/Desktop/vulkan_phong/shaders/basic.vert",
-		"/C/Users/William/Desktop/vulkan_phong/shaders/basic.frag",
-		"/C/Users/William/Desktop/vulkan_phong/shaders/test.vert"
+		"/C/Users/William/Desktop/vulkan_phong/shaders/basic.vert"
 	],
 	"find":
 	{
@@ -1043,6 +1070,14 @@
 		"case_sensitive": true,
 		"find_history":
 		[
+			"createMatrix",
+			"new",
+			"createMatrix",
+			"new",
+			"x",
+			"i",
+			"new",
+			"createMatrix",
 			"new",
 			"intersect",
 			"intersectWorld",
@@ -1117,8 +1152,96 @@
 	"groups":
 	[
 		{
+			"selected": 1,
 			"sheets":
 			[
+				{
+					"buffer": 0,
+					"file": "src_CPU/main.cpp",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1017,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								313,
+								313
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/C++/C++.sublime-syntax",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "src_CPU/camera.h",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1933,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								915,
+								915
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/C++/C++.sublime-syntax",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "src_CPU/matrix.h",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 4113,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								760,
+								760
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/C++/C++.sublime-syntax",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 107.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				}
 			]
 		}
 	],
@@ -1179,12 +1302,24 @@
 		"selected_items":
 		[
 			[
-				"sha",
-				"src_GPU/shape.h"
+				"matri",
+				"src_CPU/matrix.h"
 			],
 			[
-				"matri",
-				"src_GPU/matrix.h"
+				"camera",
+				"src_CPU/camera.h"
+			],
+			[
+				"mai",
+				"src_CPU/main.cpp"
+			],
+			[
+				"ca va",
+				"src_CPU/canvas.h"
+			],
+			[
+				"sha",
+				"src_GPU/shape.h"
 			],
 			[
 				"ma",
@@ -1243,20 +1378,12 @@
 				"src_CPU/light.h"
 			],
 			[
-				"camera",
-				"src_CPU/camera.h"
-			],
-			[
 				"ca",
 				"src_CPU/canvas.h"
 			],
 			[
 				"can",
 				"src_CPU/canvas.h"
-			],
-			[
-				"mai",
-				"src_CPU/main.cpp"
 			],
 			[
 				"matrix",
