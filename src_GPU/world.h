@@ -3,7 +3,7 @@
 #include "shape.h"
 #include "transform.h"
 
-const float EPSILON_NOISE = 0.01;
+const float EPSILON_NOISE = 0.001;
 
 struct Precomputed {
 	float t;
@@ -169,33 +169,27 @@ World createWorld2() {
 	return world;
 }
 
+#include <vector>
+
 bool sortIntersections(Intersection intersectionA, Intersection intersectionB) {
-    return intersectionA.t < intersectionB.t;
+    return intersectionA.t >= intersectionB.t;
 }
 
 Intersection* intersectWorld(World world, Ray ray, int& intersectionCount) {
-	int totalIntersectionCount = 0;
-	int tempIntersectionCount;
-	for (int x = 0; x < world.shapeCount; x++) {
-		intersect(world.shapeArray[x], ray, tempIntersectionCount);
-		totalIntersectionCount += tempIntersectionCount;
-	}
-	intersectionCount = totalIntersectionCount;
-
-	Intersection* intersection = new Intersection[totalIntersectionCount];
-	int currentIntersection = 0;
+	int tempIntersectionCount = 0;
+	std::vector<Intersection> intersections;
 	for (int x = 0; x < world.shapeCount; x++) {
 		Intersection* tempIntersections = intersect(world.shapeArray[x], ray, tempIntersectionCount);
-		if (tempIntersectionCount > 0) {
-			for (int y = 0; y < tempIntersectionCount; y++) {
-				intersection[currentIntersection] = tempIntersections[y];
-				currentIntersection += 1;
-			}
+
+		for (int y = 0; y < tempIntersectionCount; y++) {
+			intersections.push_back(tempIntersections[y]);
 		}
 	}
 
-	std::sort(intersection, intersection + totalIntersectionCount, &sortIntersections);
-	return intersection;
+	std::sort(intersections.begin(), intersections.end(), sortIntersections);
+
+	intersectionCount = intersections.size();
+	return intersections.data();
 }
 
 Precomputed prepareComputations(Intersection intersection, Ray ray) {
