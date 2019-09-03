@@ -3,8 +3,8 @@
 #include "camera.h"
 #include "analysis.h"
 
-const int SCREENWIDTH = 200;
-const int SCREENHEIGHT = 100;
+const int SCREENWIDTH = 100;
+const int SCREENHEIGHT = 50;
 
 Canvas* render(Camera camera, World world) {
 	Canvas* canvas = new Canvas(camera.hSize, camera.vSize);
@@ -27,8 +27,8 @@ Canvas* render(Camera camera, World world) {
 
 int main(int argc, const char** argv) {
 	Analysis::setAbsoluteStart();
-	Analysis::createLabel(0, "intersectWorld");
-	Analysis::createLabel(1, "prepareComputations");
+	Analysis::createLabel(0, "inverse-rayForPixel-CPU");
+	Analysis::createLabel(1, "inverse-rayForPixel-GPU");
 
 	World world = createWorld2();
 	

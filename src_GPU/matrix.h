@@ -170,3 +170,14 @@ Matrix inverse(Matrix matrix) {
 
 	return temp;
 }
+
+__global__
+void inverseKernel() {
+
+}
+
+Matrix inverseGPU(Matrix matrix) {
+	Matrix temp = createMatrix(matrix.rowCount, matrix.columnCount);
+
+	return temp;
+}

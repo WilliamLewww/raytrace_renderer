@@ -1,0 +1,140 @@
+Tue Sep  3 12:16:48 2019
+image resolution: 200x100
+intersectWorld [0]: 129
+prepareComputations [1]: 39
+Total: 6649575 (6.64957s)
+
+Tue Sep  3 12:17:20 2019
+image resolution: 100x50
+intersectWorld [0]: 130
+prepareComputations [1]: 39
+Total: 1670668 (1.67067s)
+
+Tue Sep  3 12:17:22 2019
+image resolution: 100x50
+intersectWorld [0]: 130
+prepareComputations [1]: 32
+Total: 1644163 (1.64416s)
+
+Tue Sep  3 12:17:27 2019
+image resolution: 100x50
+intersectWorld [0]: 131
+prepareComputations [1]: 39
+Total: 1681378 (1.68138s)
+
+Tue Sep  3 12:17:37 2019
+image resolution: 100x50
+intersectWorld [0]: 130
+prepareComputations [1]: 39
+Total: 1676545 (1.67654s)
+
+Tue Sep  3 12:17:42 2019
+image resolution: 100x50
+intersectWorld [0]: 132
+prepareComputations [1]: 40
+Total: 1695888 (1.69589s)
+
+Tue Sep  3 12:19:45 2019
+image resolution: 100x50
+intersectWorld [0]: 130
+prepareComputations [1]: 39
+Total: 1676002 (1.676s)
+
+Tue Sep  3 12:19:52 2019
+image resolution: 100x50
+ray-cast [0]: 1788072
+Total: 1789894 (1.78989s)
+
+Tue Sep  3 12:21:07 2019
+image resolution: 100x50
+rayForPixel [0]: 32
+colorAt [1]: 303
+setPixel [2]: 0
+Total: 1688894 (1.68889s)
+
+Tue Sep  3 12:22:19 2019
+image resolution: 100x50
+rayForPixel [0]: 32
+colorAt [1]: 308
+[2]: 0
+Total: 1712565 (1.71256s)
+
+Tue Sep  3 12:22:35 2019
+image resolution: 100x50
+rayForPixel [0]: 32
+colorAt [1]: 305
+Total: 1696706 (1.69671s)
+
+Tue Sep  3 12:25:36 2019
+image resolution: 100x50
+rayForPixel [0]: 31
+colorAt [1]: 299
+Total: 1666820 (1.66682s)
+
+Tue Sep  3 12:25:55 2019
+image resolution: 100x50
+inverse-pixel [0]: 15
+inverse-origin [1]: 15
+Total: 1664734 (1.66473s)
+
+Tue Sep  3 12:26:21 2019
+image resolution: 100x50
+inverse-rayForPixel [0]: 32
+Total: 1698740 (1.69874s)
+
+Tue Sep  3 12:26:58 2019
+image resolution: 100x50
+inverse-rayForPixel [0]: 31
+Total: 1832640 (1.83264s)
+
+Tue Sep  3 12:27:10 2019
+image resolution: 100x50
+inverse-rayForPixel [0]: 32
+Total: 1722793 (1.72279s)
+
+Tue Sep  3 12:30:08 2019
+image resolution: 100x50
+[0]: 2
+[1]: 12
+Total: 1691873 (1.69187s)
+
+Tue Sep  3 12:30:41 2019
+image resolution: 100x50
+[0]: 0
+[1]: 12
+Total: 1678742 (1.67874s)
+
+Tue Sep  3 12:31:10 2019
+image resolution: 100x50
+inverse-rayForPixel [0]: 33
+Total: 1750945 (1.75094s)
+
+Tue Sep  3 12:32:22 2019
+image resolution: 100x50
+inverse-rayForPixel-CPU [0]: 32
+inverse-rayForPixel-GPU [1]: 0
+Total: 1891903 (1.8919s)
+
+Tue Sep  3 12:34:34 2019
+image resolution: 100x50
+inverse-rayForPixel-CPU [0]: 343449
+Total: 2238585 (2.23859s)
+
+Tue Sep  3 12:35:08 2019
+image resolution: 100x50
+inverse-rayForPixel-CPU [0]: 31
+inverse-rayForPixel-GPU [1]: 0
+Total: 1862761 (1.86276s)
+
+Tue Sep  3 12:35:46 2019
+image resolution: 100x50
+inverse-rayForPixel-CPU [0]: 32
+inverse-rayForPixel-GPU [1]: 0
+Total: 1908719 (1.90872s)
+
+Tue Sep  3 12:37:09 2019
+image resolution: 100x50
+inverse-rayForPixel-CPU [0]: 31
+inverse-rayForPixel-GPU [1]: 0
+Total: 1850842 (1.85084s)
+
