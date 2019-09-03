@@ -1,1 +1,0 @@
-(cd dump && nvprof ../bin/raytrace_renderer_gpu image.ppm)

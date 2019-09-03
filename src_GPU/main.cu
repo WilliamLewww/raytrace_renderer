@@ -26,6 +26,7 @@ Canvas* render(Camera camera, World world) {
 }
 
 int main(int argc, const char** argv) {
+	Analysis::createLabel(0, "full application");
 	Analysis::begin();
 
 	World world = createWorld2();
@@ -43,7 +44,7 @@ int main(int argc, const char** argv) {
 	Analysis::end(0);
 
 	Analysis::printAll();
-	Analysis::saveToFile(argv[2]);
+	Analysis::saveToFile(argv[2], SCREENWIDTH, SCREENHEIGHT);
 
 	delete canvas;
 	return 0;
