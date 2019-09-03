@@ -8,12 +8,14 @@
 
 class Analysis {
 private:
+	static std::chrono::high_resolution_clock::time_point absoluteStart;
 	static std::chrono::high_resolution_clock::time_point start;
 	static std::chrono::high_resolution_clock::time_point finish;
 
 	static std::vector<std::vector<int64_t>> durationList;
 	static std::vector<std::pair<int, const char*>> labelList;
 public:
+	inline static void setAbsoluteStart() { absoluteStart = std::chrono::high_resolution_clock::now(); }
 	inline static void begin() { start = std::chrono::high_resolution_clock::now(); }
 	inline static void end(int index) { 
 		finish = std::chrono::high_resolution_clock::now(); 
@@ -37,7 +39,6 @@ public:
 	inline static void printAll() {
 		std::cout << std::endl;
 
-		int64_t averageT = 0;
 		for (int x = 0; x < durationList.size(); x++) {
 			int64_t average = 0;
 
@@ -54,10 +55,9 @@ public:
 			std::cout << "[" << x << "]: ";
 			std::cout << average / durationList[x].size() << std::endl;
 
-			averageT += average / durationList[x].size();
 		}
 
-		std::cout << "Total: " << averageT << std::endl;
+		std::cout << "Total: " << std::chrono::duration_cast<std::chrono::microseconds>(std::chrono::high_resolution_clock::now() - absoluteStart).count() << std::endl;
 		std::cout << std::endl;
 	}
 
@@ -69,7 +69,6 @@ public:
 		file << ctime(&tempTime);
 		file << "image resolution: " << screenWidth << "x" << screenHeight << std::endl;
 
-		int64_t averageT = 0;
 		for (int x = 0; x < durationList.size(); x++) {
 			int64_t average = 0;
 
@@ -86,14 +85,14 @@ public:
 			file << "[" << x << "]: ";
 			file << average / durationList[x].size() << std::endl;
 
-			averageT += average / durationList[x].size();
 		}
 
-		file << "Total: " << averageT << std::endl;
+		file << "Total: " << std::chrono::duration_cast<std::chrono::microseconds>(std::chrono::high_resolution_clock::now() - absoluteStart).count() << std::endl;
 		file << std::endl;
 	}
 };
 
+std::chrono::high_resolution_clock::time_point Analysis::absoluteStart;
 std::chrono::high_resolution_clock::time_point Analysis::start;
 std::chrono::high_resolution_clock::time_point Analysis::finish;
 

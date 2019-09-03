@@ -26,8 +26,9 @@ Canvas* render(Camera camera, World world) {
 }
 
 int main(int argc, const char** argv) {
-	Analysis::createLabel(0, "full application");
-	Analysis::begin();
+	Analysis::setAbsoluteStart();
+	Analysis::createLabel(0, "intersectWorld");
+	Analysis::createLabel(1, "prepareComputations");
 
 	World world = createWorld2();
 	
@@ -40,8 +41,6 @@ int main(int argc, const char** argv) {
 	Canvas* canvas = render(camera, world);
 	canvas->saveToFile(argv[1]);
 	std::cout << "saved image as: [" << argv[1] << "]" << std::endl;
-
-	Analysis::end(0);
 
 	Analysis::printAll();
 	Analysis::saveToFile(argv[2], SCREENWIDTH, SCREENHEIGHT);
