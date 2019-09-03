@@ -57,7 +57,9 @@ public:
 
 		}
 
-		std::cout << "Total: " << std::chrono::duration_cast<std::chrono::microseconds>(std::chrono::high_resolution_clock::now() - absoluteStart).count() << std::endl;
+		int64_t absoluteTime = std::chrono::duration_cast<std::chrono::microseconds>(std::chrono::high_resolution_clock::now() - absoluteStart).count();
+
+		std::cout << "Total: " << absoluteTime << " (" << float(absoluteTime) / 1000000.0 << "s)" << std::endl;
 		std::cout << std::endl;
 	}
 
@@ -87,7 +89,9 @@ public:
 
 		}
 
-		file << "Total: " << std::chrono::duration_cast<std::chrono::microseconds>(std::chrono::high_resolution_clock::now() - absoluteStart).count() << std::endl;
+		int64_t absoluteTime = std::chrono::duration_cast<std::chrono::microseconds>(std::chrono::high_resolution_clock::now() - absoluteStart).count();
+
+		file << "Total: " << absoluteTime << " (" << float(absoluteTime) / 1000000.0 << "s)" << std::endl;
 		file << std::endl;
 	}
 };
