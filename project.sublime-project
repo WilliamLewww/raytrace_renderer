@@ -17,6 +17,21 @@
 			"selector": "source.c, source.c++",
 			"shell": true,
 			"working_dir": "C:/Users/William/Desktop/raytrace_renderer/dump",
+			"variants": [
+				{
+					"name": "raytrace_renderer GPU",
+					"cmd":
+					[
+						"nvcc",
+						"C:/Users/William/Desktop/raytrace_renderer/src_GPU/main.cu",
+						"-o",
+						"C:/Users/William/Desktop/raytrace_renderer/bin/raytrace_renderer_gpu",
+						"&&",
+						"C:/Users/William/Desktop/raytrace_renderer/bin/raytrace_renderer_gpu",
+						"image.ppm log"
+					],
+				}
+			],
 		}
 	],
 	"folders":
