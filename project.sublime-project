@@ -28,7 +28,8 @@
 						"C:/Users/William/Desktop/raytrace_renderer/bin/raytrace_renderer_gpu",
 						"&&",
 						"C:/Users/William/Desktop/raytrace_renderer/bin/raytrace_renderer_gpu",
-						"image.ppm log"
+						"image.ppm",
+						"log"
 					],
 				}
 			],

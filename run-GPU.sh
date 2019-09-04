@@ -1,1 +1,1 @@
-(cd dump && ../bin/raytrace_renderer_gpu image.ppm log)
+(cd dump && ../bin/raytrace_renderer_gpu.out image.ppm log)
