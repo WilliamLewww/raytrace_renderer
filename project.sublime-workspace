@@ -4,8 +4,88 @@
 		"selected_items":
 		[
 			[
-				"EP",
-				"EPSILON_COMPARISON\t(matrix.h)"
+				"beg",
+				"begin\t(world.h)"
+			],
+			[
+				"inver",
+				"inverseViewMatrix\tabc"
+			],
+			[
+				"matri",
+				"matrixGPU\tabc"
+			],
+			[
+				"invse",
+				"inverseKernel\tabc"
+			],
+			[
+				"size",
+				"sizeof\t(sample.cu)"
+			],
+			[
+				"invers",
+				"inverseGPU\tabc"
+			],
+			[
+				"beig",
+				"begin\tabc"
+			],
+			[
+				"label",
+				"labelList\tabc"
+			],
+			[
+				"SCRE",
+				"SCREENHEIGHT\tabc"
+			],
+			[
+				"scree",
+				"screenHeight\tabc"
+			],
+			[
+				"cons",
+				"constants.h\t(world.h)"
+			],
+			[
+				"tempI",
+				"tempIntersections\tabc"
+			],
+			[
+				"intersect",
+				"intersection\tabc"
+			],
+			[
+				"shap",
+				"shapeCount\tabc"
+			],
+			[
+				"SCR",
+				"SCREENHEIGHT\tabc"
+			],
+			[
+				"AN",
+				"Analysis::end\t(world.h)"
+			],
+			[
+				"bei",
+				"begin\t(analysis.h)"
+			],
+			[
+				"sort",
+				"sortIntersections\tabc"
+			],
+			[
+				"dura",
+				"durationList\tabc"
+			],
+			[
+				"fini",
+				"finishList\tabc"
+			],
+			[
+				"fin",
+				"finishList\tabc"
 			],
 			[
 				"norm",
@@ -22,14 +102,6 @@
 			[
 				"pointToL",
 				"pointToLightN\tabc"
-			],
-			[
-				"SCRE",
-				"SCREENHEIGHT\tabc"
-			],
-			[
-				"SCR",
-				"SCREENWIDTH\tabc"
 			],
 			[
 				"createRo",
@@ -60,20 +132,12 @@
 				"lightArray\tabc"
 			],
 			[
-				"tempI",
-				"tempIntersections\tabc"
-			],
-			[
 				"tempIn",
 				"tempIntersectionCount\tabc"
 			],
 			[
 				"spherer",
 				"sphereArray\tabc"
-			],
-			[
-				"intersect",
-				"intersectionCount\tabc"
 			],
 			[
 				"interSe",
@@ -205,10 +269,6 @@
 			],
 			[
 				"matr",
-				"matrix\tabc"
-			],
-			[
-				"matri",
 				"matrix\tabc"
 			],
 			[
@@ -454,91 +514,31 @@
 			[
 				"uniform",
 				"uniformObjectBuffers\tabc"
-			],
-			[
-				"swapCh",
-				"swapChainImages\tabc"
-			],
-			[
-				"lightObjec",
-				"lightObjectBuffer\tabc"
-			],
-			[
-				"normalVert",
-				"normalVertices\tabc"
-			],
-			[
-				"curren",
-				"currentModelRotation\tabc"
-			],
-			[
-				"textureCo",
-				"textureCoordinateVertices\tabc"
-			],
-			[
-				"pusb",
-				"push_back\tabc"
-			],
-			[
-				"getColor",
-				"getColorVertexBufferMemory\t(joiner.h)"
-			],
-			[
-				"getPosition",
-				"getPositionVertexBufferMemory\t(joiner.h)"
-			],
-			[
-				"VkDevi",
-				"VkDeviceMemory\tabc"
-			],
-			[
-				"getPo",
-				"getPositionVertexBuffer\t(joiner.h)"
-			],
-			[
-				"copy",
-				"copyBuffer\tabc"
-			],
-			[
-				"posi",
-				"positionBuffer\tabc"
-			],
-			[
-				"colorBuff",
-				"colorBufferMemory\tabc"
-			],
-			[
-				"colorBu",
-				"colorBufferInfo\tabc"
-			],
-			[
-				"positi",
-				"positionBufferInfo\tabc"
 			]
 		]
 	},
 	"buffers":
 	[
 		{
-			"file": "src_CPU/world.h",
+			"file": "src_GPU/main.cu",
 			"settings":
 			{
-				"buffer_size": 9147,
+				"buffer_size": 1383,
 				"encoding": "UTF-8",
-				"line_ending": "Windows"
+				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "src_CPU/camera.h",
+			"file": "src_GPU/world.h",
 			"settings":
 			{
-				"buffer_size": 1932,
+				"buffer_size": 10872,
 				"encoding": "UTF-8",
-				"line_ending": "Windows"
+				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "src_CPU/shape.h",
+			"file": "src_GPU/shape.h",
 			"settings":
 			{
 				"buffer_size": 3738,
@@ -547,98 +547,10 @@
 			}
 		},
 		{
-			"file": "src_GPU/main.cu",
+			"file": "src_GPU/matrix.h",
 			"settings":
 			{
-				"buffer_size": 1331,
-				"encoding": "UTF-8",
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "src_CPU/canvas.h",
-			"settings":
-			{
-				"buffer_size": 1185,
-				"encoding": "UTF-8",
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "compile-run-GPU.sh",
-			"settings":
-			{
-				"buffer_size": 69,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "run-GPU.sh",
-			"settings":
-			{
-				"buffer_size": 55,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "src_CPU/matrix.h",
-			"settings":
-			{
-				"buffer_size": 4088,
-				"encoding": "UTF-8",
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "src_CPU/ray.h",
-			"settings":
-			{
-				"buffer_size": 519,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "src_CPU/light.h",
-			"settings":
-			{
-				"buffer_size": 1340,
-				"encoding": "UTF-8",
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "src_CPU/transform.h",
-			"settings":
-			{
-				"buffer_size": 1283,
-				"encoding": "UTF-8",
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "src_CPU/main.cpp",
-			"settings":
-			{
-				"buffer_size": 1028,
-				"encoding": "UTF-8",
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "src_CPU/tuple.h",
-			"settings":
-			{
-				"buffer_size": 2503,
-				"encoding": "UTF-8",
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "project.sublime-project",
-			"settings":
-			{
-				"buffer_size": 970,
-				"encoding": "UTF-8",
+				"buffer_size": 4082,
 				"line_ending": "Windows"
 			}
 		}
@@ -873,30 +785,6 @@
 		[
 			[
 				[
-					"raytrace_renderer CPU",
-					""
-				],
-				[
-					"raytrace_renderer CPU",
-					"raytrace_renderer GPU"
-				],
-				[
-					"Packages/C++/C++ Single File.sublime-build",
-					""
-				],
-				[
-					"Packages/C++/C++ Single File.sublime-build",
-					"Run"
-				]
-			],
-			[
-				"raytrace_renderer CPU",
-				"raytrace_renderer GPU"
-			]
-		],
-		[
-			[
-				[
 					"vkray_corgi",
 					""
 				],
@@ -951,7 +839,7 @@
 			]
 		]
 	],
-	"build_varint": "raytrace_renderer GPU",
+	"build_varint": "",
 	"command_palette":
 	{
 		"height": 0.0,
@@ -959,12 +847,16 @@
 		"selected_items":
 		[
 			[
-				"case",
-				"Convert Case: Upper Case"
+				"color",
+				"Colorsublime: Install Theme"
 			],
 			[
-				"color",
-				"UI: Select Color Scheme"
+				"a",
+				"Arithmetic"
+			],
+			[
+				"case",
+				"Convert Case: Upper Case"
 			],
 			[
 				"lower",
@@ -980,10 +872,6 @@
 			],
 			[
 				"ar",
-				"Arithmetic"
-			],
-			[
-				"a",
 				"Arithmetic"
 			],
 			[
@@ -1039,17 +927,48 @@
 	},
 	"expanded_folders":
 	[
-		"/C/Users/William/Desktop/raytrace_renderer"
+		"/home/wlew/Desktop/raytrace_renderer",
+		"/home/wlew/Desktop/raytrace_renderer/src_CPU",
+		"/home/wlew/Desktop/raytrace_renderer/src_GPU"
 	],
 	"file_history":
 	[
-		"/C/Users/William/Desktop/raytrace_renderer/project.sublime-project",
+		"/home/wlew/Desktop/raytrace_renderer/project.sublime-project",
+		"/home/wlew/Desktop/raytrace_renderer/src_GPU/main.cu",
+		"/home/wlew/Desktop/raytrace_renderer/src_CPU/shape.h",
+		"/home/wlew/Desktop/raytrace_renderer/src_GPU/constants.h",
+		"/home/wlew/Desktop/raytrace_renderer/src_GPU/world.h",
+		"/home/wlew/Desktop/raytrace_renderer/src_GPU/camera.h",
+		"/home/wlew/Desktop/raytrace_renderer/src_GPU/matrix.h",
+		"/home/wlew/Desktop/raytrace_renderer/src_GPU/analysis.h",
+		"/home/wlew/Desktop/raytrace_renderer/src_CPU/main.cpp",
+		"/home/wlew/Desktop/raytrace_renderer/src_GPU/sample.cu",
+		"/home/wlew/Desktop/raytrace_renderer/src_CPU/matrix.h",
+		"/home/wlew/Desktop/raytrace_renderer/run-GPU.sh",
+		"/home/wlew/Desktop/raytrace_renderer/src_CPU/world.h",
+		"/home/wlew/Desktop/raytrace_renderer/src_CPU/camera.h",
+		"/home/wlew/Desktop/raytrace_renderer/src_GPU/shape.h",
+		"/home/wlew/Desktop/raytrace_renderer/src_CPU/ray.h",
+		"/home/wlew/Desktop/raytrace_renderer/monitor-run-GPU.sh",
+		"/home/wlew/Desktop/raytrace_renderer/src_GPU/tuple.h",
+		"/home/wlew/Desktop/raytrace_renderer/src_CPU/tuple.h",
+		"/home/wlew/Desktop/raytrace_renderer/compile-run-GPU.sh",
+		"/home/wlew/Desktop/raytrace_renderer/src_CPU/analysis.h",
+		"/home/wlew/Desktop/raytrace_renderer/src_CPU/canvas.h",
+		"/home/wlew/Desktop/raytrace_renderer/src_GPU/canvas.h",
+		"/home/wlew/Desktop/csc300_notes",
+		"/home/wlew/Desktop/raytrace_renderer/src_CPU/light.h",
+		"/home/wlew/Desktop/raytrace_renderer/src_GPU/light.h",
+		"/home/wlew/Desktop/hello.cu",
+		"/home/wlew/Desktop/raytrace_renderer/compile-run-gpu.sh",
+		"/home/wlew/Desktop/raytrace_renderer/monitor-gpu.sh",
+		"/home/wlew/Desktop/raytrace_renderer/src_CPU/transform.h",
 		"/C/Users/William/Desktop/raytrace_renderer/src_CPU/ray.h",
 		"/C/Users/William/Desktop/raytrace_renderer/src_CPU/sphere.h",
 		"/home/wlew/Desktop/raytrace_renderer/run-cpu.sh",
-		"/home/wlew/Desktop/raytrace_renderer/project.sublime-project",
 		"/home/wlew/Desktop/raytrace_renderer/dump/test.ppm",
 		"/C/Users/William/Desktop/raytrace_renderer/src_CPU/tuple.h",
+		"/C/Users/William/Desktop/raytrace_renderer/project.sublime-project",
 		"/C/Users/William/Desktop/raytrace_renderer/src_CPU/canvas.h",
 		"/C/Users/William/Desktop/raytrace_renderer/dump/convert-ppm-to-jpg.py",
 		"/C/Users/William/Desktop/raytrace_renderer/dump/test.ppm",
@@ -1141,44 +1060,15 @@
 		"/C/Users/William/Desktop/corgi.obj",
 		"/C/Users/William/Desktop/13467_Cardigan_Welsh_Corgi_v1_L3.obj",
 		"/C/Users/William/Desktop/vulkan_phong/.gitignore",
-		"/C/Users/William/Desktop/vulkan_phong/nsight_vulkan_phong/CppCaptures/Vulkan-Phong__2019_07_26__18_00_10/args.hxx",
-		"/C/Users/William/Desktop/terrain.mtl",
-		"/C/Users/William/Desktop/model.obj",
-		"/C/Users/William/Desktop/vulkan_phong/shaders/basic.vert",
-		"/C/Users/William/Desktop/vulkan_phong/shaders/basic.frag",
-		"/C/Users/William/Desktop/vulkan_phong/shaders/test.vert",
-		"/C/Users/William/Desktop/vulkan_phong/shaders/test.frag",
-		"/C/Users/William/Downloads/default.html",
-		"/C/Users/William/.ssh/id_rsa.pub",
-		"/C/Users/William/.ssh/id_rsa",
-		"/C/Users/William/AppData/Roaming/Sublime Text 3/Packages/User/Terminal (Windows).sublime-settings",
-		"/C/Users/William/AppData/Roaming/Sublime Text 3/Packages/User/Terminal.sublime-settings",
-		"/C/Users/William Lew/Desktop/vulkan_phong/src/test_object.cpp",
-		"/C/Users/William Lew/Desktop/vulkan_phong/src/test_object.h",
-		"/C/Users/William Lew/Desktop/vulkan_phong/shaders/test.frag",
-		"/C/Users/William Lew/Desktop/vulkan_phong/shaders/test.vert",
-		"/C/Users/William Lew/Desktop/vulkan_phong/shaders/basic.frag",
-		"/C/Users/William Lew/Desktop/vulkan_phong/shaders/basic.vert",
-		"/C/Users/William Lew/Desktop/vulkan_phong/shaders/vert.spv",
-		"/C/Users/William Lew/Desktop/vulkan_phong/shaders/test.fragment",
-		"/C/Users/William Lew/Desktop/vulkan_phong/shaders/test.vertex",
-		"/C/Users/William Lew/Desktop/no_tears/src/examples/lighting_test.cpp",
-		"/C/Users/William Lew/Desktop/no_tears/src/examples/lighting_test.h",
-		"/C/Users/William Lew/Desktop/no_tears/shaders/phong.vertex",
-		"/C/Users/William Lew/Desktop/no_tears/src/geometry.h",
-		"/C/Users/William Lew/Desktop/no_tears/src/geometry.cpp",
-		"/C/Users/William Lew/Desktop/no_tears/src/examples/scavenger_hunt.cpp",
-		"/C/Users/William Lew/Desktop/no_tears/src/examples/scavenger_hunt.h",
-		"/C/Users/William Lew/Desktop/no_tears/src/engine.cpp",
-		"/C/Users/William Lew/Desktop/no_tears/src/input.cpp"
+		"/C/Users/William/Desktop/vulkan_phong/nsight_vulkan_phong/CppCaptures/Vulkan-Phong__2019_07_26__18_00_10/args.hxx"
 	],
 	"find":
 	{
-		"height": 22.0
+		"height": 40.0
 	},
 	"find_in_files":
 	{
-		"height": 102.0,
+		"height": 106.0,
 		"where_history":
 		[
 			""
@@ -1189,6 +1079,45 @@
 		"case_sensitive": true,
 		"find_history":
 		[
+			"prepareComputations",
+			"normalAt",
+			"inverse",
+			"camera.inverseViewMatrix",
+			"inverse(camera.viewMatrix)",
+			"camera.viewMatrix",
+			"#include \"analysis.h\"",
+			"averageT",
+			"std::cout",
+			"intersection",
+			"std::cout",
+			"new",
+			"temp->",
+			"createMatrix",
+			"new",
+			"createMatrix",
+			"new",
+			"x",
+			"i",
+			"new",
+			"createMatrix",
+			"new",
+			"intersect",
+			"intersectWorld",
+			"intersect",
+			"intersectWorld",
+			"normalAt",
+			"inverse",
+			"lighting",
+			"isShadowed",
+			"shadeHit",
+			"prepareComputations",
+			"intersectWorld",
+			"print",
+			"PATTERNS",
+			"i",
+			"N",
+			"y",
+			"x",
 			"Shape",
 			"radius",
 			"normalAt",
@@ -1245,24 +1174,24 @@
 	"groups":
 	[
 		{
-			"selected": 3,
+			"selected": 0,
 			"sheets":
 			[
 				{
 					"buffer": 0,
-					"file": "src_CPU/world.h",
+					"file": "src_GPU/main.cu",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 9147,
+						"buffer_size": 1383,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								132,
-								132
+								681,
+								681
 							]
 						],
 						"settings":
@@ -1274,24 +1203,30 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 7,
+					"stack_index": 0,
 					"type": "text"
-				},
+				}
+			]
+		},
+		{
+			"selected": 0,
+			"sheets":
+			[
 				{
 					"buffer": 1,
-					"file": "src_CPU/camera.h",
+					"file": "src_GPU/world.h",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 1932,
+						"buffer_size": 10872,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								268,
-								268
+								9728,
+								9728
 							]
 						],
 						"settings":
@@ -1300,15 +1235,15 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 1742.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 6,
+					"stack_index": 1,
 					"type": "text"
 				},
 				{
 					"buffer": 2,
-					"file": "src_CPU/shape.h",
+					"file": "src_GPU/shape.h",
 					"semi_transient": false,
 					"settings":
 					{
@@ -1319,8 +1254,8 @@
 						"selection":
 						[
 							[
-								239,
-								239
+								3326,
+								3326
 							]
 						],
 						"settings":
@@ -1337,82 +1272,25 @@
 				},
 				{
 					"buffer": 3,
-					"file": "src_GPU/main.cu",
+					"file": "src_GPU/matrix.h",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 1331,
+						"buffer_size": 4082,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								708,
-								708
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Text/Plain text.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 0,
-					"type": "text"
-				},
-				{
-					"buffer": 4,
-					"file": "src_CPU/canvas.h",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 1185,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								361,
-								361
+								3787,
+								3787
 							]
 						],
 						"settings":
 						{
 							"syntax": "Packages/C++/C++.sublime-syntax",
 							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 1,
-					"type": "text"
-				},
-				{
-					"buffer": 5,
-					"file": "compile-run-GPU.sh",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 69,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								69,
-								69
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/ShellScript/Bash.sublime-syntax"
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
@@ -1420,446 +1298,13 @@
 					},
 					"stack_index": 3,
 					"type": "text"
-				},
-				{
-					"buffer": 6,
-					"file": "run-GPU.sh",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 55,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								51,
-								54
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/ShellScript/Bash.sublime-syntax"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 5,
-					"type": "text"
-				},
-				{
-					"buffer": 7,
-					"file": "src_CPU/matrix.h",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 4088,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								240,
-								240
-							]
-						],
-						"settings":
-						{
-							"history_list_is_closing": true,
-							"syntax": "Packages/C++/C++.sublime-syntax",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 12,
-					"type": "text"
-				},
-				{
-					"buffer": 8,
-					"file": "src_CPU/ray.h",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 519,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								0,
-								0
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/C++/C++.sublime-syntax"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 18,
-					"type": "text"
-				},
-				{
-					"buffer": 9,
-					"file": "src_CPU/light.h",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 1340,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								50,
-								40
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/C++/C++.sublime-syntax",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 19,
-					"type": "text"
-				},
-				{
-					"buffer": 10,
-					"file": "src_CPU/transform.h",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 1283,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								248,
-								248
-							],
-							[
-								257,
-								257
-							],
-							[
-								266,
-								266
-							]
-						],
-						"settings":
-						{
-							"history_list_is_closing": true,
-							"syntax": "Packages/C++/C++.sublime-syntax",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 8,
-					"type": "text"
-				},
-				{
-					"buffer": 11,
-					"file": "src_CPU/main.cpp",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 1028,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								539,
-								539
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/C++/C++.sublime-syntax",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 9,
-					"type": "text"
-				},
-				{
-					"buffer": 4,
-					"file": "src_CPU/canvas.h",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 1185,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								848,
-								848
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/C++/C++.sublime-syntax",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 22.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 17,
-					"type": "text"
-				},
-				{
-					"buffer": 1,
-					"file": "src_CPU/camera.h",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 1932,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								0,
-								0
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/C++/C++.sublime-syntax"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 16,
-					"type": "text"
-				},
-				{
-					"buffer": 10,
-					"file": "src_CPU/transform.h",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 1283,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								345,
-								345
-							]
-						],
-						"settings":
-						{
-							"history_list_is_closing": true,
-							"syntax": "Packages/C++/C++.sublime-syntax",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 15,
-					"type": "text"
-				},
-				{
-					"buffer": 12,
-					"file": "src_CPU/tuple.h",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 2503,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								253,
-								253
-							],
-							[
-								302,
-								302
-							],
-							[
-								351,
-								351
-							],
-							[
-								400,
-								400
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/C++/C++.sublime-syntax",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 177.0,
-						"translation.y": 6.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 13,
-					"type": "text"
-				},
-				{
-					"buffer": 7,
-					"file": "src_CPU/matrix.h",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 4088,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								98,
-								98
-							]
-						],
-						"settings":
-						{
-							"history_list_is_closing": true,
-							"syntax": "Packages/C++/C++.sublime-syntax",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 11,
-					"type": "text"
-				},
-				{
-					"buffer": 2,
-					"file": "src_CPU/shape.h",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 3738,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								1987,
-								1987
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/C++/C++.sublime-syntax",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 624.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 10,
-					"type": "text"
-				},
-				{
-					"buffer": 9,
-					"file": "src_CPU/light.h",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 1340,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								90,
-								90
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/C++/C++.sublime-syntax",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 14,
-					"type": "text"
-				}
-			]
-		},
-		{
-			"selected": 0,
-			"sheets":
-			[
-				{
-					"buffer": 13,
-					"file": "project.sublime-project",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 970,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								724,
-								724
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/JavaScript/JSON.sublime-syntax",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 4,
-					"type": "text"
 				}
 			]
 		}
 	],
 	"incremental_find":
 	{
-		"height": 22.0
+		"height": 38.0
 	},
 	"input":
 	{
@@ -1885,7 +1330,7 @@
 		"cols":
 		[
 			0.0,
-			0.5,
+			0.630506134033,
 			1.0
 		],
 		"rows":
@@ -1911,7 +1356,7 @@
 	"project": "project.sublime-project",
 	"replace":
 	{
-		"height": 40.0
+		"height": 72.0
 	},
 	"save_all_on_build": true,
 	"select_file":
@@ -1921,24 +1366,116 @@
 		"selected_items":
 		[
 			[
+				"pro",
+				"project.sublime-project"
+			],
+			[
+				"main",
+				"src_GPU/main.cu"
+			],
+			[
+				"sha",
+				"src_GPU/shape.h"
+			],
+			[
+				"shap",
+				"src_CPU/shape.h"
+			],
+			[
+				"mat",
+				"src_GPU/matrix.h"
+			],
+			[
+				"world",
+				"src_GPU/world.h"
+			],
+			[
+				"ana",
+				"src_GPU/analysis.h"
+			],
+			[
 				"main.cu",
-				"src_GPU\\main.cu"
+				"src_GPU/main.cu"
+			],
+			[
+				"matrix",
+				"src_CPU/matrix.h"
+			],
+			[
+				"wor",
+				"src_GPU/world.h"
+			],
+			[
+				"samp",
+				"src_GPU/sample.cu"
+			],
+			[
+				"camera",
+				"src_GPU/camera.h"
+			],
+			[
+				"ray",
+				"src_CPU/ray.h"
+			],
+			[
+				"wo",
+				"src_CPU/world.h"
+			],
+			[
+				"mon",
+				"monitor-run-GPU.sh"
+			],
+			[
+				"tup",
+				"src_GPU/tuple.h"
+			],
+			[
+				"worl",
+				"src_GPU/world.h"
 			],
 			[
 				"run",
 				"run-GPU.sh"
 			],
 			[
-				"proj",
-				"project.sublime-project"
-			],
-			[
 				"comp",
 				"compile-run-GPU.sh"
 			],
 			[
-				"main",
-				"src_CPU\\main.cpp"
+				"Ana",
+				"src_CPU/analysis.h"
+			],
+			[
+				"matr",
+				"src_GPU/matrix.h"
+			],
+			[
+				"matri",
+				"src_CPU/matrix.h"
+			],
+			[
+				"ca va",
+				"src_CPU/canvas.h"
+			],
+			[
+				"sampl",
+				"src_GPU/sample.cu"
+			],
+			[
+				"mai",
+				"src_CPU/main.cpp"
+			],
+			[
+				"ma",
+				"src_CPU/matrix.h"
+			],
+			[
+				"li",
+				"src_CPU/light.h"
+			],
+			[
+				"moni",
+				"monitor-run-GPU.sh"
 			],
 			[
 				"sh",
@@ -1947,18 +1484,6 @@
 			[
 				"ra",
 				"src_CPU\\ray.h"
-			],
-			[
-				"sha",
-				"src_CPU\\shape.h"
-			],
-			[
-				"wo",
-				"src_CPU/world.h"
-			],
-			[
-				"tup",
-				"src_CPU/tuple.h"
 			],
 			[
 				"sp",
@@ -1973,10 +1498,6 @@
 				"src_CPU/light.h"
 			],
 			[
-				"camera",
-				"src_CPU/camera.h"
-			],
-			[
 				"ca",
 				"src_CPU/canvas.h"
 			],
@@ -1985,16 +1506,8 @@
 				"src_CPU/canvas.h"
 			],
 			[
-				"wor",
-				"src_CPU/world.h"
-			],
-			[
-				"mai",
-				"src_CPU/main.cpp"
-			],
-			[
-				"matrix",
-				"src_CPU/matrix.h"
+				"proj",
+				"project.sublime-project"
 			],
 			[
 				".sh",
@@ -2005,24 +1518,12 @@
 				"src_CPU/sphere.h"
 			],
 			[
-				"ray",
-				"src_CPU/ray.h"
-			],
-			[
 				"lig",
 				"src_CPU/light.h"
 			],
 			[
 				"ligh",
 				"src_CPU/light.h"
-			],
-			[
-				"pro",
-				"project.sublime-project"
-			],
-			[
-				"ma",
-				"src_CPU/matrix.h"
 			],
 			[
 				"tran",
@@ -2237,10 +1738,6 @@
 				"server/client/src/geometry.js"
 			],
 			[
-				"sampl",
-				"client_vm/sample_s_json.txt"
-			],
-			[
 				"join",
 				"server/client/src/joiner.js"
 			],
@@ -2389,7 +1886,7 @@
 		],
 		"width": 592.0
 	},
-	"selected_group": 1,
+	"selected_group": 0,
 	"settings":
 	{
 	},

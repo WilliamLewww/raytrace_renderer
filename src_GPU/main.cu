@@ -31,7 +31,8 @@ Canvas* render(Camera camera, World world) {
 
 int main(int argc, const char** argv) {
 	Analysis::setAbsoluteStart();
-	Analysis::createLabel(0, "rayForPixel");
+	Analysis::createLabel(0, "intersectWorld");
+	Analysis::createLabel(1, "prepareComputations");
 
 	World world = createWorld2();
 	

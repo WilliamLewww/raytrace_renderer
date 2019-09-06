@@ -4,6 +4,7 @@
 #include "shape.h"
 #include "transform.h"
 #include "constants.h"
+#include "analysis.h"
 
 struct Precomputed {
 	float t;
@@ -286,11 +287,17 @@ Tuple shadeHit(World world, Precomputed precomputed) {
 
 Tuple colorAt(World world, Ray ray) {
 	int intersectionCount;
+
+	Analysis::begin();
 	Intersection* intersections = intersectWorld(world, ray, intersectionCount);
+	Analysis::end(0);
 
 	if (intersectionCount > 0) {
 		Intersection* closestHit = hit(intersections, intersectionCount);
+		
+		Analysis::begin();
 		Precomputed computation = prepareComputations(*closestHit, ray);
+		Analysis::end(1);
 
 		return shadeHit(world, computation);
 	}

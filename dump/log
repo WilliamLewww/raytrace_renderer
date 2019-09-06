@@ -443,3 +443,118 @@ Tue Sep  3 18:21:23 2019
 image resolution: 100x50
 Total: 2740170 (2.74017s)
 
+Thu Sep  5 10:22:49 2019
+image resolution: 100x50
+Total: 1513912 (1.51391s)
+
+Thu Sep  5 10:25:17 2019
+image resolution: 100x50
+Total: 1547036 (1.54704s)
+
+Thu Sep  5 10:25:48 2019
+image resolution: 100x50
+Total: 1516963 (1.51696s)
+
+Thu Sep  5 10:26:00 2019
+image resolution: 100x50
+intersect [0]: 16
+normal [1]: 40
+Total: 1586039 (1.58604s)
+
+Thu Sep  5 10:26:37 2019
+image resolution: 100x50
+intersect [0]: 16
+normal [1]: 16
+Total: 1559314 (1.55931s)
+
+Thu Sep  5 10:28:07 2019
+image resolution: 100x50
+intersect [0]: 40
+Total: 1556300 (1.5563s)
+
+Thu Sep  5 10:28:52 2019
+image resolution: 100x50
+intersectWorld [0]: 129
+prepareComputations [1]: 38
+Total: 1492827 (1.49283s)
+
+Thu Sep  5 10:30:17 2019
+image resolution: 100x50
+intersectWorld [0]: 130
+prepareComputations shadeHit [1]: 32
+[2]: 130
+Total: 1480664 (1.48066s)
+
+Thu Sep  5 10:30:29 2019
+image resolution: 100x50
+intersectWorld [0]: 128
+prepareComputations [1]: 31
+shadeHit [2]: 128
+Total: 1455769 (1.45577s)
+
+Thu Sep  5 10:30:45 2019
+image resolution: 100x50
+intersectWorld [0]: 140
+prepareComputations [1]: 41
+Total: 1614424 (1.61442s)
+
+Thu Sep  5 15:09:03 2019
+image resolution: 100x50
+intersectWorld [0]: 132
+prepareComputations [1]: 39
+Total: 1546050 (1.54605s)
+
+Thu Sep  5 16:10:04 2019
+image resolution: 100x50
+intersectWorld [0]: 129
+prepareComputations [1]: 32
+Total: 1468955 (1.46896s)
+
+Thu Sep  5 16:10:39 2019
+image resolution: 100x50
+intersectWorld [0]: 131
+prepareComputations [1]: 39
+Total: 1520477 (1.52048s)
+
+Thu Sep  5 16:11:58 2019
+image resolution: 100x50
+intersectWorld [0]: 133
+prepareComputations [1]: 40
+Total: 1541430 (1.54143s)
+
+Thu Sep  5 16:13:53 2019
+image resolution: 100x50
+intersectWorld [0]: 133
+prepareComputations [1]: 40
+Total: 1548414 (1.54841s)
+
+Thu Sep  5 16:14:16 2019
+image resolution: 100x50
+intersectWorld [0]: 132
+prepareComputations [1]: 39
+Total: 1537234 (1.53723s)
+
+Thu Sep  5 16:16:29 2019
+image resolution: 100x50
+intersectWorld [0]: 137
+prepareComputations [1]: 41
+Total: 1595675 (1.59567s)
+
+Thu Sep  5 17:22:04 2019
+image resolution: 200x100
+intersectWorld [0]: 132
+prepareComputations [1]: 39
+Total: 6109377 (6.10938s)
+
+Thu Sep  5 17:23:23 2019
+image resolution: 100x50
+intersectWorld [0]: 130
+prepareComputations [1]: 39
+Total: 1511032 (1.51103s)
+
+Thu Sep  5 19:16:05 2019
+image resolution: 100x50
+intersectWorld [0]: 132
+prepareComputations [1]: 40
+Total: 1535285 (1.53529s)
+
