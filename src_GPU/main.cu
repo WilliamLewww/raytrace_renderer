@@ -17,6 +17,14 @@ Canvas* render(Camera camera, World world) {
 
 	rayForPixelGPU(camera, camera.hSize, camera.vSize);
 
+	Analysis::begin();
+	for (int y = 0; y < camera.vSize; y++) {
+		for (int x = 0; x < camera.hSize; x++) {
+			Ray ray = rayForPixel(camera, x, y);
+		}
+	}
+	Analysis::end(1);
+
 	for (int y = 0; y < camera.vSize; y++) {
 		for (int x = 0; x < camera.hSize; x++) {
 			Ray ray = rayForPixel(camera, x, y);
@@ -33,8 +41,8 @@ Canvas* render(Camera camera, World world) {
 
 int main(int argc, const char** argv) {
 	Analysis::setAbsoluteStart();
-	Analysis::createLabel(0, "intersectWorld");
-	Analysis::createLabel(1, "prepareComputations");
+	Analysis::createLabel(0, "GPU");
+	Analysis::createLabel(1, "CPU");
 
 	World world = createWorld2();
 	
