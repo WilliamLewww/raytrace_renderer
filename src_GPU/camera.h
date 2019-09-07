@@ -75,3 +75,27 @@ Ray rayForPixel(Camera camera, int x, int y) {
 Matrix computeInverseViewMatrix(Camera camera) {
 	return inverse(camera.viewMatrix);
 }
+
+__global__
+void rayForPixelKernel(Ray* rayBuffer, int count, Camera camera) {
+	int index = blockIdx.x * blockDim.x + threadIdx.x;
+	int stride = blockDim.x * gridDim.x;
+	for (int x = index; x < count; x += stride) {
+		rayBuffer[x].origin.x = x;
+	}
+}
+
+void rayForPixelGPU(Camera camera, int width, int height) {
+	int count = width * height;
+	Ray* rayBuffer;
+
+	cudaMallocManaged(&rayBuffer, count*sizeof(Ray));
+
+	int blockSize = 256;
+	int numBlocks = (count + blockSize - 1) / blockSize;
+	rayForPixelKernel<<<numBlocks, blockSize>>>(rayBuffer, count, camera);
+
+	cudaDeviceSynchronize();
+
+	cudaFree(rayBuffer);
+}

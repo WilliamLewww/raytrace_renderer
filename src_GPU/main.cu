@@ -15,6 +15,8 @@ Canvas* render(Camera camera, World world) {
 
 	std::cout << "rendering ray traced image..." << std::endl;
 
+	rayForPixelGPU(camera, camera.hSize, camera.vSize);
+
 	for (int y = 0; y < camera.vSize; y++) {
 		for (int x = 0; x < camera.hSize; x++) {
 			Ray ray = rayForPixel(camera, x, y);
