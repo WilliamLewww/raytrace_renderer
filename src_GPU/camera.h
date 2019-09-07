@@ -124,15 +124,13 @@ void rayForPixelKernel(Ray* rayBuffer, float* inverseViewMatrixBuffer, int count
 	}
 }
 
-void rayForPixelGPU(Camera camera, int width, int height) {
+void rayForPixelGPU(Ray* rayOut, Camera camera, int width, int height) {
 	int count = width * height;
 	Ray* rayBuffer;
 	float* inverseViewMatrixBuffer;
 
-	Analysis::begin();
 	cudaMallocManaged(&rayBuffer, count*sizeof(Ray));
 	cudaMallocManaged(&inverseViewMatrixBuffer, sizeof(float)*16);
-	Analysis::end(1);
 
 	for (int x = 0; x < 4; x++) {
 		for (int y = 0; y < 4; y++) {
@@ -140,14 +138,14 @@ void rayForPixelGPU(Camera camera, int width, int height) {
 		}
 	}
 
-	Analysis::begin();
 	int blockSize = 256;
 	int numBlocks = (count + blockSize - 1) / blockSize;
 	rayForPixelKernel<<<numBlocks, blockSize>>>(rayBuffer, inverseViewMatrixBuffer, count, camera);
 
 	cudaDeviceSynchronize();
 
+	cudaMemcpy(rayOut, rayBuffer, count*sizeof(Ray), cudaMemcpyDeviceToHost);
+
 	cudaFree(rayBuffer);
 	cudaFree(inverseViewMatrixBuffer);
-	Analysis::end(2);
 }

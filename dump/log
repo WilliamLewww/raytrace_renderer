@@ -972,3 +972,244 @@ MallocManaged [1]: 214104
 Calculate [2]: 523
 Total: 2877993 (2.87799s)
 
+Sat Sep  7 10:10:19 2019
+image resolution: 100x50
+CPU [0]: 2509
+MallocManaged [1]: 456092
+Calculate [2]: 927
+Total: 3471614 (3.47161s)
+
+Sat Sep  7 10:13:01 2019
+image resolution: 100x50
+CPU [0]: 2537
+MallocManaged [1]: 280812
+Calculate [2]: 923
+Total: 3131461 (3.13146s)
+
+Sat Sep  7 10:15:05 2019
+image resolution: 100x50
+CPU [0]: 3046
+MallocManaged [1]: 249093
+Calculate [2]: 646
+Total: 3279046 (3.27905s)
+
+Sat Sep  7 10:17:04 2019
+image resolution: 100x50
+CPU [0]: 2488
+MallocManaged [1]: 249165
+Calculate [2]: 708
+Total: 3270701 (3.2707s)
+
+Sat Sep  7 10:17:35 2019
+image resolution: 100x50
+CPU [0]: 2354
+MallocManaged [1]: 255009
+Calculate [2]: 676
+Total: 3258941 (3.25894s)
+
+Sat Sep  7 10:20:52 2019
+image resolution: 100x50
+CPU [0]: 2930
+MallocManaged [1]: 262609
+Calculate [2]: 577
+Malloc [3]: 423
+Total: 3255026 (3.25503s)
+
+Sat Sep  7 10:21:14 2019
+image resolution: 100x50
+CPU [0]: 2856
+MallocManaged [1]: 267723
+Calculate [2]: 569
+Malloc [3]: 428
+Total: 3306221 (3.30622s)
+
+Sat Sep  7 10:21:46 2019
+image resolution: 100x50
+CPU [0]: 2407
+MallocManaged [1]: 262517
+Calculate [2]: 565
+Malloc [3]: 419
+Total: 3269278 (3.26928s)
+
+Sat Sep  7 10:22:45 2019
+image resolution: 100x50
+CPU [0]: 2465
+MallocManaged [1]: 271828
+Calculate [2]: 42
+Malloc [3]: 212
+Total: 3266936 (3.26694s)
+
+Sat Sep  7 10:23:28 2019
+image resolution: 100x50
+CPU [0]: 2322
+initial Malloc [1]: 271455
+Malloc [2]: 45
+Calculate [3]: 228
+Total: 3269349 (3.26935s)
+
+Sat Sep  7 10:23:50 2019
+image resolution: 100x50
+CPU [0]: 2364
+initial Malloc [1]: 266428
+Malloc [2]: 43
+Calculate [3]: 234
+Total: 3253353 (3.25335s)
+
+Sat Sep  7 10:24:26 2019
+image resolution: 100x50
+CPU [0]: 2370
+initial Malloc [1]: 270633
+Malloc [2]: 100
+Calculate [3]: 433
+Total: 299830 (0.29983s)
+
+Sat Sep  7 10:24:43 2019
+image resolution: 1000x500
+CPU [0]: 261628
+initial Malloc [1]: 260270
+Malloc [2]: 3186
+Calculate [3]: 2022
+Total: 2383494 (2.38349s)
+
+Sat Sep  7 10:26:09 2019
+image resolution: 2000x1000
+CPU [0]: 1052026
+initial Malloc [1]: 249246
+Malloc [2]: 11317
+Calculate [3]: 5821
+Total: 8727761 (8.72776s)
+
+Sat Sep  7 10:26:53 2019
+image resolution: 100x50
+CPU [0]: 2453
+initial Malloc [1]: 268130
+Malloc [2]: 618
+Calculate [3]: 663
+Total: 300802 (0.300802s)
+
+Sat Sep  7 10:29:07 2019
+image resolution: 100x50
+CPU [0]: 2442
+initial Malloc [1]: 251290
+Malloc [2]: 604
+Calculate [3]: 716
+Total: 282029 (0.282029s)
+
+Sat Sep  7 10:29:16 2019
+image resolution: 100x50
+CPU [0]: 2595
+initial Malloc [1]: 252054
+Malloc [2]: 651
+Calculate [3]: 707
+Total: 281120 (0.28112s)
+
+Sat Sep  7 10:36:58 2019
+image resolution: 100x50
+CPU [0]: 2327
+initial Malloc [1]: 267018
+Malloc [2]: 516
+Calculate [3]: 506
+Total: 296848 (0.296848s)
+
+Sat Sep  7 10:37:28 2019
+image resolution: 2000x1000
+CPU [0]: 1044096
+malloc [1]: 277086
+calculate [2]: 5879
+Total: 8731000 (8.731s)
+
+Sat Sep  7 10:40:40 2019
+image resolution: 100x50
+CPU [0]: 3079
+malloc [1]: 256546
+calculate [2]: 510
+Total: 288098 (0.288098s)
+
+Sat Sep  7 10:41:59 2019
+image resolution: 100x50
+CPU [0]: 2321
+malloc [1]: 266612
+calculate [2]: 645
+Total: 294971 (0.294971s)
+
+Sat Sep  7 10:42:17 2019
+image resolution: 100x50
+CPU [0]: 2945
+malloc [1]: 253811
+calculate [2]: 1323
+Total: 284460 (0.28446s)
+
+Sat Sep  7 10:42:48 2019
+image resolution: 100x50
+CPU [0]: 2503
+malloc [1]: 253047
+calculate [2]: 535
+Total: 280792 (0.280792s)
+
+Sat Sep  7 10:43:02 2019
+image resolution: 100x50
+CPU [0]: 2923
+malloc [1]: 263686
+calculate [2]: 701
+[3]: 670
+Total: 293291 (0.293291s)
+
+Sat Sep  7 10:43:41 2019
+image resolution: 100x50
+CPU [0]: 2431
+malloc [1]: 258797
+calculate [2]: 740
+Total: 286379 (0.286379s)
+
+Sat Sep  7 10:48:20 2019
+image resolution: 100x50
+CPU [0]: 2355
+malloc [1]: 254355
+calculate [2]: 989
+Total: 283727 (0.283727s)
+
+Sat Sep  7 10:49:22 2019
+image resolution: 100x50
+CPU [0]: 2454
+Total: 286959 (0.286959s)
+
+Sat Sep  7 10:49:58 2019
+image resolution: 100x50
+CPU [0]: 3004
+GPU [1]: 289161
+Total: 316992 (0.316992s)
+
+Sat Sep  7 10:50:11 2019
+image resolution: 1000x500
+CPU [0]: 261177
+GPU [1]: 276097
+Total: 2377653 (2.37765s)
+
+Sat Sep  7 10:50:34 2019
+image resolution: 2000x1000
+CPU [0]: 1054235
+GPU [1]: 321487
+Total: 8713745 (8.71374s)
+
+Sat Sep  7 10:50:55 2019
+image resolution: 2000x1000
+CPU [0]: 1109478
+GPU [1]: 314089
+Total: 8776370 (8.77637s)
+
+Sat Sep  7 10:51:06 2019
+image resolution: 2000x1000
+CPU [0]: 1038851
+GPU [1]: 301349
+Total: 8717664 (8.71766s)
+
+Sat Sep  7 10:51:47 2019
+image resolution: 2000x1000
+CPU [0]: 1057171
+GPU [1]: 313373
+Total: 8719073 (8.71907s)
+
+Sat Sep  7 10:51:55 2019
+image resolution: 100x50
+Total: 282666 (0.282666s)
+
