@@ -15,15 +15,15 @@ Canvas* render(Camera camera, World world) {
 
 	std::cout << "rendering ray traced image..." << std::endl;
 
-	rayForPixelGPU(camera, camera.hSize, camera.vSize);
-
 	Analysis::begin();
 	for (int y = 0; y < camera.vSize; y++) {
 		for (int x = 0; x < camera.hSize; x++) {
 			Ray ray = rayForPixel(camera, x, y);
 		}
 	}
-	Analysis::end(1);
+	Analysis::end(0);
+
+	rayForPixelGPU(camera, camera.hSize, camera.vSize);
 
 	for (int y = 0; y < camera.vSize; y++) {
 		for (int x = 0; x < camera.hSize; x++) {
@@ -41,8 +41,9 @@ Canvas* render(Camera camera, World world) {
 
 int main(int argc, const char** argv) {
 	Analysis::setAbsoluteStart();
-	Analysis::createLabel(0, "GPU");
-	Analysis::createLabel(1, "CPU");
+	Analysis::createLabel(0, "CPU");
+	Analysis::createLabel(1, "MallocManaged");
+	Analysis::createLabel(2, "Calculate");
 
 	World world = createWorld2();
 	

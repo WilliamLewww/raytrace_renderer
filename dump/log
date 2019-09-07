@@ -959,3 +959,16 @@ GPU [0]: 211221
 CPU [1]: 2389
 Total: 2894490 (2.89449s)
 
+Sat Sep  7 00:34:50 2019
+image resolution: 100x50
+CPU [0]: 2549
+MallocManaged [1]: 214429
+Total: 2909155 (2.90916s)
+
+Sat Sep  7 00:35:29 2019
+image resolution: 100x50
+CPU [0]: 2546
+MallocManaged [1]: 214104
+Calculate [2]: 523
+Total: 2877993 (2.87799s)
+
