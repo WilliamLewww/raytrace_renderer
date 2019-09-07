@@ -6,6 +6,7 @@
 #include "world.h"
 #include "camera.h"
 #include "analysis.h"
+#include "gpu.h"
 
 const int SCREENWIDTH = 100;
 const int SCREENHEIGHT = 50;
@@ -20,10 +21,9 @@ Canvas* render(Camera camera, World world) {
 
 	for (int y = 0; y < camera.vSize; y++) {
 		for (int x = 0; x < camera.hSize; x++) {
-			Ray ray = rayForPixel(camera, x, y);
-			//Tuple color = colorAt(world, ray);
+			Tuple color = colorAt(world, rayOut[int((y * camera.hSize) + x)]);
 
-			//canvas->setPixel(x, y, color);
+			canvas->setPixel(x, y, color);
 		}
 	}
 
