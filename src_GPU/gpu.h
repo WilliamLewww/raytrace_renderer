@@ -73,3 +73,12 @@ void rayForPixelGPU(Ray* rayOut, Camera camera, int width, int height) {
 	cudaFree(rayBuffer);
 	cudaFree(inverseViewMatrixBuffer);
 }
+
+void colorAtGPU(Tuple* colorOut, World world, Ray* rays, int width, int height) {
+	int count = width * height;
+	Tuple* tupleBuffer;
+
+	cudaMallocManaged(&tupleBuffer, count*sizeof(Tuple));
+
+	cudaFree(tupleBuffer);
+}

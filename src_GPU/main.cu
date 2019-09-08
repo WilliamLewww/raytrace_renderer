@@ -19,6 +19,9 @@ Canvas* render(Camera camera, World world) {
 	Ray* rayOut = new Ray[camera.vSize * camera.hSize];
 	rayForPixelGPU(rayOut, camera, camera.hSize, camera.vSize);
 
+	Tuple* colorOut = new Tuple[camera.vSize * camera.hSize];
+	colorAtGPU(colorOut, world, rayOut, camera.hSize, camera.vSize);
+
 	for (int y = 0; y < camera.vSize; y++) {
 		for (int x = 0; x < camera.hSize; x++) {
 			Tuple color = colorAt(world, rayOut[int((y * camera.hSize) + x)]);
