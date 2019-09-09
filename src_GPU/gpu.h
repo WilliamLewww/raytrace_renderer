@@ -83,8 +83,7 @@ void colorAtKernel(Tuple* colorBuffer, int count) {
 	}
 }
 
-void colorAtGPU(Tuple* colorOut, World world, Ray* rays, int width, int height) {
-	int count = width * height;
+void colorAtGPU(Tuple* colorOut, World world, Ray* rays, int count) {
 	Tuple* colorBuffer;
 
 	cudaMallocManaged(&colorBuffer, count*sizeof(Tuple));
