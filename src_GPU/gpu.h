@@ -75,7 +75,7 @@ void rayForPixelGPU(Ray* rayOut, Camera camera, int width, int height) {
 }
 
 __global__
-void colorAtKernel(Tuple* colorBuffer, int count) {
+void colorAtKernel(Tuple* colorBuffer, int count, World world, Ray* rays) {
 	int index = blockIdx.x * blockDim.x + threadIdx.x;
 	int stride = blockDim.x * gridDim.x;
 	for (int x = index; x < count; x += stride) {
@@ -90,7 +90,7 @@ void colorAtGPU(Tuple* colorOut, World world, Ray* rays, int count) {
 
 	int blockSize = 256;
 	int numBlocks = (count + blockSize - 1) / blockSize;
-	colorAtKernel<<<numBlocks, blockSize>>>(colorBuffer, count);
+	colorAtKernel<<<numBlocks, blockSize>>>(colorBuffer, count, world, rays);
 
 	cudaDeviceSynchronize();
 
