@@ -74,11 +74,28 @@ void rayForPixelGPU(Ray* rayOut, Camera camera, int width, int height) {
 	cudaFree(inverseViewMatrixBuffer);
 }
 
+__global__
+void colorAtKernel(Tuple* colorBuffer, int count) {
+	int index = blockIdx.x * blockDim.x + threadIdx.x;
+	int stride = blockDim.x * gridDim.x;
+	for (int x = index; x < count; x += stride) {
+		colorBuffer[x] = { 0, 0, 0, 1 };
+	}
+}
+
 void colorAtGPU(Tuple* colorOut, World world, Ray* rays, int width, int height) {
 	int count = width * height;
-	Tuple* tupleBuffer;
+	Tuple* colorBuffer;
 
-	cudaMallocManaged(&tupleBuffer, count*sizeof(Tuple));
+	cudaMallocManaged(&colorBuffer, count*sizeof(Tuple));
 
-	cudaFree(tupleBuffer);
+	int blockSize = 256;
+	int numBlocks = (count + blockSize - 1) / blockSize;
+	colorAtKernel<<<numBlocks, blockSize>>>(colorBuffer, count);
+
+	cudaDeviceSynchronize();
+
+	cudaMemcpy(colorOut, colorBuffer, count*sizeof(Tuple), cudaMemcpyDeviceToHost);
+
+	cudaFree(colorBuffer);
 }

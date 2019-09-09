@@ -24,9 +24,7 @@ Canvas* render(Camera camera, World world) {
 
 	for (int y = 0; y < camera.vSize; y++) {
 		for (int x = 0; x < camera.hSize; x++) {
-			Tuple color = colorAt(world, rayOut[int((y * camera.hSize) + x)]);
-
-			canvas->setPixel(x, y, color);
+			canvas->setPixel(x, y, colorOut[int((y * camera.hSize) + x)]);
 		}
 	}
 
