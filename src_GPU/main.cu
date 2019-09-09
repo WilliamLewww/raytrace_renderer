@@ -16,10 +16,10 @@ Canvas* render(Camera camera, World world) {
 
 	std::cout << "rendering ray traced image..." << std::endl;
 
-	Ray* rayOut = new Ray[camera.vSize * camera.hSize];
+	Ray* rayOut = new Ray[int(camera.vSize * camera.hSize)];
 	rayForPixelGPU(rayOut, camera, camera.hSize, camera.vSize);
 
-	Tuple* colorOut = new Tuple[camera.vSize * camera.hSize];
+	Tuple* colorOut = new Tuple[int(camera.vSize * camera.hSize)];
 	colorAtGPU(colorOut, world, rayOut, camera.hSize * camera.vSize);
 
 	for (int y = 0; y < camera.vSize; y++) {

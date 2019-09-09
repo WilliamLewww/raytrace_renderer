@@ -1261,3 +1261,13 @@ Mon Sep  9 12:20:16 2019
 image resolution: 100x50
 Total: 271309 (0.271309s)
 
+Mon Sep  9 15:57:21 2019
+image resolution: 100x50
+intersectWorld [0]: 125
+prepareComputations [1]: 30
+Total: 1417667 (1.41767s)
+
+Mon Sep  9 15:58:22 2019
+image resolution: 100x50
+Total: 129443 (0.129443s)
+
