@@ -194,7 +194,7 @@ void rayForPixelGPU(Ray* rayOut, Camera camera, int width, int height) {
 }
 
 __device__
-Intersection* intersectSphereGPU(Shape& shape, Ray ray, int& intersectionCount) {
+Intersection* intersectSphereGPU(Shape shape, Ray ray, int& intersectionCount) {
 	Tuple sphereToRay = subtractTuple(ray.origin, shape.origin);
 	float a = dotGPU(ray.direction, ray.direction);
 	float b = 2 * dotGPU(ray.direction, sphereToRay);
@@ -226,7 +226,7 @@ Intersection* intersectSphereGPU(Shape& shape, Ray ray, int& intersectionCount) 
 }
 
 __device__
-Intersection* intersectGPU(Shape& shape, Ray ray, int& intersectionCount, Matrix modelMatrix) {
+int intersectCountGPU(Shape shape, Ray ray, Matrix modelMatrix) {
 	// Intersection* intersections;
 
 	// Ray rayTransformed = transformGPU(ray, inverseGPU(modelMatrix));
@@ -239,37 +239,18 @@ Intersection* intersectGPU(Shape& shape, Ray ray, int& intersectionCount, Matrix
 
 	// return intersections;
 
-	intersectionCount = 0;
-	return nullptr;
+	return 0;
 }
 
 __device__
-Intersection* intersectWorldGPU(World world, Ray ray, int& intersectionCount, Shape* shapeArrayBuffer, float* modelMatrixBuffer) {
+int intersectWorldCountGPU(World world, Ray ray, Shape* shapeArrayBuffer, float* modelMatrixBuffer) {
 	int totalIntersectionCount = 0;
-	int tempIntersectionCount;
 	for (int x = 0; x < world.shapeCount; x++) {
 		Matrix modelMatrix = createMatrixGPU(4, 4, modelMatrixBuffer, x * 16);
-		intersectGPU(shapeArrayBuffer[x], ray, tempIntersectionCount, modelMatrix);
-		totalIntersectionCount += tempIntersectionCount;
+		totalIntersectionCount += intersectCountGPU(shapeArrayBuffer[x], ray, modelMatrix);;
 	}
-	intersectionCount = totalIntersectionCount;
 
-	// Intersection* intersection = new Intersection[totalIntersectionCount];
-	// int currentIntersection = 0;
-	// for (int x = 0; x < world.shapeCount; x++) {
-	// 	Matrix modelMatrix = createMatrixGPU(4, 4, modelMatrixBuffer, x * 16);
-	// 	Intersection* tempIntersections = intersectGPU(shapeArrayBuffer[x], ray, tempIntersectionCount, modelMatrix);
-	// 	if (tempIntersectionCount > 0) {
-	// 		for (int y = 0; y < tempIntersectionCount; y++) {
-	// 			intersection[currentIntersection] = tempIntersections[y];
-	// 			currentIntersection += 1;
-	// 		}
-	// 	}
-	// }
-	// 
-	// return intersection;
-
-	return nullptr;
+	return totalIntersectionCount;
 }
 
 __device__
@@ -282,10 +263,7 @@ void colorAtKernel(Tuple* colorBuffer, int count, World world, Ray* rays, Shape*
 	int index = blockIdx.x * blockDim.x + threadIdx.x;
 	int stride = blockDim.x * gridDim.x;
 	for (int x = index; x < count; x += stride) {
-		int intersectionCount = 0;
-
-		Intersection* intersections = intersectWorldGPU(world, rays[x], intersectionCount, shapeArrayBuffer, modelMatrixBuffer);
-		thrust::sort(intersections, intersections + intersectionCount, &sortIntersectionsGPU);
+		int intersectionCount = intersectWorldCountGPU(world, rays[x], shapeArrayBuffer, modelMatrixBuffer);
 		if (intersectionCount > 0) {
 			colorBuffer[x] = { 1, 0, 0, 1 };
 		}
