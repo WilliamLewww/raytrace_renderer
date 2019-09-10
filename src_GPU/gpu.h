@@ -75,26 +75,40 @@ void rayForPixelGPU(Ray* rayOut, Camera camera, int width, int height) {
 }
 
 __global__
-void colorAtKernel(Tuple* colorBuffer, int count, World world, Ray* rays) {
+void colorAtKernel(Tuple* colorBuffer, int count, World world, Ray* rays, Shape* shapeArrayBuffer) {
 	int index = blockIdx.x * blockDim.x + threadIdx.x;
 	int stride = blockDim.x * gridDim.x;
 	for (int x = index; x < count; x += stride) {
-		colorBuffer[x] = { 0, 0, 0, 1 };
+		int intersectionCount = 0;
+
+		if (intersectionCount > 0) {
+			colorBuffer[x] = { 1, 0, 0, 1 };
+		}
+		else {
+			colorBuffer[x] = { 0, 0, 0, 1 };
+		}
 	}
 }
 
 void colorAtGPU(Tuple* colorOut, World world, Ray* rays, int count) {
 	Tuple* colorBuffer;
+	Shape* shapeArrayBuffer;
 
 	cudaMallocManaged(&colorBuffer, count*sizeof(Tuple));
+	cudaMallocManaged(&shapeArrayBuffer, sizeof(Shape) * world.shapeCount);
+
+	for (int x = 0; x < world.shapeCount; x++) {
+		shapeArrayBuffer[x] = world.shapeArray[x];
+	}
 
 	int blockSize = 256;
 	int numBlocks = (count + blockSize - 1) / blockSize;
-	colorAtKernel<<<numBlocks, blockSize>>>(colorBuffer, count, world, rays);
+	colorAtKernel<<<numBlocks, blockSize>>>(colorBuffer, count, world, rays, shapeArrayBuffer);
 
 	cudaDeviceSynchronize();
 
 	cudaMemcpy(colorOut, colorBuffer, count*sizeof(Tuple), cudaMemcpyDeviceToHost);
 
 	cudaFree(colorBuffer);
+	cudaFree(shapeArrayBuffer);
 }

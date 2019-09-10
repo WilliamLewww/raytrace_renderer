@@ -36,7 +36,7 @@ Canvas* render(Camera camera, World world) {
 int main(int argc, const char** argv) {
 	Analysis::setAbsoluteStart();
 
-	World world = createWorld2();
+	World world = createDefaultWorld();
 	
 	Camera camera = createCamera(SCREENWIDTH, SCREENHEIGHT, M_PI / 3);
 	Tuple from = createPoint(3, 2.5, -5);
