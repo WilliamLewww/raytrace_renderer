@@ -1,0 +1,1 @@
+(cd dump && cuda-memcheck ../bin/raytrace_renderer_gpu.out image.ppm log)

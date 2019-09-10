@@ -2,6 +2,11 @@
 #include <thrust/sort.h>
 
 __device__
+float dotGPU(Tuple tupleA, Tuple tupleB) {
+	return ((tupleA.x * tupleB.x) + (tupleA.y * tupleB.y) + (tupleA.z * tupleB.z) + (tupleA.w * tupleB.w));
+}
+
+__device__
 Tuple multiplyMatrixGPU(Matrix matrix, Tuple tuple) {
 	return {
 		((matrix.data[0][0] * tuple.x) + (matrix.data[0][1] * tuple.y) + (matrix.data[0][2] * tuple.z) + (matrix.data[0][3] * tuple.w)),
@@ -189,18 +194,53 @@ void rayForPixelGPU(Ray* rayOut, Camera camera, int width, int height) {
 }
 
 __device__
+Intersection* intersectSphereGPU(Shape& shape, Ray ray, int& intersectionCount) {
+	Tuple sphereToRay = subtractTuple(ray.origin, shape.origin);
+	float a = dotGPU(ray.direction, ray.direction);
+	float b = 2 * dotGPU(ray.direction, sphereToRay);
+	float c = dotGPU(sphereToRay, sphereToRay) - 1;
+
+	float discriminant = pow(b, 2) - (4 * a * c);
+
+	if (discriminant < 0) {
+		intersectionCount = 0;
+
+		return nullptr;
+	}
+
+	if ((-b - sqrt(discriminant)) / (2 * a) == (-b + sqrt(discriminant)) / (2 * a)) {
+		intersectionCount = 1;
+
+		Intersection* intersection = new Intersection[1];
+		intersection[0] = { (-b - sqrt(discriminant)) / (2 * a), &shape };
+
+		return intersection;
+	}
+
+	intersectionCount = 2;
+
+	Intersection* intersection = new Intersection[2];
+	intersection[0] = { (-b - sqrt(discriminant)) / (2 * a), &shape };
+	intersection[1] = { (-b + sqrt(discriminant)) / (2 * a), &shape };
+	return intersection;
+}
+
+__device__
 Intersection* intersectGPU(Shape& shape, Ray ray, int& intersectionCount, Matrix modelMatrix) {
-	Intersection* intersections;
+	// Intersection* intersections;
 
-	Ray rayTransformed = transformGPU(ray, inverseGPU(modelMatrix));
-	if (shape.shape == SHAPES_SPHERE) {
-		intersections = intersectSphere(shape, rayTransformed, intersectionCount);
-	}
-	if (shape.shape == SHAPES_PLANE) {
-		intersections = intersectPlane(shape, rayTransformed, intersectionCount);
-	}
+	// Ray rayTransformed = transformGPU(ray, inverseGPU(modelMatrix));
+	// if (shape.shape == SHAPES_SPHERE) {
+	// 	intersections = intersectSphereGPU(shape, rayTransformed, intersectionCount);
+	// }
+	// if (shape.shape == SHAPES_PLANE) {
+	// 	intersections = intersectPlane(shape, rayTransformed, intersectionCount);
+	// }
 
-	return intersections;
+	// return intersections;
+
+	intersectionCount = 0;
+	return nullptr;
 }
 
 __device__
@@ -214,20 +254,22 @@ Intersection* intersectWorldGPU(World world, Ray ray, int& intersectionCount, Sh
 	}
 	intersectionCount = totalIntersectionCount;
 
-	Intersection* intersection = new Intersection[totalIntersectionCount];
-	int currentIntersection = 0;
-	for (int x = 0; x < world.shapeCount; x++) {
-		Matrix modelMatrix = createMatrixGPU(4, 4, modelMatrixBuffer, x * 16);
-		Intersection* tempIntersections = intersectGPU(shapeArrayBuffer[x], ray, tempIntersectionCount, modelMatrix);
-		if (tempIntersectionCount > 0) {
-			for (int y = 0; y < tempIntersectionCount; y++) {
-				intersection[currentIntersection] = tempIntersections[y];
-				currentIntersection += 1;
-			}
-		}
-	}
+	// Intersection* intersection = new Intersection[totalIntersectionCount];
+	// int currentIntersection = 0;
+	// for (int x = 0; x < world.shapeCount; x++) {
+	// 	Matrix modelMatrix = createMatrixGPU(4, 4, modelMatrixBuffer, x * 16);
+	// 	Intersection* tempIntersections = intersectGPU(shapeArrayBuffer[x], ray, tempIntersectionCount, modelMatrix);
+	// 	if (tempIntersectionCount > 0) {
+	// 		for (int y = 0; y < tempIntersectionCount; y++) {
+	// 			intersection[currentIntersection] = tempIntersections[y];
+	// 			currentIntersection += 1;
+	// 		}
+	// 	}
+	// }
+	// 
+	// return intersection;
 
-	return intersection;
+	return nullptr;
 }
 
 __device__
@@ -266,7 +308,7 @@ void colorAtGPU(Tuple* colorOut, World world, Ray* rays, int count) {
 		shapeArrayBuffer[x] = world.shapeArray[x];
 		for (int y = 0; y < 4; y++) {
 			for (int z = 0; z < 4; z++) {
-				modelMatrixBuffer[(y * 4) + z] = world.shapeArray[x].modelMatrix[y][z];
+				modelMatrixBuffer[(x * 16) + (y * 4) + z] = world.shapeArray[x].modelMatrix[y][z];
 			}
 		}
 	}
