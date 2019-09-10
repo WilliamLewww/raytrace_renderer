@@ -2,13 +2,107 @@
 #include <thrust/sort.h>
 
 __device__
-Tuple multiplyMatrixTuple(float* matrix, Tuple tuple) {
+Tuple multiplyMatrixGPU(Matrix matrix, Tuple tuple) {
 	return {
-		((matrix[0] * tuple.x) + (matrix[1] * tuple.y) + (matrix[2] * tuple.z) + (matrix[3] * tuple.w)),
- 		((matrix[4] * tuple.x) + (matrix[5] * tuple.y) + (matrix[6] * tuple.z) + (matrix[7] * tuple.w)),
- 		((matrix[8] * tuple.x) + (matrix[9] * tuple.y) + (matrix[10] * tuple.z) + (matrix[11] * tuple.w)),
- 		((matrix[12] * tuple.x) + (matrix[13] * tuple.y) + (matrix[14] * tuple.z) + (matrix[15] * tuple.w))
+		((matrix.data[0][0] * tuple.x) + (matrix.data[0][1] * tuple.y) + (matrix.data[0][2] * tuple.z) + (matrix.data[0][3] * tuple.w)),
+ 		((matrix.data[1][0] * tuple.x) + (matrix.data[1][1] * tuple.y) + (matrix.data[1][2] * tuple.z) + (matrix.data[1][3] * tuple.w)),
+ 		((matrix.data[2][0] * tuple.x) + (matrix.data[2][1] * tuple.y) + (matrix.data[2][2] * tuple.z) + (matrix.data[2][3] * tuple.w)),
+ 		((matrix.data[3][0] * tuple.x) + (matrix.data[3][1] * tuple.y) + (matrix.data[3][2] * tuple.z) + (matrix.data[3][3] * tuple.w))
 	};
+}
+
+__device__
+Ray transformGPU(Ray ray, Matrix matrix) {
+	return { multiplyMatrixGPU(matrix, ray.origin), multiplyMatrixGPU(matrix, ray.direction) };
+}
+
+__device__
+Matrix createMatrixGPU(int rowCount, int columnCount) {
+	Matrix temp;
+	temp.data = new float*[rowCount];
+	for (int x = 0; x < rowCount; x++) {
+		temp.data[x] = new float[columnCount];
+		for (int y = 0; y < columnCount; y++) {
+			temp.data[x][y] = 0.0;
+		}
+	}
+
+	temp.rowCount = rowCount;
+	temp.columnCount = columnCount;
+
+	return temp;
+}
+
+__device__
+float cofactorGPU(Matrix matrix, int row, int column);
+
+__device__
+float determinateGPU(Matrix matrix) {
+	if (matrix.rowCount == 2 && matrix.columnCount == 2) {
+		return ((matrix.data[0][0] * matrix.data[1][1]) - (matrix.data[1][0] * matrix.data[0][1]));
+	}
+	
+	float det = 0;
+	for (int y = 0; y < matrix.columnCount; y++) {
+		det += matrix.data[0][y] * cofactorGPU(matrix, 0, y);
+	}
+
+	return det;
+}
+
+__device__
+Matrix submatrixGPU(Matrix matrix, int row, int column) {
+	Matrix temp = createMatrixGPU(matrix.rowCount - 1, matrix.columnCount - 1);
+
+	int currentX = 0;
+	int currentY = 0;
+	for (int x = 0; x < matrix.rowCount; x++) {
+		for (int y = 0; y < matrix.columnCount; y++) {
+			if (x != row && y != column) {
+				temp.data[currentX][currentY] = matrix.data[x][y];
+				if (currentY + 1 == temp.columnCount) {
+					currentX += 1;
+					currentY = 0;
+				}
+				else {
+					currentY += 1;
+				}
+			}
+		}
+	}
+
+	return temp;
+}
+
+__device__
+float matrixMinorGPU(Matrix matrix, int row, int column) {
+	Matrix temp = submatrixGPU(matrix, row, column);
+	return determinateGPU(temp);
+}
+
+__device__
+float cofactorGPU(Matrix matrix, int row, int column) {
+	if ((row + column) % 2 == 0) {
+		return matrixMinorGPU(matrix, row, column);
+	}
+
+	return -matrixMinorGPU(matrix, row, column);
+}
+
+__device__
+Matrix inverseGPU(Matrix matrix) {
+	Matrix temp = createMatrixGPU(matrix.rowCount, matrix.columnCount);
+	float det = determinateGPU(matrix);
+
+	for (int x = 0; x < temp.rowCount; x++) {
+		for (int y = 0; y < temp.columnCount; y++) {
+			float c = cofactorGPU(matrix, x, y);
+
+			temp.data[y][x] = c / det;
+		}
+	}
+
+	return temp;
 }
 
 __device__
@@ -26,8 +120,27 @@ Tuple subtractTuple(Tuple tupleA, Tuple tupleB) {
 	return { tupleA.x - tupleB.x, tupleA.y - tupleB.y, tupleA.z - tupleB.z, tupleA.w - tupleB.w };
 }
 
+__device__
+Matrix createMatrixGPU(int rowCount, int columnCount, float* matrixBuffer, int offset = 0) {
+	Matrix temp;
+	temp.data = new float*[rowCount];
+	for (int x = 0; x < rowCount; x++) {
+		temp.data[x] = new float[columnCount];
+		for (int y = 0; y < columnCount; y++) {
+			temp.data[x][y] = matrixBuffer[(x * 4) + y + offset];
+		}
+	}
+
+	temp.rowCount = rowCount;
+	temp.columnCount = columnCount;
+
+	return temp;
+}
+
 __global__
 void rayForPixelKernel(Ray* rayBuffer, float* inverseViewMatrixBuffer, int count, Camera camera) {
+	Matrix inverseViewMatrix = createMatrixGPU(4, 4, inverseViewMatrixBuffer);
+
 	int index = blockIdx.x * blockDim.x + threadIdx.x;
 	int stride = blockDim.x * gridDim.x;
 	for (int x = index; x < count; x += stride) {
@@ -40,8 +153,8 @@ void rayForPixelKernel(Ray* rayBuffer, float* inverseViewMatrixBuffer, int count
 		float worldX = camera.halfWidth - offsetX;
 		float worldY = camera.halfHeight - offsetY;
 
-		Tuple pixel = multiplyMatrixTuple(inverseViewMatrixBuffer, { worldX, worldY, -1, 1 });
-		Tuple origin = multiplyMatrixTuple(inverseViewMatrixBuffer, { 0, 0, 0, 1 });
+		Tuple pixel = multiplyMatrixGPU(inverseViewMatrix, { worldX, worldY, -1, 1 });
+		Tuple origin = multiplyMatrixGPU(inverseViewMatrix, { 0, 0, 0, 1 });
 
 		Tuple direction = normalizeTuple(subtractTuple(pixel, origin));
 
@@ -76,11 +189,27 @@ void rayForPixelGPU(Ray* rayOut, Camera camera, int width, int height) {
 }
 
 __device__
-Intersection* intersectWorldGPU(World world, Ray ray, int& intersectionCount, Shape* shapeArrayBuffer) {
+Intersection* intersectGPU(Shape& shape, Ray ray, int& intersectionCount, Matrix modelMatrix) {
+	Intersection* intersections;
+
+	Ray rayTransformed = transformGPU(ray, inverseGPU(modelMatrix));
+	if (shape.shape == SHAPES_SPHERE) {
+		intersections = intersectSphere(shape, rayTransformed, intersectionCount);
+	}
+	if (shape.shape == SHAPES_PLANE) {
+		intersections = intersectPlane(shape, rayTransformed, intersectionCount);
+	}
+
+	return intersections;
+}
+
+__device__
+Intersection* intersectWorldGPU(World world, Ray ray, int& intersectionCount, Shape* shapeArrayBuffer, float* modelMatrixBuffer) {
 	int totalIntersectionCount = 0;
 	int tempIntersectionCount;
 	for (int x = 0; x < world.shapeCount; x++) {
-		intersect(shapeArrayBuffer[x], ray, tempIntersectionCount);
+		Matrix modelMatrix = createMatrixGPU(4, 4, modelMatrixBuffer, x * 16);
+		intersectGPU(shapeArrayBuffer[x], ray, tempIntersectionCount, modelMatrix);
 		totalIntersectionCount += tempIntersectionCount;
 	}
 	intersectionCount = totalIntersectionCount;
@@ -88,7 +217,8 @@ Intersection* intersectWorldGPU(World world, Ray ray, int& intersectionCount, Sh
 	Intersection* intersection = new Intersection[totalIntersectionCount];
 	int currentIntersection = 0;
 	for (int x = 0; x < world.shapeCount; x++) {
-		Intersection* tempIntersections = intersect(shapeArrayBuffer[x], ray, tempIntersectionCount);
+		Matrix modelMatrix = createMatrixGPU(4, 4, modelMatrixBuffer, x * 16);
+		Intersection* tempIntersections = intersectGPU(shapeArrayBuffer[x], ray, tempIntersectionCount, modelMatrix);
 		if (tempIntersectionCount > 0) {
 			for (int y = 0; y < tempIntersectionCount; y++) {
 				intersection[currentIntersection] = tempIntersections[y];
@@ -106,13 +236,13 @@ bool sortIntersectionsGPU(Intersection intersectionA, Intersection intersectionB
 }
 
 __global__
-void colorAtKernel(Tuple* colorBuffer, int count, World world, Ray* rays, Shape* shapeArrayBuffer) {
+void colorAtKernel(Tuple* colorBuffer, int count, World world, Ray* rays, Shape* shapeArrayBuffer, float* modelMatrixBuffer) {
 	int index = blockIdx.x * blockDim.x + threadIdx.x;
 	int stride = blockDim.x * gridDim.x;
 	for (int x = index; x < count; x += stride) {
 		int intersectionCount = 0;
 
-		Intersection* intersections = intersectWorldGPU(world, rays[x], intersectionCount, shapeArrayBuffer);
+		Intersection* intersections = intersectWorldGPU(world, rays[x], intersectionCount, shapeArrayBuffer, modelMatrixBuffer);
 		thrust::sort(intersections, intersections + intersectionCount, &sortIntersectionsGPU);
 		if (intersectionCount > 0) {
 			colorBuffer[x] = { 1, 0, 0, 1 };
@@ -126,17 +256,24 @@ void colorAtKernel(Tuple* colorBuffer, int count, World world, Ray* rays, Shape*
 void colorAtGPU(Tuple* colorOut, World world, Ray* rays, int count) {
 	Tuple* colorBuffer;
 	Shape* shapeArrayBuffer;
+	float* modelMatrixBuffer;
 
 	cudaMallocManaged(&colorBuffer, count*sizeof(Tuple));
 	cudaMallocManaged(&shapeArrayBuffer, sizeof(Shape) * world.shapeCount);
+	cudaMallocManaged(&modelMatrixBuffer, sizeof(float) * 16 * world.shapeCount);
 
 	for (int x = 0; x < world.shapeCount; x++) {
 		shapeArrayBuffer[x] = world.shapeArray[x];
+		for (int y = 0; y < 4; y++) {
+			for (int z = 0; z < 4; z++) {
+				modelMatrixBuffer[(y * 4) + z] = world.shapeArray[x].modelMatrix[y][z];
+			}
+		}
 	}
 
 	int blockSize = 256;
 	int numBlocks = (count + blockSize - 1) / blockSize;
-	colorAtKernel<<<numBlocks, blockSize>>>(colorBuffer, count, world, rays, shapeArrayBuffer);
+	colorAtKernel<<<numBlocks, blockSize>>>(colorBuffer, count, world, rays, shapeArrayBuffer, modelMatrixBuffer);
 
 	cudaDeviceSynchronize();
 
@@ -144,4 +281,5 @@ void colorAtGPU(Tuple* colorOut, World world, Ray* rays, int count) {
 
 	cudaFree(colorBuffer);
 	cudaFree(shapeArrayBuffer);
+	cudaFree(modelMatrixBuffer);
 }
