@@ -1,4 +1,5 @@
 #pragma once
+#include <thrust/sort.h>
 
 __device__
 Tuple multiplyMatrixTuple(float* matrix, Tuple tuple) {
@@ -74,6 +75,36 @@ void rayForPixelGPU(Ray* rayOut, Camera camera, int width, int height) {
 	cudaFree(inverseViewMatrixBuffer);
 }
 
+__device__
+Intersection* intersectWorldGPU(World world, Ray ray, int& intersectionCount, Shape* shapeArrayBuffer) {
+	int totalIntersectionCount = 0;
+	int tempIntersectionCount;
+	for (int x = 0; x < world.shapeCount; x++) {
+		intersect(world.shapeArray[x], ray, tempIntersectionCount);
+		totalIntersectionCount += tempIntersectionCount;
+	}
+	intersectionCount = totalIntersectionCount;
+
+	Intersection* intersection = new Intersection[totalIntersectionCount];
+	int currentIntersection = 0;
+	for (int x = 0; x < world.shapeCount; x++) {
+		Intersection* tempIntersections = intersect(shapeArrayBuffer[x], ray, tempIntersectionCount);
+		if (tempIntersectionCount > 0) {
+			for (int y = 0; y < tempIntersectionCount; y++) {
+				intersection[currentIntersection] = tempIntersections[y];
+				currentIntersection += 1;
+			}
+		}
+	}
+
+	return intersection;
+}
+
+__device__
+bool sortIntersectionsGPU(Intersection intersectionA, Intersection intersectionB) {
+    return intersectionA.t >= intersectionB.t;
+}
+
 __global__
 void colorAtKernel(Tuple* colorBuffer, int count, World world, Ray* rays, Shape* shapeArrayBuffer) {
 	int index = blockIdx.x * blockDim.x + threadIdx.x;
@@ -81,6 +112,8 @@ void colorAtKernel(Tuple* colorBuffer, int count, World world, Ray* rays, Shape*
 	for (int x = index; x < count; x += stride) {
 		int intersectionCount = 0;
 
+		Intersection* intersections = intersectWorldGPU(world, rays[x], intersectionCount, shapeArrayBuffer);
+		thrust::sort(intersections, intersections + intersectionCount, &sortIntersectionsGPU);
 		if (intersectionCount > 0) {
 			colorBuffer[x] = { 1, 0, 0, 1 };
 		}
