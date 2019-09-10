@@ -80,7 +80,7 @@ Intersection* intersectWorldGPU(World world, Ray ray, int& intersectionCount, Sh
 	int totalIntersectionCount = 0;
 	int tempIntersectionCount;
 	for (int x = 0; x < world.shapeCount; x++) {
-		intersect(world.shapeArray[x], ray, tempIntersectionCount);
+		intersect(shapeArrayBuffer[x], ray, tempIntersectionCount);
 		totalIntersectionCount += tempIntersectionCount;
 	}
 	intersectionCount = totalIntersectionCount;
