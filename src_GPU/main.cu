@@ -4,8 +4,7 @@
 
 #include "analysis.h"
 #include "canvas.h"
-#include "ray.h"
-#include "matrix.h"
+#include "camera.h"
 
 const int SCREENWIDTH = 100;
 const int SCREENHEIGHT = 50;
@@ -13,8 +12,7 @@ const int SCREENHEIGHT = 50;
 int main(int argc, const char** argv) {
 	Analysis::setAbsoluteStart();
 
-	Canvas canvas = createCanvas(SCREENWIDTH, SCREENHEIGHT);
-	saveCanvasToFile(&canvas, argv[1]);
+	Camera camera = createCamera(SCREENWIDTH, SCREENHEIGHT, M_PI / 4);
 
 	Analysis::printAll();
 	Analysis::saveToFile(argv[2], SCREENWIDTH, SCREENHEIGHT);
