@@ -4,88 +4,48 @@
 		"selected_items":
 		[
 			[
-				"beg",
-				"begin\t(world.h)"
+				"intersectS",
+				"intersectSphereGPU\tabc"
 			],
 			[
-				"inver",
-				"inverseViewMatrix\tabc"
-			],
-			[
-				"matri",
-				"matrixGPU\tabc"
-			],
-			[
-				"invse",
-				"inverseKernel\tabc"
-			],
-			[
-				"size",
-				"sizeof\t(sample.cu)"
-			],
-			[
-				"invers",
-				"inverseGPU\tabc"
-			],
-			[
-				"beig",
-				"begin\tabc"
-			],
-			[
-				"label",
-				"labelList\tabc"
-			],
-			[
-				"SCRE",
-				"SCREENHEIGHT\tabc"
-			],
-			[
-				"scree",
-				"screenHeight\tabc"
-			],
-			[
-				"cons",
-				"constants.h\t(world.h)"
-			],
-			[
-				"tempI",
-				"tempIntersections\tabc"
-			],
-			[
-				"intersect",
-				"intersection\tabc"
+				"shapeA",
+				"shapeArrayBuffer\tabc"
 			],
 			[
 				"shap",
-				"shapeCount\tabc"
+				"shapeArray\t(world.h)"
 			],
 			[
-				"SCR",
-				"SCREENHEIGHT\tabc"
+				"intersecti",
+				"intersectionCount\tabc"
 			],
 			[
-				"AN",
-				"Analysis::end\t(world.h)"
+				"intersec",
+				"intersectionCount\t(world.h)"
 			],
 			[
-				"bei",
-				"begin\t(analysis.h)"
+				"tupleB",
+				"tupleBuffer\tabc"
 			],
 			[
-				"sort",
-				"sortIntersections\tabc"
+				"tup",
+				"tupleBuffer\tabc"
 			],
 			[
-				"dura",
-				"durationList\tabc"
+				"inver",
+				"inverseViewMatrixBuffer\tabc"
 			],
 			[
-				"fini",
-				"finishList\tabc"
+				"invers",
+				"inverseViewMatrixBuffer\tabc"
 			],
 			[
-				"fin",
-				"finishList\tabc"
+				"tu",
+				"tupleBuffer\tabc"
+			],
+			[
+				"EP",
+				"EPSILON_COMPARISON\t(matrix.h)"
 			],
 			[
 				"norm",
@@ -102,6 +62,14 @@
 			[
 				"pointToL",
 				"pointToLightN\tabc"
+			],
+			[
+				"SCRE",
+				"SCREENHEIGHT\tabc"
+			],
+			[
+				"SCR",
+				"SCREENWIDTH\tabc"
 			],
 			[
 				"createRo",
@@ -132,6 +100,10 @@
 				"lightArray\tabc"
 			],
 			[
+				"tempI",
+				"tempIntersections\tabc"
+			],
+			[
 				"tempIn",
 				"tempIntersectionCount\tabc"
 			],
@@ -140,16 +112,16 @@
 				"sphereArray\tabc"
 			],
 			[
+				"intersect",
+				"intersectionCount\tabc"
+			],
+			[
 				"interSe",
 				"intersectWorld\t(world.h)"
 			],
 			[
 				"shper",
 				"sphereCount\tabc"
-			],
-			[
-				"intersec",
-				"intersectionCount\t(sphere.h)"
 			],
 			[
 				"spher",
@@ -272,6 +244,10 @@
 				"matrix\tabc"
 			],
 			[
+				"matri",
+				"matrix\tabc"
+			],
+			[
 				"curr",
 				"currentY\tabc"
 			],
@@ -300,16 +276,8 @@
 				"tupleB\tabc"
 			],
 			[
-				"tup",
-				"tupleB\tabc"
-			],
-			[
 				"tupl",
 				"tupleB\tabc"
-			],
-			[
-				"tu",
-				"tuple\tabc"
 			],
 			[
 				"initial",
@@ -514,43 +482,93 @@
 			[
 				"uniform",
 				"uniformObjectBuffers\tabc"
+			],
+			[
+				"swapCh",
+				"swapChainImages\tabc"
+			],
+			[
+				"lightObjec",
+				"lightObjectBuffer\tabc"
+			],
+			[
+				"normalVert",
+				"normalVertices\tabc"
+			],
+			[
+				"curren",
+				"currentModelRotation\tabc"
+			],
+			[
+				"textureCo",
+				"textureCoordinateVertices\tabc"
+			],
+			[
+				"pusb",
+				"push_back\tabc"
+			],
+			[
+				"getColor",
+				"getColorVertexBufferMemory\t(joiner.h)"
+			],
+			[
+				"getPosition",
+				"getPositionVertexBufferMemory\t(joiner.h)"
 			]
 		]
 	},
 	"buffers":
 	[
 		{
-			"file": "src_GPU/main.cu",
+			"file": "src_GPU/analysis.h",
 			"settings":
 			{
-				"buffer_size": 1500,
-				"encoding": "UTF-8",
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "src_GPU/world.h",
-			"settings":
-			{
-				"buffer_size": 10788,
-				"encoding": "UTF-8",
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "src_GPU/shape.h",
-			"settings":
-			{
-				"buffer_size": 3738,
+				"buffer_size": 1649,
 				"encoding": "UTF-8",
 				"line_ending": "Windows"
 			}
 		},
 		{
-			"file": "src_GPU/matrix.h",
+			"file": "src_CPU/tuple.h",
 			"settings":
 			{
-				"buffer_size": 4082,
+				"buffer_size": 2503,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "src_GPU/main.cu",
+			"settings":
+			{
+				"buffer_size": 1516,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "src_GPU/canvas.h",
+			"settings":
+			{
+				"buffer_size": 1185,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "src_GPU/tuple.h",
+			"settings":
+			{
+				"buffer_size": 108,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "src_GPU/sample.cu",
+			"settings":
+			{
+				"buffer_size": 745,
 				"line_ending": "Windows"
 			}
 		}
@@ -785,6 +803,30 @@
 		[
 			[
 				[
+					"raytrace_renderer CPU",
+					""
+				],
+				[
+					"raytrace_renderer CPU",
+					"raytrace_renderer GPU"
+				],
+				[
+					"Packages/C++/C++ Single File.sublime-build",
+					""
+				],
+				[
+					"Packages/C++/C++ Single File.sublime-build",
+					"Run"
+				]
+			],
+			[
+				"raytrace_renderer CPU",
+				"raytrace_renderer GPU"
+			]
+		],
+		[
+			[
+				[
 					"vkray_corgi",
 					""
 				],
@@ -847,16 +889,16 @@
 		"selected_items":
 		[
 			[
-				"color",
-				"Colorsublime: Install Theme"
-			],
-			[
-				"a",
-				"Arithmetic"
+				"colors",
+				"UI: Select Color Scheme"
 			],
 			[
 				"case",
 				"Convert Case: Upper Case"
+			],
+			[
+				"color",
+				"UI: Select Color Scheme"
 			],
 			[
 				"lower",
@@ -872,6 +914,10 @@
 			],
 			[
 				"ar",
+				"Arithmetic"
+			],
+			[
+				"a",
 				"Arithmetic"
 			],
 			[
@@ -927,55 +973,51 @@
 	},
 	"expanded_folders":
 	[
-		"/home/wlew/Desktop/raytrace_renderer",
-		"/home/wlew/Desktop/raytrace_renderer/src_CPU",
-		"/home/wlew/Desktop/raytrace_renderer/src_GPU"
+		"/C/Users/William/Desktop/raytrace_renderer",
+		"/C/Users/William/Desktop/raytrace_renderer/src_CPU",
+		"/C/Users/William/Desktop/raytrace_renderer/src_GPU"
 	],
 	"file_history":
 	[
-		"/home/wlew/Desktop/raytrace_renderer/project.sublime-project",
-		"/home/wlew/Desktop/raytrace_renderer/src_GPU/main.cu",
-		"/home/wlew/Desktop/raytrace_renderer/src_CPU/shape.h",
-		"/home/wlew/Desktop/raytrace_renderer/src_GPU/constants.h",
-		"/home/wlew/Desktop/raytrace_renderer/src_GPU/world.h",
-		"/home/wlew/Desktop/raytrace_renderer/src_GPU/camera.h",
-		"/home/wlew/Desktop/raytrace_renderer/src_GPU/matrix.h",
-		"/home/wlew/Desktop/raytrace_renderer/src_GPU/analysis.h",
-		"/home/wlew/Desktop/raytrace_renderer/src_CPU/main.cpp",
-		"/home/wlew/Desktop/raytrace_renderer/src_GPU/sample.cu",
-		"/home/wlew/Desktop/raytrace_renderer/src_CPU/matrix.h",
-		"/home/wlew/Desktop/raytrace_renderer/run-GPU.sh",
-		"/home/wlew/Desktop/raytrace_renderer/src_CPU/world.h",
-		"/home/wlew/Desktop/raytrace_renderer/src_CPU/camera.h",
-		"/home/wlew/Desktop/raytrace_renderer/src_GPU/shape.h",
-		"/home/wlew/Desktop/raytrace_renderer/src_CPU/ray.h",
-		"/home/wlew/Desktop/raytrace_renderer/monitor-run-GPU.sh",
-		"/home/wlew/Desktop/raytrace_renderer/src_GPU/tuple.h",
-		"/home/wlew/Desktop/raytrace_renderer/src_CPU/tuple.h",
-		"/home/wlew/Desktop/raytrace_renderer/compile-run-GPU.sh",
-		"/home/wlew/Desktop/raytrace_renderer/src_CPU/analysis.h",
-		"/home/wlew/Desktop/raytrace_renderer/src_CPU/canvas.h",
-		"/home/wlew/Desktop/raytrace_renderer/src_GPU/canvas.h",
-		"/home/wlew/Desktop/csc300_notes",
-		"/home/wlew/Desktop/raytrace_renderer/src_CPU/light.h",
-		"/home/wlew/Desktop/raytrace_renderer/src_GPU/light.h",
-		"/home/wlew/Desktop/hello.cu",
-		"/home/wlew/Desktop/raytrace_renderer/compile-run-gpu.sh",
-		"/home/wlew/Desktop/raytrace_renderer/monitor-gpu.sh",
-		"/home/wlew/Desktop/raytrace_renderer/src_CPU/transform.h",
+		"/C/Users/William/Desktop/raytrace_renderer/src_GPU/camera.h",
+		"/C/Users/William/Desktop/raytrace_renderer/src_CPU/canvas.h",
+		"/C/Users/William/Desktop/raytrace_renderer/src_CPU/camera.h",
+		"/C/Users/William/Desktop/raytrace_renderer/src_GPU/sample.cu",
+		"/C/Users/William/Desktop/raytrace_renderer/src_CPU/tuple.h",
+		"/C/Users/William/Desktop/raytrace_renderer/src_GPU/world.h",
+		"/C/Users/William/Desktop/raytrace_renderer/src_GPU/shape.h",
+		"/C/Users/William/Desktop/raytrace_renderer/src_GPU/matrix.h",
+		"/C/Users/William/Desktop/raytrace_renderer/src_GPU/gpu.h",
+		"/C/Users/William/Desktop/raytrace_renderer/src_CPU/shape.h",
+		"/C/Users/William/Desktop/raytrace_renderer/src_CPU/world.h",
+		"/C/Users/William/Downloads/MyFirstLab.java",
+		"/C/Users/William/Desktop/raytrace_renderer/.gitignore",
+		"/C/Users/William/Desktop/raytrace_renderer/dump/log",
+		"/C/Users/William/Downloads/MyFirstLab1.java",
+		"/C/Users/William/.ssh/id_rsa.pub",
+		"/C/Users/William/Desktop/raytrace_renderer/project.sublime-project",
+		"/C/Users/William/Desktop/raytrace_renderer/src_CPU/light.h",
+		"/C/Users/William/Desktop/raytrace_renderer/src_CPU/matrix.h",
+		"/C/Users/William/Desktop/raytrace_renderer/src_CPU/transform.h",
+		"/C/Users/William/Desktop/raytrace_renderer/src_CPU/main.cpp",
 		"/C/Users/William/Desktop/raytrace_renderer/src_CPU/ray.h",
+		"/C/Users/William/Desktop/raytrace_renderer/run-GPU.sh",
+		"/C/Users/William/Desktop/raytrace_renderer/compile-run-GPU.sh",
+		"/C/Users/William/Desktop/compile.py",
+		"/C/Users/William/Desktop/raytrace_renderer/src_GPU/main.cu",
+		"/C/Users/William/Desktop/extra_practice/elementary_programming.java",
+		"/C/Users/William/Desktop/services",
+		"/C/Users/William/Desktop/raytrace_renderer/compile-run-CPU.sh",
+		"/C/Users/William/Desktop/raytrace_renderer/bin/placeholder",
 		"/C/Users/William/Desktop/raytrace_renderer/src_CPU/sphere.h",
 		"/home/wlew/Desktop/raytrace_renderer/run-cpu.sh",
+		"/home/wlew/Desktop/raytrace_renderer/project.sublime-project",
 		"/home/wlew/Desktop/raytrace_renderer/dump/test.ppm",
-		"/C/Users/William/Desktop/raytrace_renderer/src_CPU/tuple.h",
-		"/C/Users/William/Desktop/raytrace_renderer/project.sublime-project",
-		"/C/Users/William/Desktop/raytrace_renderer/src_CPU/canvas.h",
 		"/C/Users/William/Desktop/raytrace_renderer/dump/convert-ppm-to-jpg.py",
 		"/C/Users/William/Desktop/raytrace_renderer/dump/test.ppm",
 		"/C/Users/William/Desktop/raytrace_renderer/dump/convert.py",
 		"/C/Users/William/Desktop/boxes_1.ppm",
 		"/C/Users/William/Desktop/raytrace_renderer/CPU/main.cpp",
-		"/C/Users/William/Desktop/raytrace_renderer/.gitignore",
 		"/C/Users/William/Desktop/raytrace_renderer/test.ppm",
 		"/C/Users/William/Desktop/vkray_corgi/src/hello_vulkan.cpp",
 		"/C/Users/William/Desktop/vkray_corgi/src/hello_vulkan.h",
@@ -1060,7 +1102,11 @@
 		"/C/Users/William/Desktop/corgi.obj",
 		"/C/Users/William/Desktop/13467_Cardigan_Welsh_Corgi_v1_L3.obj",
 		"/C/Users/William/Desktop/vulkan_phong/.gitignore",
-		"/C/Users/William/Desktop/vulkan_phong/nsight_vulkan_phong/CppCaptures/Vulkan-Phong__2019_07_26__18_00_10/args.hxx"
+		"/C/Users/William/Desktop/vulkan_phong/nsight_vulkan_phong/CppCaptures/Vulkan-Phong__2019_07_26__18_00_10/args.hxx",
+		"/C/Users/William/Desktop/terrain.mtl",
+		"/C/Users/William/Desktop/model.obj",
+		"/C/Users/William/Desktop/vulkan_phong/shaders/basic.vert",
+		"/C/Users/William/Desktop/vulkan_phong/shaders/basic.frag"
 	],
 	"find":
 	{
@@ -1068,7 +1114,7 @@
 	},
 	"find_in_files":
 	{
-		"height": 106.0,
+		"height": 102.0,
 		"where_history":
 		[
 			""
@@ -1079,45 +1125,31 @@
 		"case_sensitive": true,
 		"find_history":
 		[
-			"prepareComputations",
-			"normalAt",
-			"inverse",
-			"camera.inverseViewMatrix",
-			"inverse(camera.viewMatrix)",
-			"camera.viewMatrix",
-			"#include \"analysis.h\"",
-			"averageT",
-			"std::cout",
-			"intersection",
-			"std::cout",
-			"new",
-			"temp->",
-			"createMatrix",
-			"new",
-			"createMatrix",
-			"new",
-			"x",
-			"i",
-			"new",
-			"createMatrix",
-			"new",
+			"createMatrixGPU",
+			"int",
+			"inverseGPU",
 			"intersect",
+			"world.shapeArray[x]",
+			"sortInter",
+			"world.shapeArray[x]",
 			"intersectWorld",
-			"intersect",
-			"intersectWorld",
+			"operator",
+			"rayForPixelGPU",
+			".object",
 			"normalAt",
-			"inverse",
-			"lighting",
-			"isShadowed",
-			"shadeHit",
-			"prepareComputations",
-			"intersectWorld",
-			"print",
-			"PATTERNS",
+			"createIntersection",
+			"transform",
+			"intersect",
+			"ray",
+			"tupleBuffer",
+			"colorBuffer",
+			"Analysis::begin();",
+			"data",
+			"magnitude",
+			"matrix",
+			"tupleBuffer",
 			"i",
-			"N",
-			"y",
-			"x",
+			"rayForPixel",
 			"Shape",
 			"radius",
 			"normalAt",
@@ -1161,7 +1193,7 @@
 		"highlight": true,
 		"in_selection": false,
 		"preserve_case": false,
-		"regex": true,
+		"regex": false,
 		"replace_history":
 		[
 		],
@@ -1174,24 +1206,53 @@
 	"groups":
 	[
 		{
-			"selected": 0,
+			"selected": 1,
 			"sheets":
 			[
 				{
 					"buffer": 0,
-					"file": "src_GPU/main.cu",
+					"file": "src_GPU/analysis.h",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 1500,
+						"buffer_size": 1649,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								784,
-								784
+								927,
+								927
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/C++/C++.sublime-syntax",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 4,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "src_CPU/tuple.h",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 2503,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								670,
+								670
 							]
 						],
 						"settings":
@@ -1209,82 +1270,24 @@
 			]
 		},
 		{
-			"selected": 0,
+			"selected": 2,
 			"sheets":
 			[
 				{
-					"buffer": 1,
-					"file": "src_GPU/world.h",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 10788,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								0,
-								0
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/C++/C++.sublime-syntax",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 1,
-					"type": "text"
-				},
-				{
 					"buffer": 2,
-					"file": "src_GPU/shape.h",
+					"file": "src_GPU/main.cu",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 3738,
+						"buffer_size": 1516,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								3326,
-								3326
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/C++/C++.sublime-syntax",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 2,
-					"type": "text"
-				},
-				{
-					"buffer": 3,
-					"file": "src_GPU/matrix.h",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 4082,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								3787,
-								3787
+								1459,
+								1470
 							]
 						],
 						"settings":
@@ -1298,13 +1301,100 @@
 					},
 					"stack_index": 3,
 					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "src_GPU/canvas.h",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1185,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								100,
+								100
+							]
+						],
+						"settings":
+						{
+							"history_list_is_closing": true,
+							"syntax": "Packages/C++/C++.sublime-syntax",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "src_GPU/tuple.h",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 108,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								50,
+								50
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/C++/C++.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 5,
+					"file": "src_GPU/sample.cu",
+					"semi_transient": true,
+					"settings":
+					{
+						"buffer_size": 745,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Text/Plain text.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 5,
+					"type": "text"
 				}
 			]
 		}
 	],
 	"incremental_find":
 	{
-		"height": 38.0
+		"height": 23.0
 	},
 	"input":
 	{
@@ -1321,21 +1411,21 @@
 				1
 			],
 			[
-				1,
 				0,
-				2,
-				1
+				1,
+				1,
+				2
 			]
 		],
 		"cols":
 		[
 			0.0,
-			0.630506134033,
 			1.0
 		],
 		"rows":
 		[
 			0.0,
+			0.5,
 			1.0
 		]
 	},
@@ -1356,7 +1446,7 @@
 	"project": "project.sublime-project",
 	"replace":
 	{
-		"height": 72.0
+		"height": 42.0
 	},
 	"save_all_on_build": true,
 	"select_file":
@@ -1366,116 +1456,92 @@
 		"selected_items":
 		[
 			[
-				"pro",
-				"project.sublime-project"
-			],
-			[
-				"main",
-				"src_GPU/main.cu"
-			],
-			[
-				"sha",
-				"src_GPU/shape.h"
-			],
-			[
-				"shap",
-				"src_CPU/shape.h"
-			],
-			[
-				"mat",
-				"src_GPU/matrix.h"
-			],
-			[
-				"world",
-				"src_GPU/world.h"
-			],
-			[
-				"ana",
-				"src_GPU/analysis.h"
-			],
-			[
-				"main.cu",
-				"src_GPU/main.cu"
-			],
-			[
-				"matrix",
-				"src_CPU/matrix.h"
-			],
-			[
-				"wor",
-				"src_GPU/world.h"
-			],
-			[
-				"samp",
-				"src_GPU/sample.cu"
+				"tup",
+				"src_CPU\\tuple.h"
 			],
 			[
 				"camera",
-				"src_GPU/camera.h"
+				"src_CPU\\camera.h"
 			],
 			[
-				"ray",
-				"src_CPU/ray.h"
+				"canva",
+				"src_CPU\\canvas.h"
 			],
 			[
-				"wo",
-				"src_CPU/world.h"
+				"shape",
+				"src_GPU\\shape.h"
 			],
 			[
-				"mon",
-				"monitor-run-GPU.sh"
+				"sha",
+				"src_CPU\\shape.h"
 			],
 			[
-				"tup",
-				"src_GPU/tuple.h"
+				"world",
+				"src_CPU\\world.h"
+			],
+			[
+				"shap",
+				"src_CPU\\shape.h"
+			],
+			[
+				"igno",
+				".gitignore"
+			],
+			[
+				"git",
+				".gitignore"
+			],
+			[
+				"log",
+				"dump\\log"
+			],
+			[
+				"ca",
+				"src_GPU\\camera.h"
+			],
+			[
+				"matr",
+				"src_GPU\\matrix.h"
+			],
+			[
+				"mat",
+				"src_GPU\\matrix.h"
+			],
+			[
+				"camer",
+				"src_GPU\\camera.h"
+			],
+			[
+				"sam",
+				"src_GPU\\sample.cu"
 			],
 			[
 				"worl",
-				"src_GPU/world.h"
+				"src_GPU\\world.h"
+			],
+			[
+				"main",
+				"src_GPU\\main.cu"
+			],
+			[
+				"compile",
+				"compile-run-CPU.sh"
+			],
+			[
+				"main.cu",
+				"src_GPU\\main.cu"
 			],
 			[
 				"run",
 				"run-GPU.sh"
 			],
 			[
+				"proj",
+				"project.sublime-project"
+			],
+			[
 				"comp",
 				"compile-run-GPU.sh"
-			],
-			[
-				"Ana",
-				"src_CPU/analysis.h"
-			],
-			[
-				"matr",
-				"src_GPU/matrix.h"
-			],
-			[
-				"matri",
-				"src_CPU/matrix.h"
-			],
-			[
-				"ca va",
-				"src_CPU/canvas.h"
-			],
-			[
-				"sampl",
-				"src_GPU/sample.cu"
-			],
-			[
-				"mai",
-				"src_CPU/main.cpp"
-			],
-			[
-				"ma",
-				"src_CPU/matrix.h"
-			],
-			[
-				"li",
-				"src_CPU/light.h"
-			],
-			[
-				"moni",
-				"monitor-run-GPU.sh"
 			],
 			[
 				"sh",
@@ -1484,6 +1550,10 @@
 			[
 				"ra",
 				"src_CPU\\ray.h"
+			],
+			[
+				"wo",
+				"src_CPU/world.h"
 			],
 			[
 				"sp",
@@ -1498,16 +1568,20 @@
 				"src_CPU/light.h"
 			],
 			[
-				"ca",
-				"src_CPU/canvas.h"
-			],
-			[
 				"can",
 				"src_CPU/canvas.h"
 			],
 			[
-				"proj",
-				"project.sublime-project"
+				"wor",
+				"src_CPU/world.h"
+			],
+			[
+				"mai",
+				"src_CPU/main.cpp"
+			],
+			[
+				"matrix",
+				"src_CPU/matrix.h"
 			],
 			[
 				".sh",
@@ -1518,12 +1592,24 @@
 				"src_CPU/sphere.h"
 			],
 			[
+				"ray",
+				"src_CPU/ray.h"
+			],
+			[
 				"lig",
 				"src_CPU/light.h"
 			],
 			[
 				"ligh",
 				"src_CPU/light.h"
+			],
+			[
+				"pro",
+				"project.sublime-project"
+			],
+			[
+				"ma",
+				"src_CPU/matrix.h"
 			],
 			[
 				"tran",
@@ -1646,10 +1732,6 @@
 				"src\\vector2.h"
 			],
 			[
-				"sam",
-				"client_vm/sample_s_json.txt"
-			],
-			[
 				"engine",
 				"server/client/src/engine.js"
 			],
@@ -1736,6 +1818,10 @@
 			[
 				"geom",
 				"server/client/src/geometry.js"
+			],
+			[
+				"sampl",
+				"client_vm/sample_s_json.txt"
 			],
 			[
 				"join",
@@ -1894,7 +1980,7 @@
 	"show_open_files": false,
 	"show_tabs": true,
 	"side_bar_visible": false,
-	"side_bar_width": 148.0,
+	"side_bar_width": 144.0,
 	"status_bar_visible": true,
 	"template_settings":
 	{
