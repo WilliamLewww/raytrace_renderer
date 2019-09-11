@@ -3,7 +3,7 @@
 #include "tuple.h"
 
 struct Canvas {
-	Tuple* pixelData;
+	Tuple* data;
 
 	int width;
 	int height;
@@ -15,11 +15,11 @@ Canvas createCanvas(const int width, const int height) {
 	canvas.width = width;
 	canvas.height = height;
 
-	canvas.pixelData = new Tuple[canvas.width * canvas.height];
+	canvas.data = new Tuple[canvas.width * canvas.height];
 
 	for (int y = 0; y < canvas.height; y++) {
 		for (int x = 0; x < canvas.width; x++) {
-			canvas.pixelData[(y * canvas.width) + x] = { 0, 0, 0, 1 };
+			canvas.data[(y * canvas.width) + x] = { 0, 0, 0, 1 };
 		}
 	}
 
@@ -27,11 +27,11 @@ Canvas createCanvas(const int width, const int height) {
 }
 
 void setPixelCanvas(Canvas* canvas, int x, int y, Tuple color) {
-	canvas->pixelData[(y * canvas->width) + x] = color;
+	canvas->data[(y * canvas->width) + x] = color;
 }
 
 Tuple getPixelCanvas(Canvas* canvas, int x, int y) {
-	return canvas->pixelData[(y * canvas->width) + x];
+	return canvas->data[(y * canvas->width) + x];
 }
 
 void saveCanvasToFile(Canvas* canvas, const char* filename) {

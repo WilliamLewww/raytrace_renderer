@@ -4,6 +4,8 @@
 
 #include "analysis.h"
 #include "canvas.h"
+#include "ray.h"
+#include "matrix.h"
 
 const int SCREENWIDTH = 100;
 const int SCREENHEIGHT = 50;
