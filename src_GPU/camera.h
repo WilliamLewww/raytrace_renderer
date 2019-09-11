@@ -7,7 +7,6 @@ struct Camera {
 	float viewWidth;
 	float viewHeight;
 	float fieldOfView;
-
 	Matrix viewMatrix;
 
 	float halfWidth;
@@ -16,7 +15,12 @@ struct Camera {
 };
 
 Camera createCamera(float viewWidth, float viewHeight, float fieldOfView) {
-	Camera camera = { viewWidth, viewHeight, fieldOfView, createIdentityMatrix(4) };
+	Camera camera;
+
+	camera.viewWidth = viewWidth;
+	camera.viewHeight = viewHeight;
+	camera.fieldOfView = fieldOfView;
+	camera.viewMatrix = createIdentityMatrix(4);
 
 	float halfView = tan(camera.fieldOfView / 2);
 	float aspect = camera.viewWidth / camera.viewHeight;
