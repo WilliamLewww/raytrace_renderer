@@ -10,13 +10,22 @@
 const int SCREENWIDTH = 100;
 const int SCREENHEIGHT = 50;
 
-Canvas render(Camera camera) {
+Canvas render(Camera camera, World world) {
 	Canvas canvas = createCanvas(camera.viewWidth, camera.viewHeight);
 
 	std::cout << "rendering ray traced image..." << std::endl;
 
 	Ray* rayOut = new Ray[int(camera.viewWidth * camera.viewHeight)];
 	rayForPixel(rayOut, camera);
+
+	Tuple* colorOut = new Tuple[int(camera.viewWidth * camera.viewHeight)];
+	colorAt(colorOut, world, rayOut, int(camera.viewWidth * camera.viewHeight));
+
+	for (int y = 0; y < camera.viewHeight; y++) {
+		for (int x = 0; x < camera.viewWidth; x++) {
+			setPixelCanvas(&canvas, x, y, colorOut[int((y * camera.viewWidth) + x)]);
+		}
+	}
 
 	std::cout << "finished rendering" << std::endl;
 
@@ -35,7 +44,7 @@ int main(int argc, const char** argv) {
 	camera.viewMatrix = createViewMatrix(from, to, up);
 	camera.inverseViewMatrix = inverse(camera.viewMatrix);
 
-	Canvas canvas = render(camera);
+	Canvas canvas = render(camera, world);
 	saveCanvasToFile(&canvas, argv[1]);
 	std::cout << "saved image as : [" << argv[1] << "]" << std::endl;
 

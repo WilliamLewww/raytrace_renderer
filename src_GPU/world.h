@@ -24,3 +24,27 @@ World createDefaultWorld() {
 
 	return world;
 }
+
+__global__
+void colorAtKernel(Tuple* colorBuffer, World world, Ray* rays, int rayCount) {
+	int index = blockIdx.x * blockDim.x + threadIdx.x;
+	int stride = blockDim.x * gridDim.x;
+	for (int x = index; x < rayCount; x += stride) {
+		colorBuffer[x] = { 0, 0, 0, 1 };
+	}
+}
+
+void colorAt(Tuple* colorOut, World world, Ray* rays, int rayCount) {
+	Tuple* colorBuffer;
+
+	cudaMallocManaged(&colorBuffer, rayCount*sizeof(Tuple));
+
+	int blockSize = 256;
+	int numBlocks = (rayCount + blockSize - 1) / blockSize;
+	colorAtKernel<<<numBlocks, blockSize>>>(colorBuffer, world, rays, rayCount);
+
+	cudaDeviceSynchronize();
+	cudaMemcpy(colorOut, colorBuffer, rayCount*sizeof(Tuple), cudaMemcpyDeviceToHost);
+
+	cudaFree(colorBuffer);
+}
