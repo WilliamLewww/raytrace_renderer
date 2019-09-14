@@ -5,6 +5,7 @@
 #include "analysis.h"
 #include "canvas.h"
 #include "camera.h"
+#include "world.h"
 
 const int SCREENWIDTH = 100;
 const int SCREENHEIGHT = 50;
@@ -25,6 +26,7 @@ Canvas render(Camera camera) {
 int main(int argc, const char** argv) {
 	Analysis::setAbsoluteStart();
 
+	World world = createDefaultWorld();
 	Camera camera = createCamera(SCREENWIDTH, SCREENHEIGHT, M_PI / 3);
 
 	Tuple from = { 3.0, 2.5, -5.0, 1.0 };
