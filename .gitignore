@@ -1,3 +1,6 @@
+bin
+dump
+
 # Prerequisites
 *.d
 
@@ -31,6 +34,3 @@
 *.out
 *.exe
 *.app
-
-# Images
-*.ppm
