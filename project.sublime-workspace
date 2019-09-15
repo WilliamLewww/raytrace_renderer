@@ -586,7 +586,7 @@
 			"file": "src_GPU/world.h",
 			"settings":
 			{
-				"buffer_size": 1686,
+				"buffer_size": 2035,
 				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
@@ -884,16 +884,32 @@
 		"selected_items":
 		[
 			[
-				"install",
-				"Package Control: Install Package"
+				"theme",
+				"UI: Select Theme"
 			],
 			[
-				"color",
+				"install",
+				"Colorsublime: Install Theme"
+			],
+			[
+				"color sc",
 				"UI: Select Color Scheme"
 			],
 			[
-				"instal",
+				"color",
 				"Colorsublime: Install Theme"
+			],
+			[
+				"install packa",
+				"Package Control: Install Package"
+			],
+			[
+				"instal",
+				"Install Package Control"
+			],
+			[
+				"pack",
+				"Package Control: Install Package"
 			],
 			[
 				"insta",
@@ -922,10 +938,6 @@
 			[
 				"ari",
 				"Arithmetic"
-			],
-			[
-				"color sc",
-				"UI: Select Color Scheme"
 			],
 			[
 				"colorsub",
@@ -1109,7 +1121,7 @@
 	],
 	"find":
 	{
-		"height": 40.0
+		"height": 26.0
 	},
 	"find_in_files":
 	{
@@ -1269,7 +1281,7 @@
 	"groups":
 	[
 		{
-			"selected": 1,
+			"selected": 0,
 			"sheets":
 			[
 				{
@@ -1285,8 +1297,8 @@
 						"selection":
 						[
 							[
-								0,
-								0
+								872,
+								872
 							]
 						],
 						"settings":
@@ -1298,7 +1310,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 2,
+					"stack_index": 1,
 					"type": "text"
 				},
 				{
@@ -1325,10 +1337,10 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 599.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 1,
+					"stack_index": 2,
 					"type": "text"
 				},
 				{
@@ -1484,15 +1496,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 1686,
+						"buffer_size": 2035,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								381,
-								381
+								581,
+								581
 							]
 						],
 						"settings":
@@ -1501,7 +1513,7 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 173.0,
+						"translation.y": 510.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 0,
@@ -1512,7 +1524,7 @@
 	],
 	"incremental_find":
 	{
-		"height": 38.0
+		"height": 26.0
 	},
 	"input":
 	{
@@ -1564,7 +1576,7 @@
 	"project": "project.sublime-project",
 	"replace":
 	{
-		"height": 72.0
+		"height": 48.0
 	},
 	"save_all_on_build": true,
 	"select_file":

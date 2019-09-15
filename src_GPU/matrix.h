@@ -57,10 +57,7 @@ Matrix createMatrix(int rowCount, int columnCount, float* data) {
 	matrix.columnCount = columnCount;
 
 	matrix.data = new float[matrix.rowCount * matrix.columnCount];
-
-	for (int x = 0; x < rowCount * columnCount; x++) {
-		matrix.data[x] = data[x];
-	}
+	memcpy(matrix.data, data, rowCount*columnCount*sizeof(float));
 
 	return matrix;
 }
