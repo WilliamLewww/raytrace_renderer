@@ -1,4 +1,5 @@
 #pragma once
+#include "matrix.h"
 
 enum SHAPES { SHAPES_SPHERE, SHAPES_PLANE };
 
@@ -16,6 +17,8 @@ Shape createSphere() {
 __device__
 int intersectCount(Shape shape, Ray ray, float* modelMatrixData) {
 	int intersectionCount = 0;
+
+	float* inverseModelMatrix = inverseFlat(modelMatrixData);
 
 	return intersectionCount;
 }
