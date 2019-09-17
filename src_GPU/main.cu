@@ -51,5 +51,7 @@ int main(int argc, const char** argv) {
 	Analysis::printAll();
 	Analysis::saveToFile(argv[2], SCREENWIDTH, SCREENHEIGHT);
 
+	cudaDeviceReset();
+
 	return 0;
 }

@@ -7,7 +7,6 @@ struct Tuple {
 	float w;
 };
 
-__host__
 Tuple operator*(Tuple lhs, float rhs) {
 	return { lhs.x * rhs, lhs.y * rhs, lhs.z * rhs, lhs.w * rhs };
 }
@@ -27,7 +26,6 @@ Tuple normalize(Tuple tuple) {
 	return { tuple.x / magnitude(tuple), tuple.y / magnitude(tuple), tuple.z / magnitude(tuple), tuple.w / magnitude(tuple) };
 }
 
-__host__
 Tuple cross(Tuple tupleA, Tuple tupleB) {
 	return { (tupleA.y * tupleB.z) - (tupleA.z * tupleB.y), (tupleA.z * tupleB.x) - (tupleA.x * tupleB.z), (tupleA.x * tupleB.y) - (tupleA.y * tupleB.x) };
 }

@@ -16,12 +16,10 @@ struct Matrix {
 	int columnCount;
 };
 
-__host__ 
 void setDataMatrix(Matrix* matrix, int row, int column, float value) {
 	matrix->data[(row * matrix->columnCount) + column] = value;
 }
 
-__host__ 
 float* getDataMatrixPointer(Matrix* matrix, int row, int column) {
 	return &matrix->data[(row * matrix->columnCount) + column];
 }
@@ -31,7 +29,6 @@ float getDataMatrix(Matrix* matrix, int row, int column) {
 	return matrix->data[(row * matrix->columnCount) + column];
 }
 
-__host__ 
 Matrix createMatrix(int rowCount, int columnCount) {
 	Matrix matrix;
 
@@ -62,7 +59,6 @@ Matrix createMatrix(int rowCount, int columnCount, float* data) {
 	return matrix;
 }
 
-__host__ 
 Matrix createIdentityMatrix(int rowColumnCount) {
 	Matrix matrix = createMatrix(rowColumnCount, rowColumnCount);
 	for (int x = 0; x < rowColumnCount; x++) {
@@ -72,7 +68,6 @@ Matrix createIdentityMatrix(int rowColumnCount) {
 	return matrix;
 }
 
-__host__ 
 Matrix operator*(Matrix lhs, Matrix rhs) {
 	Matrix matrix = createMatrix(lhs.rowCount, rhs.columnCount);
 	for (int x = 0; x < lhs.rowCount; x++) {
@@ -96,10 +91,8 @@ Tuple operator*(Matrix lhs, Tuple rhs) {
 	};
 }
 
-__host__
 float cofactor(Matrix matrix, int row, int column);
 
-__host__
 float determinate(Matrix matrix) {
 	if (matrix.rowCount == 2 && matrix.columnCount == 2) {
 		return ((getDataMatrix(&matrix, 0, 0) * getDataMatrix(&matrix, 1, 1)) - (getDataMatrix(&matrix, 1, 0) * getDataMatrix(&matrix, 0, 1)));
@@ -113,7 +106,6 @@ float determinate(Matrix matrix) {
 	return det;
 }
 
-__host__
 Matrix submatrix(Matrix matrix, int row, int column) {
 	Matrix sub = createMatrix(matrix.rowCount - 1, matrix.columnCount - 1);
 
@@ -137,13 +129,11 @@ Matrix submatrix(Matrix matrix, int row, int column) {
 	return sub;
 }
 
-__host__
 float matrixMinor(Matrix matrix, int row, int column) {
 	Matrix minor = submatrix(matrix, row, column);
 	return determinate(minor);
 }
 
-__host__
 float cofactor(Matrix matrix, int row, int column) {
 	if ((row + column) % 2 == 0) {
 		return matrixMinor(matrix, row, column);
@@ -152,7 +142,6 @@ float cofactor(Matrix matrix, int row, int column) {
 	return -matrixMinor(matrix, row, column);
 }
 
-__host__
 Matrix inverse(Matrix matrix) {
 	Matrix inverseMatrix = createMatrix(matrix.rowCount, matrix.columnCount);
 	float det = determinate(matrix);
@@ -174,7 +163,7 @@ float* inverseFlat(float* matrix) {
 
 	float det = 0;
 	for (int y = 0; y < 4; y++) {
-		det += matrix[y] * cofactor(matrix, 0, y);
+		// det += matrix[y] * cofactor(matrix, 0, y);
 	}
 
 	return inverseMatrix;
