@@ -1,7 +1,6 @@
 #pragma once
 #include "matrix.h"
 
-__host__
 Matrix createTranslateMatrix(float x, float y, float z) {
 	Matrix matrix = createIdentityMatrix(4);
 
