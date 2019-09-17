@@ -13,7 +13,7 @@ const int SCREENHEIGHT = 50;
 Canvas render(Camera camera, World world) {
 	Canvas canvas = createCanvas(camera.viewWidth, camera.viewHeight);
 
-	std::cout << "rendering ray traced image..." << std::endl;
+	printf("rendering ray traced image...\n");
 
 	Ray* rayOut = new Ray[int(camera.viewWidth * camera.viewHeight)];
 	rayForPixel(rayOut, camera);
@@ -27,7 +27,7 @@ Canvas render(Camera camera, World world) {
 		}
 	}
 
-	std::cout << "finished rendering" << std::endl;
+	printf("finished rendering\n");
 
 	return canvas;
 }
@@ -46,7 +46,7 @@ int main(int argc, const char** argv) {
 
 	Canvas canvas = render(camera, world);
 	saveCanvasToFile(&canvas, argv[1]);
-	std::cout << "saved image as : [" << argv[1] << "]" << std::endl;
+	printf("saved image as : [%s]\n", argv[1]);
 
 	Analysis::printAll();
 	Analysis::saveToFile(argv[2], SCREENWIDTH, SCREENHEIGHT);

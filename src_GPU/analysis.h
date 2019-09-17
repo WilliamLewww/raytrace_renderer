@@ -1,5 +1,5 @@
 #pragma once
-#include <iostream>
+#include <stdio.h>
 #include <chrono>
 #include <vector>
 #include <fstream>
@@ -37,7 +37,7 @@ public:
 	}
 
 	inline static void printAll() {
-		std::cout << std::endl;
+		printf("\n");
 
 		for (int x = 0; x < durationList.size(); x++) {
 			int64_t average = 0;
@@ -48,19 +48,17 @@ public:
 
 			for (int z = 0; z < labelList.size(); z++) {
 				if (labelList[z].first == x) {
-					std::cout << labelList[z].second << " ";
+					printf("%s ", labelList[z].second);
 				}
 			}
 
-			std::cout << "[" << x << "]: ";
-			std::cout << average / durationList[x].size() << std::endl;
-
+			printf("[%d]: ", x);
+			printf("%ld\n", average / durationList[x].size());
 		}
 
 		int64_t absoluteTime = std::chrono::duration_cast<std::chrono::microseconds>(std::chrono::high_resolution_clock::now() - absoluteStart).count();
 
-		std::cout << "Total: " << absoluteTime << " (" << float(absoluteTime) / 1000000.0 << "s)" << std::endl;
-		std::cout << std::endl;
+		printf("Total: %ld (%fs) \n\n", absoluteTime, float(absoluteTime) / 1000000.0);
 	}
 
 	inline static void saveToFile(const char* filename, const int screenWidth, const int screenHeight) {
