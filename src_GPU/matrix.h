@@ -160,11 +160,5 @@ Matrix inverse(Matrix matrix) {
 __device__
 float* inverseFlat(float* matrix) {
 	float* inverseMatrix = new float[16];
-
-	float det = 0;
-	for (int y = 0; y < 4; y++) {
-		// det += matrix[y] * cofactor(matrix, 0, y);
-	}
-
 	return inverseMatrix;
 }
