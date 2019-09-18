@@ -6,4 +6,4 @@ then
 	mkdir ./bin
 fi
 
-nvcc ./src_GPU/main.cu -o ./bin/raytrace_renderer_gpu.out -m64 -gencode arch=compute_30,code=compute_30 -lcublas
+nvcc ./src_GPU/main.cu ./src_GPU/tuple.cu -o ./bin/raytrace_renderer_gpu.out -m64 -gencode arch=compute_30,code=compute_30 -lcublas

@@ -523,7 +523,7 @@
 			"file": "src_GPU/main.cu",
 			"settings":
 			{
-				"buffer_size": 1513,
+				"buffer_size": 1480,
 				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
@@ -532,7 +532,7 @@
 			"file": "src_GPU/matrix.h",
 			"settings":
 			{
-				"buffer_size": 4325,
+				"buffer_size": 4439,
 				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
@@ -550,7 +550,7 @@
 			"file": "src_GPU/shape.h",
 			"settings":
 			{
-				"buffer_size": 223,
+				"buffer_size": 440,
 				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
@@ -568,7 +568,7 @@
 			"file": "src_GPU/tuple.h",
 			"settings":
 			{
-				"buffer_size": 846,
+				"buffer_size": 828,
 				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
@@ -577,7 +577,7 @@
 			"file": "src_GPU/transform.h",
 			"settings":
 			{
-				"buffer_size": 264,
+				"buffer_size": 255,
 				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
@@ -586,7 +586,43 @@
 			"file": "src_GPU/world.h",
 			"settings":
 			{
-				"buffer_size": 2035,
+				"buffer_size": 2337,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "compile-GPU.sh",
+			"settings":
+			{
+				"buffer_size": 337,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "memory-check-GPU.sh",
+			"settings":
+			{
+				"buffer_size": 308,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "profile-GPU.sh",
+			"settings":
+			{
+				"buffer_size": 301,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "run-GPU.sh",
+			"settings":
+			{
+				"buffer_size": 294,
 				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
@@ -1121,7 +1157,7 @@
 	],
 	"find":
 	{
-		"height": 26.0
+		"height": 40.0
 	},
 	"find_in_files":
 	{
@@ -1136,6 +1172,9 @@
 		"case_sensitive": true,
 		"find_history":
 		[
+			"LIBRARIES",
+			"CUDA_PATH",
+			"hdl",
 			"camera",
 			"inverseViewMatrix",
 			"lhs",
@@ -1260,10 +1299,7 @@
 			"Matrix4",
 			"matrixA",
 			"x",
-			"Matrix4x4",
-			"data",
-			"x",
-			"return temp;"
+			"Matrix4x4"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -1290,15 +1326,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 1513,
+						"buffer_size": 1480,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								872,
-								872
+								1363,
+								1363
 							]
 						],
 						"settings":
@@ -1307,10 +1343,10 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 153.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 1,
+					"stack_index": 6,
 					"type": "text"
 				},
 				{
@@ -1319,15 +1355,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 4325,
+						"buffer_size": 4439,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1241,
-								1241
+								0,
+								0
 							]
 						],
 						"settings":
@@ -1340,7 +1376,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 2,
+					"stack_index": 7,
 					"type": "text"
 				},
 				{
@@ -1368,7 +1404,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 4,
+					"stack_index": 9,
 					"type": "text"
 				},
 				{
@@ -1377,15 +1413,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 223,
+						"buffer_size": 440,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								223,
-								223
+								0,
+								0
 							]
 						],
 						"settings":
@@ -1396,7 +1432,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 3,
+					"stack_index": 8,
 					"type": "text"
 				},
 				{
@@ -1425,7 +1461,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 5,
+					"stack_index": 10,
 					"type": "text"
 				},
 				{
@@ -1434,15 +1470,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 846,
+						"buffer_size": 828,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								649,
-								649
+								0,
+								0
 							]
 						],
 						"settings":
@@ -1453,7 +1489,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 7,
+					"stack_index": 12,
 					"type": "text"
 				},
 				{
@@ -1462,15 +1498,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 264,
+						"buffer_size": 255,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								42,
-								42
+								0,
+								0
 							]
 						],
 						"settings":
@@ -1481,13 +1517,13 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 6,
+					"stack_index": 11,
 					"type": "text"
 				}
 			]
 		},
 		{
-			"selected": 0,
+			"selected": 2,
 			"sheets":
 			[
 				{
@@ -1496,15 +1532,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 2035,
+						"buffer_size": 2337,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								581,
-								581
+								51,
+								51
 							]
 						],
 						"settings":
@@ -1513,10 +1549,152 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 510.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 5,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "src_GPU/matrix.h",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 4439,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								4374,
+								4374
+							]
+						],
+						"settings":
+						{
+							"history_list_is_closing": true,
+							"syntax": "Packages/C++/C++.sublime-syntax",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 2395.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 4,
+					"type": "text"
+				},
+				{
+					"buffer": 8,
+					"file": "compile-GPU.sh",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 337,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								337,
+								337
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/ShellScript/Bash.sublime-syntax"
+						},
+						"translation.x": 12.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 0,
+					"type": "text"
+				},
+				{
+					"buffer": 9,
+					"file": "memory-check-GPU.sh",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 308,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								260,
+								260
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/ShellScript/Bash.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 10,
+					"file": "profile-GPU.sh",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 301,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								253,
+								253
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/ShellScript/Bash.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
+				},
+				{
+					"buffer": 11,
+					"file": "run-GPU.sh",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 294,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								246,
+								246
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/ShellScript/Bash.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 3,
 					"type": "text"
 				}
 			]
@@ -1585,6 +1763,10 @@
 		"last_filter": "",
 		"selected_items":
 		[
+			[
+				"comp",
+				"compile-GPU.sh"
+			],
 			[
 				"matri",
 				"src_GPU/matrix.h"
@@ -1716,10 +1898,6 @@
 			[
 				"mon",
 				"monitor-run-GPU.sh"
-			],
-			[
-				"comp",
-				"compile-run-GPU.sh"
 			],
 			[
 				"Ana",
@@ -2122,7 +2300,7 @@
 		],
 		"width": 592.0
 	},
-	"selected_group": 1,
+	"selected_group": 0,
 	"settings":
 	{
 	},
