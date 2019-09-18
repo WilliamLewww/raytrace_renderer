@@ -1,4 +1,5 @@
 #pragma once
+#include <cublas_v2.h>
 
 /*
 
@@ -159,6 +160,10 @@ Matrix inverse(Matrix matrix) {
 
 __device__
 float* inverseFlat(float* matrix) {
+  	cublasHandle_t handle;
+  	cublasStatus_t status = cublasCreate(&handle);
+  	cublasDestroy(handle);
+
 	float* inverseMatrix = new float[16];
 	return inverseMatrix;
 }
