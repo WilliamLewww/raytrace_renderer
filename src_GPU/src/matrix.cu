@@ -1,5 +1,4 @@
 #include "matrix.h"
-#include <cublas_v2.h>
 
 void setDataMatrix(Matrix* matrix, int row, int column, float value) {
 	matrix->data[(row * matrix->columnCount) + column] = value;
@@ -35,11 +34,11 @@ __host__ __device__
 Matrix createMatrix(int rowCount, int columnCount, float* data) {
 	Matrix matrix;
 
-	matrix.rowCount = rowCount;
-	matrix.columnCount = columnCount;
+	// matrix.rowCount = rowCount;
+	// matrix.columnCount = columnCount;
 
-	matrix.data = new float[matrix.rowCount * matrix.columnCount];
-	memcpy(matrix.data, data, rowCount*columnCount*sizeof(float));
+	// matrix.data = new float[matrix.rowCount * matrix.columnCount];
+	// memcpy(matrix.data, data, rowCount*columnCount*sizeof(float));
 
 	return matrix;
 }
@@ -144,10 +143,6 @@ Matrix inverse(Matrix matrix) {
 
 __device__
 float* inverseFlat(float* matrix) {
-  	// cublasHandle_t handle;
-  	// cublasStatus_t status = cublasCreate(&handle);
-  	// cublasDestroy(handle);
-
 	float* inverseMatrix = new float[16];
 	return inverseMatrix;
 }
