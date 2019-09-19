@@ -2,10 +2,10 @@
     #define M_PI 3.14159265358979323846
 #endif
 
-#include "analysis.h"
-#include "canvas.h"
-#include "camera.h"
-#include "world.h"
+#include "src/analysis.h"
+#include "src/canvas.h"
+#include "src/camera.h"
+#include "src/world.h"
 
 const int SCREENWIDTH = 100;
 const int SCREENHEIGHT = 50;
