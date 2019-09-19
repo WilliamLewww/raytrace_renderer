@@ -15,15 +15,15 @@ clean:
 	rm -rf dump
 
 compile:
-	mkdir bin
+	mkdir -p bin
 	$(NVCC) ./src_GPU/main.cu ./src_GPU/src/*.cu -o ./bin/raytrace_renderer_gpu.out $(CUDAFLAGS)
 
 memory-check:
-	mkdir dump
+	mkdir -p dump
 	cd dump; \
 	$(MEMCHECK) ../bin/raytrace_renderer_gpu.out image.ppm runtime.log
 
 profile:
-	mkdir dump
+	mkdir -p dump
 	cd dump; \
 	sudo $(NVPROF) ../bin/raytrace_renderer_gpu.out image.ppm runtime.log
