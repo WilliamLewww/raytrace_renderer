@@ -69,11 +69,11 @@ void rayForPixelKernel(Ray* rayBuffer, float* inverseViewMatrixBuffer, Camera ca
 
 		Matrix inverseViewMatrix = createMatrix(4, 4, inverseViewMatrixBuffer);
 
-		// Tuple pixel = inverseViewMatrix * worldPoint;
-		// Tuple origin = inverseViewMatrix * zeroPoint;
-		// Tuple direction = normalize(pixel - origin);
+		Tuple pixel = inverseViewMatrix * worldPoint;
+		Tuple origin = inverseViewMatrix * zeroPoint;
+		Tuple direction = normalize(pixel - origin);
 
-		// rayBuffer[x] = { origin, direction };
+		rayBuffer[x] = { origin, direction };
 	}
 }
 

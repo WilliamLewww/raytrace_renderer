@@ -34,11 +34,11 @@ __host__ __device__
 Matrix createMatrix(int rowCount, int columnCount, float* data) {
 	Matrix matrix;
 
-	// matrix.rowCount = rowCount;
-	// matrix.columnCount = columnCount;
+	matrix.rowCount = rowCount;
+	matrix.columnCount = columnCount;
 
-	// matrix.data = new float[matrix.rowCount * matrix.columnCount];
-	// memcpy(matrix.data, data, rowCount*columnCount*sizeof(float));
+	matrix.data = new float[matrix.rowCount * matrix.columnCount];
+	memcpy(matrix.data, data, rowCount*columnCount*sizeof(float));
 
 	return matrix;
 }

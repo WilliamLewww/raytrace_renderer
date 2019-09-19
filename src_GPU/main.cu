@@ -15,8 +15,8 @@ Canvas render(Camera camera, World world) {
 
 	printf("rendering ray traced image...\n");
 
-	Ray* rayOut = new Ray[int(camera.viewWidth * camera.viewHeight)];
-	rayForPixel(rayOut, camera);
+	// Ray* rayOut = new Ray[int(camera.viewWidth * camera.viewHeight)];
+	// rayForPixel(rayOut, camera);
 
 	// Tuple* colorOut = new Tuple[int(camera.viewWidth * camera.viewHeight)];
 	// colorAt(colorOut, world, rayOut, int(camera.viewWidth * camera.viewHeight));
