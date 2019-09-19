@@ -8,7 +8,7 @@ LIBS=
 LIBDIRS=
 INCDIRS=
 
-all: clean compile
+all: clean compile run
 
 clean:
 	rm -rf bin
@@ -17,6 +17,11 @@ clean:
 compile:
 	mkdir -p bin
 	$(NVCC) ./src_GPU/main.cu ./src_GPU/src/*.cu -o ./bin/raytrace_renderer_gpu.out $(CUDAFLAGS)
+
+run:
+	mkdir -p dump
+	cd dump; \
+	../bin/raytrace_renderer_gpu.out image.ppm runtime.log
 
 memory-check:
 	mkdir -p dump

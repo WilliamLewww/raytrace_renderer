@@ -13,7 +13,7 @@ const int SCREENHEIGHT = 50;
 Canvas render(Camera camera, World world) {
 	Canvas canvas = createCanvas(camera.viewWidth, camera.viewHeight);
 
-	printf("rendering ray traced image...\n");
+	printf("\nrendering ray traced image...\n");
 
 	// Ray* rayOut = new Ray[int(camera.viewWidth * camera.viewHeight)];
 	// rayForPixel(rayOut, camera);
