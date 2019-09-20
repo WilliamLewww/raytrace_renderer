@@ -32,3 +32,10 @@ profile:
 	mkdir -p dump
 	cd dump; \
 	sudo $(NVPROF) ../bin/raytrace_renderer_gpu.out image.ppm runtime.log
+
+all-cpu:
+	mkdir -p bin
+	$(CC) ./src_CPU/main.cpp -o ./bin/raytrace_renderer_cpu.out
+	mkdir -p dump
+	cd dump; \
+	../bin/raytrace_renderer_cpu.out image.ppm
