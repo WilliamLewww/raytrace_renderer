@@ -84,10 +84,7 @@ void rayForPixel(Ray* rayOut, Camera camera) {
 
 	cudaMallocManaged(&rayBuffer, count*sizeof(Ray));
 	cudaMallocManaged(&inverseViewMatrixBuffer, 16*sizeof(float));
-
-	for (int x = 0; x < 16; x++) {
-		inverseViewMatrixBuffer[x] = camera.inverseViewMatrix.data[x];
-	}
+	cudaMemcpy(inverseViewMatrixBuffer, camera.inverseViewMatrix.data, 16*sizeof(float), cudaMemcpyHostToDevice);
 
 	int blockSize = 256;
 	int numBlocks = (count + blockSize - 1) / blockSize;
