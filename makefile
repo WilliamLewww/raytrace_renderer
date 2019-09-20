@@ -3,7 +3,7 @@ NVCC=/usr/local/cuda-10.1/bin/nvcc
 NVPROF=/usr/local/cuda-10.1/bin/nvprof
 MEMCHECK=/usr/local/cuda-10.1/bin/cuda-memcheck
 CXXFLAGS=
-CUDAFLAGS=-m64 -gencode arch=compute_30,code=compute_30
+CUDAFLAGS=-m64 -gencode arch=compute_30,code=compute_30 -rdc=true
 LIBS=
 LIBDIRS=
 INCDIRS=
