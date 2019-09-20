@@ -18,14 +18,14 @@ Canvas render(Camera camera, World world) {
 	Ray* rayOut = new Ray[int(camera.viewWidth * camera.viewHeight)];
 	rayForPixel(rayOut, camera);
 
-	// Tuple* colorOut = new Tuple[int(camera.viewWidth * camera.viewHeight)];
-	// colorAt(colorOut, world, rayOut, int(camera.viewWidth * camera.viewHeight));
+	Tuple* colorOut = new Tuple[int(camera.viewWidth * camera.viewHeight)];
+	colorAt(colorOut, world, rayOut, int(camera.viewWidth * camera.viewHeight));
 
-	// for (int y = 0; y < camera.viewHeight; y++) {
-	// 	for (int x = 0; x < camera.viewWidth; x++) {
-	// 		setPixelCanvas(&canvas, x, y, colorOut[int((y * camera.viewWidth) + x)]);
-	// 	}
-	// }
+	for (int y = 0; y < camera.viewHeight; y++) {
+		for (int x = 0; x < camera.viewWidth; x++) {
+			setPixelCanvas(&canvas, x, y, colorOut[int((y * camera.viewWidth) + x)]);
+		}
+	}
 
 	printf("finished rendering\n");
 
@@ -50,8 +50,6 @@ int main(int argc, const char** argv) {
 
 	Analysis::printAll();
 	Analysis::saveToFile(argv[2], SCREENWIDTH, SCREENHEIGHT);
-
-	cudaDeviceReset();
 
 	return 0;
 }

@@ -7,8 +7,6 @@ Shape createSphere() {
 __device__
 int intersectCount(Shape shape, Ray ray, float* modelMatrixData) {
 	int intersectionCount = 0;
-
-	float* inverseModelMatrix = inverseFlat(modelMatrixData);
-
+	
 	return intersectionCount;
 }

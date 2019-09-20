@@ -99,4 +99,6 @@ void rayForPixel(Ray* rayOut, Camera camera) {
 
 	cudaFree(rayBuffer);
 	cudaFree(inverseViewMatrixBuffer);
+
+	cudaDeviceReset();
 }

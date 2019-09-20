@@ -28,9 +28,6 @@ float matrixMinor(Matrix matrix, int row, int column);
 float cofactor(Matrix matrix, int row, int column);
 Matrix inverse(Matrix matrix);
 
-__device__
-float* inverseFlat(float* matrix);
-
 __host__ __device__
 Tuple operator*(Matrix lhs, Tuple rhs);
 

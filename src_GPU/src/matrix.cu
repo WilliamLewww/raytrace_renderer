@@ -140,9 +140,3 @@ Matrix inverse(Matrix matrix) {
 
 	return inverseMatrix;
 }
-
-__device__
-float* inverseFlat(float* matrix) {
-	float* inverseMatrix = new float[16];
-	return inverseMatrix;
-}

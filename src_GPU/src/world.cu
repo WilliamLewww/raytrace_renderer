@@ -71,4 +71,6 @@ void colorAt(Tuple* colorOut, World world, Ray* rays, int rayCount) {
 	cudaFree(colorBuffer);
 	cudaFree(shapeBuffer);
 	cudaFree(allModelMatrixData);
+
+	cudaDeviceReset();
 }
