@@ -1,4 +1,5 @@
 #include "world.h"
+#include <stdio.h>
 
 World createDefaultWorld() {
 	World world;
@@ -26,7 +27,7 @@ int intersectWorldCount(Shape* shapes, int shapeCount, Ray ray, float* allModelM
 
 		intersectionCount += intersectCount(shapes[x], ray, modelMatrixData);
 	}
-	
+
 	return intersectionCount;
 }
 
@@ -48,22 +49,26 @@ void colorAtKernel(Tuple* colorBuffer, Ray* rays, int rayCount, Shape* shapes, i
 
 void colorAt(Tuple* colorOut, World world, Ray* rays, int rayCount) {
 	Tuple* colorBuffer;
+	Ray* rayBuffer;
 	Shape* shapeBuffer;
 	float* allModelMatrixData;
 
 	cudaMallocManaged(&colorBuffer, rayCount*sizeof(Tuple));
 	cudaMallocManaged(&shapeBuffer, world.shapeCount*sizeof(Shape));
-	memcpy(shapeBuffer, world.shapeArray, world.shapeCount*sizeof(Shape));
+	cudaMemcpy(shapeBuffer, world.shapeArray, world.shapeCount*sizeof(Shape), cudaMemcpyHostToDevice);
+
+	cudaMallocManaged(&rayBuffer, rayCount*sizeof(Ray));
+	cudaMemcpy(rayBuffer, rays, rayCount*sizeof(Ray), cudaMemcpyHostToDevice);
 
 	cudaMallocManaged(&allModelMatrixData, world.shapeCount*16*sizeof(float));
 
 	for (int x = 0; x < world.shapeCount; x++) {
-		memcpy(&allModelMatrixData[(x * 16)], world.shapeArray[x].modelMatrix.data, 16*sizeof(float));
+		cudaMemcpy(&allModelMatrixData[(x * 16)], world.shapeArray[x].modelMatrix.data, 16*sizeof(float), cudaMemcpyHostToDevice);
 	}
 
 	int blockSize = 256;
 	int numBlocks = (rayCount + blockSize - 1) / blockSize;
-	colorAtKernel<<<numBlocks, blockSize>>>(colorBuffer, rays, rayCount, shapeBuffer, world.shapeCount, allModelMatrixData);
+	colorAtKernel<<<numBlocks, blockSize>>>(colorBuffer, rayBuffer, rayCount, shapeBuffer, world.shapeCount, allModelMatrixData);
 
 	cudaDeviceSynchronize();
 	cudaMemcpy(colorOut, colorBuffer, rayCount*sizeof(Tuple), cudaMemcpyDeviceToHost);

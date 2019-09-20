@@ -3,7 +3,7 @@ NVCC=/usr/local/cuda-10.1/bin/nvcc
 NVPROF=/usr/local/cuda-10.1/bin/nvprof
 MEMCHECK=/usr/local/cuda-10.1/bin/cuda-memcheck
 CXXFLAGS=
-CUDAFLAGS=-m64 -gencode arch=compute_30,code=compute_30 -rdc=true
+CUDAFLAGS=--gpu-architecture=sm_50
 LIBS=
 LIBDIRS=
 INCDIRS=
@@ -16,7 +16,10 @@ clean:
 
 compile:
 	mkdir -p bin
-	$(NVCC) ./src_GPU/main.cu ./src_GPU/src/*.cu -o ./bin/raytrace_renderer_gpu.out $(CUDAFLAGS)
+	cd bin; \
+	$(NVCC) $(CUDAFLAGS) --device-c ../src_GPU/*.cu
+	cd bin; \
+	$(NVCC) $(CUDAFLAGS) *.o -o raytrace_renderer_gpu.out
 
 run:
 	mkdir -p dump
