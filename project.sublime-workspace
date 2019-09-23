@@ -4,6 +4,18 @@
 		"selected_items":
 		[
 			[
+				"cudaMem",
+				"cudaMemcpyHostToDevice\tabc"
+			],
+			[
+				"model",
+				"modelMatrixData\t(world.cu)"
+			],
+			[
+				"modelM",
+				"modelMatrixData\t(world.cu)"
+			],
+			[
 				"SHA",
 				"SHAPES_SPHERE\tabc"
 			],
@@ -56,10 +68,6 @@
 				"__host__\tabc"
 			],
 			[
-				"model",
-				"modelMatrix\tabc"
-			],
-			[
 				"tran",
 				"transformGPU\tabc"
 			],
@@ -82,10 +90,6 @@
 			[
 				"createM",
 				"createMatrixGPU\tabc"
-			],
-			[
-				"modelM",
-				"modelMatrix\tabc"
 			],
 			[
 				"beg",
@@ -510,10 +514,6 @@
 			[
 				"phys",
 				"physicalDevice\t(engine.h)"
-			],
-			[
-				"py",
-				"physicalDevice\tabc"
 			]
 		]
 	},
@@ -523,25 +523,51 @@
 			"file": "src_GPU/main.cu",
 			"settings":
 			{
-				"buffer_size": 1480,
+				"buffer_size": 1461,
 				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "src_GPU/matrix.h",
+			"file": "src_GPU/camera.cu",
 			"settings":
 			{
-				"buffer_size": 4439,
+				"buffer_size": 3045,
 				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "src_GPU/light.h",
+			"file": "makefile",
 			"settings":
 			{
-				"buffer_size": 86,
+				"buffer_size": 867,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": ".gitignore",
+			"settings":
+			{
+				"buffer_size": 291,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "src_GPU/world.cu",
+			"settings":
+			{
+				"buffer_size": 2449,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "src_GPU/shape.cu",
+			"settings":
+			{
+				"buffer_size": 250,
 				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
@@ -550,34 +576,7 @@
 			"file": "src_GPU/shape.h",
 			"settings":
 			{
-				"buffer_size": 440,
-				"encoding": "UTF-8",
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "src_GPU/camera.h",
-			"settings":
-			{
-				"buffer_size": 3245,
-				"encoding": "UTF-8",
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "src_GPU/tuple.h",
-			"settings":
-			{
-				"buffer_size": 828,
-				"encoding": "UTF-8",
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "src_GPU/transform.h",
-			"settings":
-			{
-				"buffer_size": 255,
+				"buffer_size": 267,
 				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
@@ -586,43 +585,7 @@
 			"file": "src_GPU/world.h",
 			"settings":
 			{
-				"buffer_size": 2337,
-				"encoding": "UTF-8",
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "compile-GPU.sh",
-			"settings":
-			{
-				"buffer_size": 337,
-				"encoding": "UTF-8",
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "memory-check-GPU.sh",
-			"settings":
-			{
-				"buffer_size": 308,
-				"encoding": "UTF-8",
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "profile-GPU.sh",
-			"settings":
-			{
-				"buffer_size": 301,
-				"encoding": "UTF-8",
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "run-GPU.sh",
-			"settings":
-			{
-				"buffer_size": 294,
+				"buffer_size": 491,
 				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
@@ -1020,44 +983,61 @@
 	},
 	"expanded_folders":
 	[
-		"/home/wlew/Desktop/raytrace_renderer",
-		"/home/wlew/Desktop/raytrace_renderer/src_CPU",
-		"/home/wlew/Desktop/raytrace_renderer/src_GPU"
+		"/home/wlew/Desktop/raytrace_renderer"
 	],
 	"file_history":
 	[
-		"/home/wlew/Desktop/raytrace_renderer/src_CPU/ray.h",
-		"/home/wlew/Desktop/raytrace_renderer/src_GPU/matrix.h",
+		"/home/wlew/Desktop/raytrace_renderer/src_CPU/camera.h",
+		"/home/wlew/Desktop/raytrace_renderer/makefile",
+		"/home/wlew/Desktop/raytrace_renderer/src_GPU/main.cu",
+		"/home/wlew/Desktop/raytrace_renderer/src_GPU/src/matrix.h",
+		"/home/wlew/Desktop/raytrace_renderer/src_GPU/src/matrix.cu",
+		"/home/wlew/Desktop/raytrace_renderer/src_GPU/src/shape.h",
+		"/home/wlew/Desktop/raytrace_renderer/src_GPU/src/world.cu",
+		"/home/wlew/Desktop/raytrace_renderer/src_GPU/src/shape.cu",
+		"/home/wlew/Desktop/raytrace_renderer/src_GPU/src/world.h",
+		"/home/wlew/Desktop/raytrace_renderer/src_GPU/src/camera.cu",
+		"/home/wlew/Desktop/raytrace_renderer/compile-run-CPU.sh",
+		"/home/wlew/Desktop/raytrace_renderer/src_CPU/shape.h",
+		"/home/wlew/Desktop/raytrace_renderer/src_GPU/src/canvas.cu",
+		"/home/wlew/Desktop/raytrace_renderer/src_GPU/src/transform.cu",
+		"/home/wlew/Desktop/raytrace_renderer/src_GPU/src/transform.h",
+		"/home/wlew/Desktop/raytrace_renderer/src_GPU/src/camera.h",
+		"/home/wlew/Desktop/raytrace_renderer/src_GPU/src/canvas.h",
+		"/home/wlew/Desktop/raytrace_renderer/src_GPU/src/tuple.h",
 		"/home/wlew/Desktop/raytrace_renderer/src_CPU/tuple.h",
+		"/home/wlew/Desktop/raytrace_renderer/compile-GPU.sh",
+		"/home/wlew/Desktop/raytrace_renderer/src_GPU/camera.h",
+		"/home/wlew/Desktop/raytrace_renderer/src_GPU/camera.cu",
+		"/home/wlew/Desktop/raytrace_renderer/src_GPU/tuple.cu",
+		"/home/wlew/Desktop/raytrace_renderer/src_GPU/tuple.h",
+		"/home/wlew/Desktop/raytrace_renderer/run-GPU.sh",
+		"/home/wlew/Desktop/raytrace_renderer/profile-GPU.sh",
+		"/home/wlew/Desktop/raytrace_renderer/memory-check-GPU.sh",
+		"/home/wlew/Desktop/raytrace_renderer/src_GPU/sample.cu",
+		"/home/wlew/Desktop/raytrace_renderer/src_GPU/world.h",
+		"/home/wlew/Desktop/raytrace_renderer/src_GPU/transform.h",
+		"/home/wlew/Desktop/raytrace_renderer/src_GPU/shape.h",
+		"/home/wlew/Desktop/raytrace_renderer/src_GPU/light.h",
+		"/home/wlew/Desktop/raytrace_renderer/src_GPU/matrix.h",
+		"/home/wlew/Desktop/raytrace_renderer/src_GPU/matrix.cu",
+		"/home/wlew/Desktop/raytrace_renderer/src_CPU/ray.h",
 		"/home/wlew/Desktop/raytrace_renderer/src_GPU/canvas.h",
 		"/home/wlew/Desktop/raytrace_renderer/src_CPU/canvas.h",
-		"/home/wlew/Desktop/raytrace_renderer/src_GPU/tuple.h",
 		"/home/wlew/Desktop/raytrace_renderer/src_CPU/transform.h",
-		"/home/wlew/Desktop/raytrace_renderer/src_GPU/transform.h",
 		"/home/wlew/Desktop/raytrace_renderer/src_CPU/matrix.h",
 		"/home/wlew/Desktop/raytrace_renderer/src_GPU/gpu.h",
 		"/home/wlew/Desktop/raytrace_renderer/src_GPU/analysis.h",
-		"/home/wlew/Desktop/raytrace_renderer/src_GPU/shape.h",
 		"/home/wlew/Desktop/raytrace_renderer/dump/image.ppm",
 		"/home/wlew/Desktop/raytrace_renderer/compile-run-GPU.sh",
-		"/home/wlew/Desktop/raytrace_renderer/compile-GPU.sh",
-		"/home/wlew/Desktop/raytrace_renderer/memory-check-GPU.sh",
-		"/home/wlew/Desktop/raytrace_renderer/run-GPU.sh",
-		"/home/wlew/Desktop/raytrace_renderer/src_GPU/world.h",
 		"/home/wlew/Desktop/raytrace_renderer/src_CPU/main.cpp",
-		"/home/wlew/Desktop/raytrace_renderer/src_GPU/main.cu",
 		"/home/wlew/Desktop/raytrace_renderer/project.sublime-project",
-		"/home/wlew/Desktop/raytrace_renderer/src_CPU/shape.h",
 		"/home/wlew/Desktop/raytrace_renderer/src_GPU/constants.h",
-		"/home/wlew/Desktop/raytrace_renderer/src_GPU/camera.h",
-		"/home/wlew/Desktop/raytrace_renderer/src_GPU/sample.cu",
 		"/home/wlew/Desktop/raytrace_renderer/src_CPU/world.h",
-		"/home/wlew/Desktop/raytrace_renderer/src_CPU/camera.h",
 		"/home/wlew/Desktop/raytrace_renderer/monitor-run-GPU.sh",
 		"/home/wlew/Desktop/raytrace_renderer/src_CPU/analysis.h",
 		"/home/wlew/Desktop/csc300_notes",
 		"/home/wlew/Desktop/raytrace_renderer/src_CPU/light.h",
-		"/home/wlew/Desktop/raytrace_renderer/src_GPU/light.h",
 		"/home/wlew/Desktop/hello.cu",
 		"/home/wlew/Desktop/raytrace_renderer/compile-run-gpu.sh",
 		"/home/wlew/Desktop/raytrace_renderer/monitor-gpu.sh",
@@ -1134,30 +1114,11 @@
 		"/C/Users/William/Desktop/VkRayTutorials/Projects/01_InitRaytracing.vcxproj",
 		"/C/Users/William/Desktop/VkRayTutorials/Projects/01_InitRaytracing.vcxproj.filters",
 		"/C/Users/William/Desktop/VkRayTutorials/Projects/01_InitRaytracing.vcxproj.user",
-		"/C/Users/William/Desktop/VkRayTutorials/Bin/01_InitRaytracing.iobj",
-		"/C/Users/William/Desktop/VkRayTutorials/Bin/01_InitRaytracing.ipdb",
-		"/C/Users/William/Desktop/VkRayTutorials/Bin/01_InitRaytracing.pdb",
-		"/C/Users/William/Desktop/vkexamples/VkExamples.sln",
-		"/C/Users/William/Desktop/vkexamples/libs/glfw/include/GLFW/glfw3.h",
-		"/C/Users/William/Desktop/vkexamples/libs/gl3w/GL/gl3w.h",
-		"/C/Users/William/Desktop/VkRayTutorials/Source/02_AccelerationStructure/02_AccelerationStructure.cpp",
-		"/C/Users/William/Desktop/vkexamples/libs/vulkannv/nv_helpers_vk/VKHelpers.cpp",
-		"/C/Users/William/Desktop/vkexamples/libs/vulkannv/nv_helpers_vk/VKHelpers.h",
-		"/C/Users/William/Desktop/vkexamples/libs/vulkannv/vulkan_raytracing.cpp",
-		"/C/Users/William/Desktop/vkray_corgi/shaders/basic.frag",
-		"/C/Users/William/Desktop/vulkan_phong/shaders/phong.frag",
-		"/C/Users/William/Desktop/vulkan_phong/shaders/phong.vert",
-		"/C/Users/William/Desktop/vulkan_phong/main.cpp",
-		"/C/Users/William/Desktop/vulkan_phong/src/input.cpp",
-		"/C/Users/William/Desktop/vulkan_phong/src/input.h",
-		"/C/Users/William/Desktop/vulkan_phong/src/joiner.cpp",
-		"/C/Users/William/Desktop/vulkan_phong/src/joiner.h",
-		"/C/Users/William/Desktop/vulkan_phong/src/engine.cpp",
-		"/C/Users/William/Desktop/vulkan_phong/src/engine.h"
+		"/C/Users/William/Desktop/VkRayTutorials/Bin/01_InitRaytracing.iobj"
 	],
 	"find":
 	{
-		"height": 40.0
+		"height": 26.0
 	},
 	"find_in_files":
 	{
@@ -1172,6 +1133,11 @@
 		"case_sensitive": true,
 		"find_history":
 		[
+			"ray",
+			"cublas",
+			"src",
+			"intersectWorldCount",
+			"cublas",
 			"LIBRARIES",
 			"CUDA_PATH",
 			"hdl",
@@ -1294,12 +1260,7 @@
 			"Circle",
 			")\n",
 			"matrixA",
-			"0",
-			"2",
-			"Matrix4",
-			"matrixA",
-			"x",
-			"Matrix4x4"
+			"0"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -1317,7 +1278,7 @@
 	"groups":
 	[
 		{
-			"selected": 0,
+			"selected": 1,
 			"sheets":
 			[
 				{
@@ -1326,225 +1287,20 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 1480,
+						"buffer_size": 1461,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1363,
-								1363
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/C++/C++.sublime-syntax",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 153.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 6,
-					"type": "text"
-				},
-				{
-					"buffer": 1,
-					"file": "src_GPU/matrix.h",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 4439,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								0,
-								0
+								286,
+								286
 							]
 						],
 						"settings":
 						{
 							"history_list_is_closing": true,
-							"syntax": "Packages/C++/C++.sublime-syntax",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 7,
-					"type": "text"
-				},
-				{
-					"buffer": 2,
-					"file": "src_GPU/light.h",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 86,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								31,
-								31
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/C++/C++.sublime-syntax"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 9,
-					"type": "text"
-				},
-				{
-					"buffer": 3,
-					"file": "src_GPU/shape.h",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 440,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								0,
-								0
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/C++/C++.sublime-syntax"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 8,
-					"type": "text"
-				},
-				{
-					"buffer": 4,
-					"file": "src_GPU/camera.h",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 3245,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								2455,
-								2455
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/C++/C++.sublime-syntax",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 10,
-					"type": "text"
-				},
-				{
-					"buffer": 5,
-					"file": "src_GPU/tuple.h",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 828,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								0,
-								0
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/C++/C++.sublime-syntax"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 12,
-					"type": "text"
-				},
-				{
-					"buffer": 6,
-					"file": "src_GPU/transform.h",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 255,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								0,
-								0
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/C++/C++.sublime-syntax"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 11,
-					"type": "text"
-				}
-			]
-		},
-		{
-			"selected": 2,
-			"sheets":
-			[
-				{
-					"buffer": 7,
-					"file": "src_GPU/world.h",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 2337,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								51,
-								51
-							]
-						],
-						"settings":
-						{
 							"syntax": "Packages/C++/C++.sublime-syntax",
 							"translate_tabs_to_spaces": false
 						},
@@ -1557,82 +1313,89 @@
 				},
 				{
 					"buffer": 1,
-					"file": "src_GPU/matrix.h",
+					"file": "src_GPU/camera.cu",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 4439,
+						"buffer_size": 3045,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								4374,
-								4374
+								1282,
+								1282
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/C++/C++.sublime-syntax",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 663.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 4,
+					"type": "text"
+				}
+			]
+		},
+		{
+			"selected": 0,
+			"sheets":
+			[
+				{
+					"buffer": 2,
+					"file": "makefile",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 867,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								784,
+								784
 							]
 						],
 						"settings":
 						{
 							"history_list_is_closing": true,
-							"syntax": "Packages/C++/C++.sublime-syntax",
+							"syntax": "Packages/Makefile/Makefile.sublime-syntax",
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 2395.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 4,
-					"type": "text"
-				},
-				{
-					"buffer": 8,
-					"file": "compile-GPU.sh",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 337,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								337,
-								337
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/ShellScript/Bash.sublime-syntax"
-						},
-						"translation.x": 12.0,
-						"translation.y": 0.0,
+						"translation.y": 565.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 0,
 					"type": "text"
 				},
 				{
-					"buffer": 9,
-					"file": "memory-check-GPU.sh",
+					"buffer": 3,
+					"file": ".gitignore",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 308,
+						"buffer_size": 291,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								260,
-								260
+								36,
+								36
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/ShellScript/Bash.sublime-syntax"
+							"syntax": "Packages/Git Formats/Git Ignore.sublime-syntax"
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
@@ -1642,59 +1405,116 @@
 					"type": "text"
 				},
 				{
-					"buffer": 10,
-					"file": "profile-GPU.sh",
+					"buffer": 4,
+					"file": "src_GPU/world.cu",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 301,
+						"buffer_size": 2449,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								253,
-								253
+								1854,
+								1854
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/ShellScript/Bash.sublime-syntax"
+							"syntax": "Packages/C++/C++.sublime-syntax",
+							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 612.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 2,
 					"type": "text"
 				},
 				{
-					"buffer": 11,
-					"file": "run-GPU.sh",
+					"buffer": 5,
+					"file": "src_GPU/shape.cu",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 294,
+						"buffer_size": 250,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								246,
-								246
+								18,
+								18
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/ShellScript/Bash.sublime-syntax"
+							"syntax": "Packages/C++/C++.sublime-syntax"
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 3,
+					"type": "text"
+				},
+				{
+					"buffer": 6,
+					"file": "src_GPU/shape.h",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 267,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								242,
+								242
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/C++/C++.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 6,
+					"type": "text"
+				},
+				{
+					"buffer": 7,
+					"file": "src_GPU/world.h",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 491,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								50,
+								50
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/C++/C++.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 7,
 					"type": "text"
 				}
 			]
@@ -1764,24 +1584,72 @@
 		"selected_items":
 		[
 			[
+				".gi",
+				".gitignore"
+			],
+			[
+				"camera",
+				"src_GPU/camera.cu"
+			],
+			[
+				"shae",
+				"src_GPU/shape.cu"
+			],
+			[
+				"world",
+				"src_GPU/world.cu"
+			],
+			[
+				"main",
+				"src_GPU/main.cu"
+			],
+			[
+				"make",
+				"makefile"
+			],
+			[
+				"compiu",
+				"compile-run-CPU.sh"
+			],
+			[
+				"sha",
+				"src_GPU/src/shape.cu"
+			],
+			[
+				"shap",
+				"src_CPU/shape.h"
+			],
+			[
+				"matri",
+				"src_GPU/src/matrix.cu"
+			],
+			[
+				".cu",
+				"src_GPU/main.cu"
+			],
+			[
+				"tup",
+				"src_GPU/src/tuple.h"
+			],
+			[
+				"com",
+				"compile-GPU.sh"
+			],
+			[
+				"tupl",
+				"src_GPU/tuple.h"
+			],
+			[
+				"sam",
+				"src_GPU/sample.cu"
+			],
+			[
 				"comp",
 				"compile-GPU.sh"
 			],
 			[
-				"matri",
-				"src_GPU/matrix.h"
-			],
-			[
-				"tup",
-				"src_GPU/tuple.h"
-			],
-			[
 				"tra",
 				"src_GPU/transform.h"
-			],
-			[
-				"camera",
-				"src_GPU/camera.h"
 			],
 			[
 				"ray",
@@ -1794,10 +1662,6 @@
 			[
 				"matr",
 				"src_GPU/matrix.h"
-			],
-			[
-				"main",
-				"src_CPU/main.cpp"
 			],
 			[
 				"tran",
@@ -1836,16 +1700,8 @@
 				"run-GPU.sh"
 			],
 			[
-				"com",
-				"compile-run-GPU.sh"
-			],
-			[
 				"image",
 				"dump/image.ppm"
-			],
-			[
-				"sha",
-				"src_GPU/shape.h"
 			],
 			[
 				"gpu",
@@ -1866,14 +1722,6 @@
 			[
 				"pro",
 				"project.sublime-project"
-			],
-			[
-				"shap",
-				"src_CPU/shape.h"
-			],
-			[
-				"world",
-				"src_GPU/world.h"
 			],
 			[
 				"ana",
@@ -2092,10 +1940,6 @@
 				"src\\vector2.h"
 			],
 			[
-				"sam",
-				"client_vm/sample_s_json.txt"
-			],
-			[
 				"engine",
 				"server/client/src/engine.js"
 			],
@@ -2240,10 +2084,6 @@
 				"example_files/Makefile"
 			],
 			[
-				"make",
-				"example_files/Makefile"
-			],
-			[
 				"mak",
 				"example_files/Makefile"
 			],
@@ -2254,26 +2094,6 @@
 			[
 				"deps.",
 				"example_files/deps.py"
-			],
-			[
-				"example/",
-				"example_files/sb-show-deps.py"
-			],
-			[
-				"json",
-				"client_vm/dependency.json"
-			],
-			[
-				"dep",
-				"example_files/sb-show-deps.py"
-			],
-			[
-				".css",
-				"server/client/res/style.css"
-			],
-			[
-				"css",
-				"server/client/src/shader_source.js"
 			]
 		],
 		"width": 0.0
@@ -2300,7 +2120,7 @@
 		],
 		"width": 592.0
 	},
-	"selected_group": 0,
+	"selected_group": 1,
 	"settings":
 	{
 	},
