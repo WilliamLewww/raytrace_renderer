@@ -35,12 +35,12 @@ memory-check:
 
 profile:
 	mkdir -p dump
-	cd dump; sudo $(NVPROF) ../bin/raytrace_renderer_gpu.out image.ppm
+	cd dump; sudo $(NVPROF) ../bin/raytrace_renderer_gpu.out image.ppm 2>profile.log; cat profile.log;
 
 profile-metrics:
 	mkdir -p dump
-	cd dump; sudo $(NVPROF) --metrics all ../bin/raytrace_renderer_gpu.out image.ppm
+	cd dump; sudo $(NVPROF) --metrics all ../bin/raytrace_renderer_gpu.out image.ppm 2>profile-metrics.log; cat profile-metrics.log;
 
 profile-events:
 	mkdir -p dump
-	cd dump; sudo $(NVPROF) --events all ../bin/raytrace_renderer_gpu.out image.ppm
+	cd dump; sudo $(NVPROF) --events all ../bin/raytrace_renderer_gpu.out image.ppm 2>profile-events.log; cat profile-events.log;
