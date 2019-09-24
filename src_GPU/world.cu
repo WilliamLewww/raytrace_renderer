@@ -1,5 +1,5 @@
 #include "world.h"
-#include <stdio.h>
+#include "transform.h"
 
 World createDefaultWorld() {
 	World world;
@@ -16,7 +16,7 @@ World createDefaultWorld() {
 	world.shapeArray[0].inverseModelMatrix = inverse(world.shapeArray[0].modelMatrix);
 
 	world.shapeArray[1] = createSphere();
-	world.shapeArray[1].modelMatrix = createIdentityMatrix(4);
+	world.shapeArray[1].modelMatrix = createIdentityMatrix(4) * createTranslateMatrix(0, 2, 0);
 	world.shapeArray[1].inverseModelMatrix = inverse(world.shapeArray[1].modelMatrix);
 
 	return world;
