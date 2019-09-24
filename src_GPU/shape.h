@@ -14,4 +14,5 @@ struct Shape {
 
 Shape createSphere();
 
+__device__ int intersectSphereCount(Shape shape, Ray ray);
 __device__ int intersectCount(Shape shape, Ray ray, float* inverseModelMatrixData);

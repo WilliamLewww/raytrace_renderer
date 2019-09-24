@@ -22,3 +22,8 @@ Tuple normalize(Tuple tuple) {
 Tuple cross(Tuple tupleA, Tuple tupleB) {
 	return { (tupleA.y * tupleB.z) - (tupleA.z * tupleB.y), (tupleA.z * tupleB.x) - (tupleA.x * tupleB.z), (tupleA.x * tupleB.y) - (tupleA.y * tupleB.x) };
 }
+
+__device__
+float dot(Tuple tupleA, Tuple tupleB) {
+	return ((tupleA.x * tupleB.x) + (tupleA.y * tupleB.y) + (tupleA.z * tupleB.z) + (tupleA.w * tupleB.w));
+}
