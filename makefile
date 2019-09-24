@@ -36,3 +36,7 @@ memory-check:
 profile:
 	mkdir -p dump
 	cd dump; sudo $(NVPROF) ../bin/raytrace_renderer_gpu.out image.ppm runtime.log
+
+profile-branch-efficiency:
+	mkdir -p dump
+	cd dump; sudo $(NVPROF) --metrics branch_efficiency ../bin/raytrace_renderer_gpu.out image.ppm runtime.log
