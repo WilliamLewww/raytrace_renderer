@@ -43,12 +43,8 @@ void colorAtKernel(Tuple* colorBuffer, Ray* rays, int rayCount, Shape* shapes, i
 	for (int x = index; x < rayCount; x += stride) {
 		int intersectionCount = intersectWorldCount(shapes, shapeCount, rays[x], allInverseModelMatrixData);
 
-		if (intersectionCount > 0) {
-			colorBuffer[x] = { 1, 0, 0, 1 };
-		}
-		else {
-			colorBuffer[x] = { 0, 0, 0, 1 };
-		}
+		if (intersectionCount == 0) { colorBuffer[x] = { 0, 0, 0, 1 }; }
+		if (intersectionCount >= 1) { colorBuffer[x] = { 1, 0, 0, 1 }; }
 	}
 }
 

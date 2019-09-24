@@ -37,6 +37,10 @@ profile:
 	mkdir -p dump
 	cd dump; sudo $(NVPROF) ../bin/raytrace_renderer_gpu.out image.ppm runtime.log
 
-profile-branch-efficiency:
+profile-metrics:
 	mkdir -p dump
-	cd dump; sudo $(NVPROF) --metrics branch_efficiency ../bin/raytrace_renderer_gpu.out image.ppm runtime.log
+	cd dump; sudo $(NVPROF) --metrics all ../bin/raytrace_renderer_gpu.out image.ppm runtime.log
+
+profile-events:
+	mkdir -p dump
+	cd dump; sudo $(NVPROF) --events all ../bin/raytrace_renderer_gpu.out image.ppm runtime.log
