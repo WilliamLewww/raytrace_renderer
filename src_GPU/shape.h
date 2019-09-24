@@ -9,9 +9,9 @@ struct Shape {
 
 	Tuple origin;
 	Matrix modelMatrix;
+	Matrix inverseModelMatrix;
 };
 
 Shape createSphere();
 
-__device__
-int intersectCount(Shape shape, Ray ray, float* modelMatrixData);
+__device__ int intersectCount(Shape shape, Ray ray, float* inverseModelMatrixData);

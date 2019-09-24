@@ -28,11 +28,7 @@ float matrixMinor(Matrix matrix, int row, int column);
 float cofactor(Matrix matrix, int row, int column);
 Matrix inverse(Matrix matrix);
 
-__host__ __device__
-Tuple operator*(Matrix lhs, Tuple rhs);
-
-__host__ __device__
-Matrix createMatrix(int rowCount, int columnCount, float* data);
-
-__host__ __device__
-float getDataMatrix(Matrix* matrix, int row, int column);
+__host__ __device__ Tuple operator*(Matrix lhs, Tuple rhs);
+__host__ __device__ Matrix createMatrix(int rowCount, int columnCount, float* data);
+__host__ __device__ float getDataMatrix(Matrix* matrix, int row, int column);
+__device__ Tuple multiplyFlatMatrixTuple(float* matrix, Tuple tuple);

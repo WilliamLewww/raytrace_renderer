@@ -140,3 +140,13 @@ Matrix inverse(Matrix matrix) {
 
 	return inverseMatrix;
 }
+
+__device__
+Tuple multiplyFlatMatrixTuple(float* matrix, Tuple tuple) {
+	return {
+		((matrix[0] * tuple.x) + (matrix[1] * tuple.y) + (matrix[2] * tuple.z) + (matrix[3] * tuple.w)),
+ 		((matrix[4] * tuple.x) + (matrix[5] * tuple.y) + (matrix[6] * tuple.z) + (matrix[7] * tuple.w)),
+ 		((matrix[8] * tuple.x) + (matrix[9] * tuple.y) + (matrix[10] * tuple.z) + (matrix[11] * tuple.w)),
+ 		((matrix[12] * tuple.x) + (matrix[13] * tuple.y) + (matrix[14] * tuple.z) + (matrix[15] * tuple.w))
+	};
+}
