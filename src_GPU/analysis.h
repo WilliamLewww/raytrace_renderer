@@ -1,5 +1,5 @@
 #pragma once
-#include <stdio.h>
+#include <iostream>
 #include <chrono>
 #include <vector>
 #include <fstream>
@@ -36,38 +36,12 @@ public:
 		labelList.push_back(tempLabel);
 	}
 
-	inline static void printAll() {
-		printf("\n");
-
-		for (int x = 0; x < durationList.size(); x++) {
-			int64_t average = 0;
-
-			for (int y = 0; y < durationList[x].size(); y++) {
-				average += durationList[x][y];
-			}
-
-			for (int z = 0; z < labelList.size(); z++) {
-				if (labelList[z].first == x) {
-					printf("%s ", labelList[z].second);
-				}
-			}
-
-			printf("[%d]: ", x);
-			printf("%ld\n", average / durationList[x].size());
-		}
-
-		int64_t absoluteTime = std::chrono::duration_cast<std::chrono::microseconds>(std::chrono::high_resolution_clock::now() - absoluteStart).count();
-
-		printf("Total: %ld (%fs) \n\n", absoluteTime, float(absoluteTime) / 1000000.0);
-	}
-
-	inline static void saveToFile(const char* filename, const int screenWidth, const int screenHeight) {
-		std::ofstream file;
-		file.open(filename, std::ios::app);
-
+	inline static void printAll(const int screenWidth, const int screenHeight) {
 		time_t tempTime = time(NULL);
-		file << ctime(&tempTime);
-		file << "image resolution: " << screenWidth << "x" << screenHeight << std::endl;
+
+		std::cout << std::endl;
+		std::cout << ctime(&tempTime);
+		std::cout << "image resolution: " << screenWidth << "x" << screenHeight << std::endl;
 
 		for (int x = 0; x < durationList.size(); x++) {
 			int64_t average = 0;
@@ -78,19 +52,19 @@ public:
 
 			for (int z = 0; z < labelList.size(); z++) {
 				if (labelList[z].first == x) {
-					file << labelList[z].second << " ";
+					std::cout << labelList[z].second << " ";
 				}
 			}
 
-			file << "[" << x << "]: ";
-			file << average / durationList[x].size() << std::endl;
+			std::cout << "[" << x << "]: ";
+			std::cout << average / durationList[x].size() << std::endl;
 
 		}
 
 		int64_t absoluteTime = std::chrono::duration_cast<std::chrono::microseconds>(std::chrono::high_resolution_clock::now() - absoluteStart).count();
 
-		file << "Total: " << absoluteTime << " (" << float(absoluteTime) / 1000000.0 << "s)" << std::endl;
-		file << std::endl;
+		std::cout << "Total: " << absoluteTime << " (" << float(absoluteTime) / 1000000.0 << "s)" << std::endl;
+		std::cout << std::endl;
 	}
 };
 

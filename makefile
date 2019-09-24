@@ -27,20 +27,20 @@ compile:
 
 run:
 	mkdir -p dump
-	cd dump; ../bin/raytrace_renderer_gpu.out image.ppm runtime.log
+	cd dump; ../bin/raytrace_renderer_gpu.out image.ppm
 
 memory-check:
 	mkdir -p dump
-	cd dump; $(MEMCHECK) ../bin/raytrace_renderer_gpu.out image.ppm runtime.log
+	cd dump; $(MEMCHECK) ../bin/raytrace_renderer_gpu.out image.ppm
 
 profile:
 	mkdir -p dump
-	cd dump; sudo $(NVPROF) ../bin/raytrace_renderer_gpu.out image.ppm runtime.log
+	cd dump; sudo $(NVPROF) ../bin/raytrace_renderer_gpu.out image.ppm
 
 profile-metrics:
 	mkdir -p dump
-	cd dump; sudo $(NVPROF) --metrics all ../bin/raytrace_renderer_gpu.out image.ppm runtime.log
+	cd dump; sudo $(NVPROF) --metrics all ../bin/raytrace_renderer_gpu.out image.ppm
 
 profile-events:
 	mkdir -p dump
-	cd dump; sudo $(NVPROF) --events all ../bin/raytrace_renderer_gpu.out image.ppm runtime.log
+	cd dump; sudo $(NVPROF) --events all ../bin/raytrace_renderer_gpu.out image.ppm

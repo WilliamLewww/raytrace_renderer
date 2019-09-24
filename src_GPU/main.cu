@@ -48,8 +48,7 @@ int main(int argc, const char** argv) {
 	saveCanvasToFile(&canvas, argv[1]);
 	printf("saved image as : [%s]\n", argv[1]);
 
-	Analysis::printAll();
-	Analysis::saveToFile(argv[2], SCREENWIDTH, SCREENHEIGHT);
+	Analysis::printAll(SCREENWIDTH, SCREENHEIGHT);
 
 	return 0;
 }
