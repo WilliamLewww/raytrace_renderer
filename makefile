@@ -3,11 +3,7 @@ NVCC=/usr/local/cuda-10.1/bin/nvcc
 NVPROF=/usr/local/cuda-10.1/bin/nvprof
 MEMCHECK=/usr/local/cuda-10.1/bin/cuda-memcheck
 NSIGHTCLI=/usr/local/cuda-10.1/bin/nv-nsight-cu-cli
-CXXFLAGS=
 CUDAFLAGS=--gpu-architecture=sm_50
-LIBS=
-LIBDIRS=
-INCDIRS=
 
 all: clean compile run
 
