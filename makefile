@@ -48,4 +48,4 @@ profile-events:
 
 nsight-cli:
 	mkdir -p dump
-	cd dump; sudo $(NSIGHTCLI) ../bin/raytrace_renderer_gpu.out image.ppm
+	cd dump; sudo $(NSIGHTCLI) ../bin/raytrace_renderer_gpu.out image.ppm > nsight-cli.log; cat nsight-cli.log;
