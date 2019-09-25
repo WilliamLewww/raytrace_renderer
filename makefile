@@ -2,6 +2,7 @@ CC=g++
 NVCC=/usr/local/cuda-10.1/bin/nvcc
 NVPROF=/usr/local/cuda-10.1/bin/nvprof
 MEMCHECK=/usr/local/cuda-10.1/bin/cuda-memcheck
+NSIGHTCLI=/usr/local/cuda-10.1/bin/nv-nsight-cu-cli
 CXXFLAGS=
 CUDAFLAGS=--gpu-architecture=sm_50
 LIBS=
@@ -44,3 +45,7 @@ profile-metrics:
 profile-events:
 	mkdir -p dump
 	cd dump; sudo $(NVPROF) --events all ../bin/raytrace_renderer_gpu.out image.ppm 2>profile-events.log; cat profile-events.log;
+
+nsight-cli:
+	mkdir -p dump
+	cd dump; sudo $(NSIGHTCLI) ../bin/raytrace_renderer_gpu.out image.ppm
