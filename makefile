@@ -1,19 +1,6 @@
-CUDAPATH=/usr/local/cuda-10.1
-
 CC=g++
-NVCC=$(CUDAPATH)/bin/nvcc
-NVPROF=$(CUDAPATH)/bin/nvprof
-MEMCHECK=$(CUDAPATH)/bin/cuda-memcheck
-NSIGHTCLI=$(CUDAPATH)/bin/nv-nsight-cu-cli
-CUDAFLAGS=--gpu-architecture=sm_50
 
 all: clean compile run
-
-all-cpu:
-	mkdir -p bin
-	$(CC) ./src_CPU/main.cpp -o ./bin/raytrace_renderer_cpu.out
-	mkdir -p dump
-	cd dump; ../bin/raytrace_renderer_cpu.out image.ppm
 
 clean:
 	rm -rf bin
@@ -21,29 +8,11 @@ clean:
 
 compile:
 	mkdir -p bin
-	cd bin; $(NVCC) $(CUDAFLAGS) --device-c ../src_GPU/*.cu
-	cd bin; $(NVCC) $(CUDAFLAGS) *.o -o raytrace_renderer_gpu.out
+	$(CC) ./src/main.cpp -o ./bin/raytrace_renderer_cpu.out
 
 run:
 	mkdir -p dump
-	cd dump; ../bin/raytrace_renderer_gpu.out image.ppm
+	cd dump; ../bin/raytrace_renderer_cpu.out image.ppm
 
-memory-check:
-	mkdir -p dump
-	cd dump; $(MEMCHECK) ../bin/raytrace_renderer_gpu.out image.ppm
-
-profile:
-	mkdir -p dump
-	cd dump; sudo $(NVPROF) ../bin/raytrace_renderer_gpu.out image.ppm 2>profile.log; cat profile.log;
-
-profile-metrics:
-	mkdir -p dump
-	cd dump; sudo $(NVPROF) --metrics all ../bin/raytrace_renderer_gpu.out image.ppm 2>profile-metrics.log; cat profile-metrics.log;
-
-profile-events:
-	mkdir -p dump
-	cd dump; sudo $(NVPROF) --events all ../bin/raytrace_renderer_gpu.out image.ppm 2>profile-events.log; cat profile-events.log;
-
-nsight-cli:
-	mkdir -p dump
-	cd dump; sudo $(NSIGHTCLI) ../bin/raytrace_renderer_gpu.out image.ppm > nsight-cli.log; cat nsight-cli.log;
+open:
+	cd dump; xdg-open image.ppm
