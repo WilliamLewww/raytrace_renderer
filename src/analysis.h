@@ -3,23 +3,23 @@
 #include <chrono>
 #include <vector>
 #include <fstream>
+#include <ctime>
+#include <utility>
 
 class Analysis {
 private:
+	static std::chrono::high_resolution_clock::time_point absoluteStart;
 	static std::chrono::high_resolution_clock::time_point start;
 	static std::chrono::high_resolution_clock::time_point finish;
 
 	static std::vector<std::vector<int64_t>> durationList;
+	static std::vector<std::pair<int, const char*>> labelList;
 public:
+	inline static void setAbsoluteStart() { absoluteStart = std::chrono::high_resolution_clock::now(); }
 	inline static void begin() { start = std::chrono::high_resolution_clock::now(); }
-	inline static void end() { finish = std::chrono::high_resolution_clock::now(); }
+	inline static void end(int index) { 
+		finish = std::chrono::high_resolution_clock::now(); 
 
-	inline static void print() {
-		auto duration = std::chrono::duration_cast<std::chrono::microseconds>(finish - start).count();
-    	std::cout << duration << std::endl;
-	}
-
-	inline static void appendDuration(int index) {
 		if (index >= durationList.size()) {
 			durationList.push_back(std::vector<int64_t>());
 		}
@@ -28,10 +28,21 @@ public:
 		durationList[index].push_back(duration);
 	}
 
-	inline static void printAll() {
-		std::cout << std::endl;
+	inline static void createLabel(int index, const char* label) {
+		std::pair<int, const char*> tempLabel;
+		tempLabel.first = index;
+		tempLabel.second = label;
 
-		int64_t averageT = 0;
+		labelList.push_back(tempLabel);
+	}
+
+	inline static void printAll(const int screenWidth, const int screenHeight) {
+		time_t tempTime = time(NULL);
+
+		std::cout << std::endl;
+		std::cout << ctime(&tempTime);
+		std::cout << "image resolution: " << screenWidth << "x" << screenHeight << std::endl;
+
 		for (int x = 0; x < durationList.size(); x++) {
 			int64_t average = 0;
 
@@ -39,22 +50,27 @@ public:
 				average += durationList[x][y];
 			}
 
+			for (int z = 0; z < labelList.size(); z++) {
+				if (labelList[z].first == x) {
+					std::cout << labelList[z].second << " ";
+				}
+			}
+
 			std::cout << "[" << x << "]: ";
 			std::cout << average / durationList[x].size() << std::endl;
 
-			averageT += average / durationList[x].size();
 		}
 
-		std::cout << "Total: " << averageT << std::endl;
-		std::cout << std::endl;
-	}
+		int64_t absoluteTime = std::chrono::duration_cast<std::chrono::microseconds>(std::chrono::high_resolution_clock::now() - absoluteStart).count();
 
-	inline static void saveToFile() {
-		
+		std::cout << "Total: " << absoluteTime << " (" << float(absoluteTime) / 1000000.0 << "s)" << std::endl;
+		std::cout << std::endl;
 	}
 };
 
+std::chrono::high_resolution_clock::time_point Analysis::absoluteStart;
 std::chrono::high_resolution_clock::time_point Analysis::start;
 std::chrono::high_resolution_clock::time_point Analysis::finish;
 
 std::vector<std::vector<int64_t>> Analysis::durationList;
+std::vector<std::pair<int, const char*>> Analysis::labelList;
