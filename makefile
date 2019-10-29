@@ -1,5 +1,7 @@
 CC=g++
 
+IMAGENAME=image.ppm
+
 all: clean compile run
 
 clean:
@@ -12,7 +14,7 @@ compile:
 
 run:
 	mkdir -p dump
-	cd dump; ../bin/raytrace_renderer_cpu.out image.ppm
+	cd dump; ../bin/raytrace_renderer_cpu.out $(IMAGENAME)
 
 open:
-	cd dump; xdg-open image.ppm
+	cd dump; xdg-open $(IMAGENAME)
